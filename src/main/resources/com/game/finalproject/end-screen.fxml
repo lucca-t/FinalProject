@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="781.0" prefWidth="1379.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.game.finalproject.endScreenController">
+   <children>
+      <ImageView id="endScreen" fx:id="endScreen" fitHeight="788.0" fitWidth="1400.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/endgame.jpg" />
+         </image>
+      </ImageView>
+      <ImageView id="returnBack" fx:id="returnBack" fitHeight="167.0" fitWidth="395.0" layoutX="14.0" layoutY="449.0" onMouseEntered="#ReturnBackButtonEntered" onMouseExited="#ReturnBackButtonExited" onMousePressed="#ReturnBackButtonPressed" onMouseReleased="#ReturnBackButtonReleased" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/returntogamebuttonwithtext.png" />
+         </image></ImageView>
+      <ImageView id="playAgain" fx:id="playAgain" fitHeight="204.0" fitWidth="424.0" layoutX="400.0" layoutY="434.0" onMouseEntered="#playAgainButtonEntered" onMouseExited="#playAgainButtonExited" onMousePressed="#playAgainButtonPressed" onMouseReleased="#playAgainButtonReleased" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/playagainbuttonwithtext.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

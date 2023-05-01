@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="801.0" maxWidth="1313.0" prefHeight="738.0" prefWidth="1313.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.game.finalproject.MainSceneController">
+   <children>
+      <AnchorPane maxHeight="760.0" maxWidth="1351.0" minHeight="760.0" minWidth="1351.0" prefHeight="760.0" prefWidth="1351.0" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox layoutX="42.0" layoutY="322.0" prefHeight="243.0" prefWidth="290.0">
+               <children>
+                  <Button fx:id="finishTurnButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#finishTurn" prefHeight="113.0" prefWidth="305.0" text="Finish Turn" />
+                  <Button fx:id="confirmPlaceButton" mnemonicParsing="false" onAction="#confirmPlace" prefHeight="113.0" prefWidth="335.0" text="Confirm Placements" />
+                  <Button fx:id="useBonusButton" mnemonicParsing="false" onAction="#useBonus" prefHeight="113.0" prefWidth="311.0" text="Use Bonus Tile" />
+                  <HBox prefHeight="90.0" prefWidth="290.0">
+                     <children>
+                        <Button fx:id="prevButton" mnemonicParsing="false" onAction="#previous" prefHeight="94.0" prefWidth="149.0" text="Previous" />
+                        <Button fx:id="nextButton" mnemonicParsing="false" onAction="#next" prefHeight="119.0" prefWidth="153.0" text="Next" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="66.0" layoutY="55.0" prefHeight="79.0" prefWidth="242.0">
+               <children>
+                  <Label fx:id="playerName" prefHeight="45.0" prefWidth="147.0" text="Player 1">
+                     <font>
+                        <Font name="Century Gothic" size="35.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="current" prefHeight="29.0" prefWidth="85.0" text="(current)">
+                     <font>
+                        <Font name="Century Gothic" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <GridPane layoutX="51.0" layoutY="601.0" prefHeight="144.0" prefWidth="291.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ImageView fx:id="bonusTile0" fitHeight="72.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="bonusTile1" fitHeight="72.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                  <ImageView fx:id="bonusTile2" fitHeight="72.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+                  <ImageView fx:id="bonusTile3" fitHeight="72.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+                  <ImageView fx:id="bonusTile4" fitHeight="72.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
+                  <ImageView fx:id="bonusTile5" fitHeight="72.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ImageView fx:id="bonusTile6" fitHeight="72.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <ImageView fx:id="bonusTile7" fitHeight="72.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <VBox layoutX="1141.0" layoutY="56.0" prefHeight="669.0" prefWidth="140.0">
+               <children>
+                  <ImageView fx:id="pointCard0" fitHeight="231.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/WorkerCard.jpg" />
+                     </image></ImageView>
+                  <ImageView fx:id="pointCard1" fitHeight="224.0" fitWidth="145.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="pointCard2" fitHeight="225.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <HBox layoutX="49.0" layoutY="135.0" prefHeight="175.0" prefWidth="290.0">
+               <children>
+                  <ImageView fx:id="currentTerrainCard" fitHeight="175.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="firstPlayerToken" fitHeight="175.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+            <HBox layoutX="531.0" layoutY="14.0" prefHeight="79.0" prefWidth="419.0">
+               <children>
+                  <ImageView fx:id="infoTile0" fitHeight="74.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="infoTile1" fitHeight="74.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="infoTile2" fitHeight="74.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="infoTile3" fitHeight="74.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+            <GridPane layoutX="357.0" layoutY="95.0" prefHeight="652.0" prefWidth="760.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="379.75" minWidth="10.0" prefWidth="370.25" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="390.75" minWidth="10.0" prefWidth="390.75" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="328.0" minHeight="10.0" prefHeight="320.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="338.0" minHeight="10.0" prefHeight="332.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Pane prefHeight="320.0" prefWidth="388.0">
+                     <children>
+                        <HBox prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="32.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="64.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="96.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="128.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="160.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="192.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="224.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="256.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="288.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="320.0" prefWidth="388.0" GridPane.columnIndex="1">
+                     <children>
+                        <HBox prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="32.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="64.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="96.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="128.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="160.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="192.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="224.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="256.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="288.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="320.0" prefWidth="388.0" GridPane.rowIndex="1">
+                     <children>
+                        <HBox prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="32.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="64.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="96.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="128.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="160.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="192.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="224.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="256.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="288.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="320.0" prefWidth="388.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <HBox prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="32.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="64.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="96.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="128.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="160.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="192.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="224.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="256.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="288.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
