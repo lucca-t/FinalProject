@@ -18,6 +18,8 @@ import java.util.Objects;
         pointCard0.setImage(new Image(getClass().getResource("images/CanyonCard.jpg").toExternalForm()));
            */
 
+//if there's an error in the images, shrek will show
+
 public class MainSceneController {
 
     @FXML
@@ -91,23 +93,18 @@ public class MainSceneController {
 
     @FXML
     private Button useBonusButton;
-   // private KingdomBuilderMain game;
-    public MainSceneController(){
-      //  game = new KingdomBuilderMain();
+    private KingdomBuilderMain game;
 
-        //ArrayList players =game.getPlayers();
-        //game.getTurnPlayer();
-        //playerName.setText("Player "+game.getTurnNum());
-        //drawPlayerinfo();
-        //drawPointsCards();
-        // drawInfoCards();
-      //  currentTerrainCard= new ImageView((new Image("file:CitizenCard.jpg")));
+    private ArrayList<Player> players;
 
-
-
-
-
+    @FXML
+    private void initialize(){
+        game = new KingdomBuilderMain();
+        drawPointsCards();
+       // players= game.getPlayers();
+        drawPlayerinfo();
     }
+
 
     @FXML
     void confirmPlace(ActionEvent event) {
@@ -122,12 +119,15 @@ public class MainSceneController {
 
     @FXML
     void next(ActionEvent event) {
-
+        //using testing thing to test the buttons and stuff
+        game.testNextTurnNum();
+        drawPlayerinfo();
     }
 
     @FXML
     void previous(ActionEvent event) {
-
+        game.testPrevTurnNum();
+        drawPlayerinfo();
     }
 
     @FXML
@@ -141,36 +141,47 @@ public class MainSceneController {
     }
 
     private void drawPointsCards()  {
-        //ArrayList temp = game.getPointsCards();
-       /*pointCard0 = new ImageView(returnPointsCards(temp.get(0).toString()));
-        pointCard1 = new ImageView(returnPointsCards(temp.get(1).toString()));
-        pointCard2 = new ImageView(returnPointsCards(temp.get(2).toString()));*/
-        pointCard0 = new ImageView(returnPointsCards("Citizen"));
-        pointCard1 = new ImageView(returnPointsCards("Citizen"));
-        pointCard2 = new ImageView(returnPointsCards("Citizen"));
+        ArrayList temp = game.getPointsCards();
+        pointCard0.setImage(returnImage(temp.get(0).toString()));
+        pointCard1.setImage(returnImage(temp.get(1).toString()));
+        pointCard2.setImage(returnImage(temp.get(2).toString()));
 
     }
-    private Image returnPointsCards(String str){
-        Image temp=new Image("![](../../../../resources/com/example/demo/images/CitizenCard.jpg)");
+    private Image returnImage(String str){
+        Image temp=new Image(getClass().getResource("images/shrek.png").toExternalForm());
 
         if(str.equals("Citizen"))
-            temp=new Image("Graphics/src/main/resources/com/example/demo/images/CitizenCard.jpg");
+            temp=new Image(getClass().getResource("images/CitizenCard.jpg").toExternalForm());
         else if(str.equals("Discoverers"))
-            temp=new Image("/images/DiscovererCard.jpg");
+            temp=new Image(getClass().getResource("images/DiscovererCard.jpg").toExternalForm());
         else if(str.equals("Farmers"))
-            temp=new Image("/images/FarmerCard.jpg");
+            temp=new Image(getClass().getResource("images/FarmerCard.jpg").toExternalForm());
         else if(str.equals("Fishermen"))
-            temp=new Image("/images/FishermanCard.jpg");
+            temp=new Image(getClass().getResource("images/FishermanCard.jpg").toExternalForm());
         else if(str.equals("Hermits"))
-            temp=new Image("/images/HermitCard.jpg");
+            temp=new Image(getClass().getResource("images/HermitCard.jpg").toExternalForm());
         else if(str.equals("Knights"))
-            temp=new Image("/images/KnightCard.jpg");
+            temp=new Image(getClass().getResource("images/KnightCard.jpg").toExternalForm());
         else if(str.equals("Lords"))
-            temp=new Image("/images/LordCard.jpg");
+            temp=new Image(getClass().getResource("images/LordCard.jpg").toExternalForm());
         else if(str.equals("Merchants"))
-            temp=new Image("/images/MerchantCard.jpg");
+            temp=new Image(getClass().getResource("images/MerchantCard.jpg").toExternalForm());
         else if(str.equals("Miners"))
-            temp=new Image("/images/Workers.jpg");
+            temp=new Image(getClass().getResource("images/MinerCard.jpg").toExternalForm());
+        else if(str.equals("Workers"))
+            temp=new Image(getClass().getResource("images/WorkerCard.jpg").toExternalForm());
+        //terrain cards below
+        //dont know the actual names so i guessed
+        else if(str.equals("c"))
+            temp=new Image(getClass().getResource("images/CanyonCard.jpg").toExternalForm());
+        else if(str.equals("d"))
+            temp=new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
+        else if(str.equals("f"))
+            temp=new Image(getClass().getResource("images/FlowerCard.jpg").toExternalForm());
+        else if(str.equals("g"))
+            temp=new Image(getClass().getResource("images/MeadowCard.jpg").toExternalForm());
+        else if(str.equals("s"))
+            temp=new Image(getClass().getResource("images/ForestCard.jpg").toExternalForm());
         else
             return temp;
         return temp;
@@ -178,9 +189,36 @@ public class MainSceneController {
     }
 
     private void drawPlayerinfo() {
+        playerName.setText("players.get(game.getTurnNum()).toString()");
+        int tempTurn=game.getTurnNum()+1;
+        playerName.setText("Player "+tempTurn);
 
+        //this will work once the players are actually assigned terrain cards, return error bc null atm
+        //currentTerrainCard.setImage(returnImage(game.getPlayers().get(game.getTurnNum()).getTerrain().getType()));
+
+        currentTerrainCard.setImage(returnImage("shrek"));
 
     }
 
+/*
+    public MainSceneController(){
+        game = new KingdomBuilderMain();
+        pointCard0= new ImageView();
+        pointCard1= new ImageView();
+        pointCard2= new ImageView();
+        //ArrayList players =game.getPlayers();
+        //game.getTurnPlayer();
+        //playerName.setText("Player "+game.getTurnNum());
+        //drawPlayerinfo();
+        drawPointsCards();
 
+
+        // drawInfoCards();
+
+
+
+
+
+
+    }*/
 }

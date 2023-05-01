@@ -357,4 +357,14 @@ public class KingdomBuilderMain {
     public int getTurnNum(){
         return turn;
     }
+    //need it to test buttons
+    public void testNextTurnNum(){
+        turn++;
+        turn%=4;
+    }
+    public void testPrevTurnNum(){
+        turn+=3;
+        turn%=4;
+
+    }
 }

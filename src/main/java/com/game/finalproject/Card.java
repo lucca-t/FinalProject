@@ -10,10 +10,16 @@ public class Card {
 
     public boolean getVisibility() {return visible;}
 
+
     public String toString() {
         return type;
     }
 
+
+    //redundant but i like name more or wtv
+    public String getType(){
+        return type;
+    }
 //    public int scoreMerchants() {
 //    }
 }
