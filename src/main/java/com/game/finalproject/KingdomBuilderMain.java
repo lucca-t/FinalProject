@@ -169,18 +169,28 @@ public class KingdomBuilderMain {
     }
     public void scorePlayers(){
         //using the board object, pass in each player to score as an argument
-        for (int i = 0; i < pointCards.size(); i++) {
-            switch(pointCardsall.indexOf(pointCards.get(i))) {
-                case 0: board.scoreCitizens(players);
-                case 1: board.scoreDiscoverers(players);
-                case 2: board.scoreFarmers(players);
-                case 3: board.scoreFishermen(players);
-                case 4: board.scoreHermits(players);
-                case 5: board.scoreKnights(players);
-                case 6: board.scoreLords(players);
-                case 7: board.scoreMerchants(players);
-                case 8: board.scoreMiners(players);
-                case 9: board.scoreWorkers(players);
+        for (String pointCard : pointCards) {
+            switch (pointCardsall.indexOf(pointCard)) {
+                case 0:
+                    board.scoreCitizens(players);
+                case 1:
+                    board.scoreDiscoverers(players);
+                case 2:
+                    board.scoreFarmers(players);
+                case 3:
+                    board.scoreFishermen(players);
+                case 4:
+                    board.scoreHermits(players);
+                case 5:
+                    board.scoreKnights(players);
+                case 6:
+                    board.scoreLords(players);
+                case 7:
+                    board.scoreMerchants(players);
+                case 8:
+                    board.scoreMiners(players);
+                case 9:
+                    board.scoreWorkers(players);
             }
         }
 //        for (int i = 0; i < 4; i++) {
@@ -197,14 +207,7 @@ public class KingdomBuilderMain {
     }
 
 
-    public boolean checkValidPlacement(Coord sC, String act, Player p) {
-        /** time consuming plans: make a list of all tiles of a certian terrain type
-         * make a list of all empty tiles adjacent to settled tiles, use retainAll to find intersection
-         * add to list of empty tiles each time a settlement is placed
-         * delete from terrain list
-         * check if contains recognizes identical strings
-         * **/
-
+    public boolean checkValidPlacement(Coord sC, String act, Player p){
         String terrainTypes = board.getTiles().get(sC).getType();
         if(!board.getTiles().get(sC).getOccupancy().equals(null)){
             return false;
@@ -285,15 +288,28 @@ public class KingdomBuilderMain {
             }
             boolean occ = false;
             for(int i = 0; i < p.getOccupiedTiles().size(); i++){
-                if(board.getTiles().get(p.getOccupiedTiles().get(i)).getType().equals("s")){
-                    occ = true;
+                if((!(p.getOccupiedTiles().get(i).getX() == (0.0))) || (!(p.getOccupiedTiles().get(i).getX() == (19.0))) || (!(p.getOccupiedTiles().get(i).getX() == (19.5))) || (!(sC.getX() == (0.5)))){
+                    if((!(p.getOccupiedTiles().get(i).getY() == (0.0))) || (!(p.getOccupiedTiles().get(i).getY() == (19.0)))){
+                        for(int k = 0; k < findAdjacencies(p.getOccupiedTiles().get(i)).size(); k++){
+                            if((!(findAdjacencies(p.getOccupiedTiles().get(i)).get(k).getX() == (0.0))) || (!(findAdjacencies(p.getOccupiedTiles().get(i)).get(k).getX() == (19.0))) || (!(findAdjacencies(p.getOccupiedTiles().get(i)).get(k).getX() == (19.5))) || (!(findAdjacencies(p.getOccupiedTiles().get(i)).get(k).getX() == (0.5)))){
+                                if((!(findAdjacencies(p.getOccupiedTiles().get(i)).get(k).getY() == (0.0))) || (!(findAdjacencies(p.getOccupiedTiles().get(i)).get(k).getY() == (19.0)))){
+                                    occ = true;
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    // if p.getoccupied is edge
+                    //check if edge adjacency is occupied if not (add to an arraylist of all of the available edge coords then check if the coord given is equal to one of those if yes return true), if it is occupied then don't add to the arraylist
+                    // for all of the other action instances make sure that you check whether or not the tile you are finding adjacencies for is an edge or not
                 }
             }
             if(!occ){
                 return true;
             }
-            for(int i = 0 ; i < findAdjacencies(sC).size(); i++){
-                if(board.getTiles().get(findAdjacencies(sC).get(i)).getOccupancy().equals(p)){
+            for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
+                if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
                     return true;
                 }
             }
@@ -303,8 +319,6 @@ public class KingdomBuilderMain {
 
         return true;
     }
-    //missing retuurn statement, commenting out for rightnow
-    /*
     public ArrayList<Coord> findAdjacenciesEdge(Coord c){
         ArrayList<Coord> adjacent = new ArrayList<>();
         if(c.getX() == 0.0){
@@ -334,14 +348,30 @@ public class KingdomBuilderMain {
             if(c.getY() == 0.0){
                 adjacent.add(new Coord(c.getY() + 1, c.getX() + 0.5));
                 adjacent.add(new Coord(c.getY(), c.getX() + 1));
+                adjacent.add(new Coord(c.getY() - 1, c.getX() - 0.5));
+
             }
-            adjacent.add(new Coord(c.getY(), c.getX() + 1));
+            adjacent.add(new Coord(c.getY() - 1, c.getX() - 0.5));
             adjacent.add(new Coord(c.getY() - 1, c.getX() + 0.5));
+            adjacent.add(new Coord(c.getY(), c.getX() - 1));
+            adjacent.add(new Coord(c.getY() + 1, c.getX() - 0.5));
             adjacent.add(new Coord(c.getY() + 1, c.getX() + 0.5));
             return adjacent;
         }
+        if(c.getX() == 19.5){
+            if(c.getY() == 19.0){
+                adjacent.add(new Coord(c.getY() - 1, c.getX() - 0.5));
+                adjacent.add(new Coord(c.getY(), c.getX() - 1));
 
-    }*/
+            }
+            adjacent.add(new Coord(c.getY() - 1, c.getX() - 0.5));
+            adjacent.add(new Coord(c.getY(), c.getX() - 1));
+            adjacent.add(new Coord(c.getY() + 1, c.getX() - 0.5));
+            return adjacent;
+        }
+        return adjacent;
+
+    }
     public ArrayList<Coord> findAdjacencies(Coord c){
         ArrayList<Coord> adjacent = new ArrayList<>();
         Coord right = new Coord(c.getY(), c.getX() + 1);

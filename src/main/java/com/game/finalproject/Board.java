@@ -149,7 +149,7 @@ public class Board {
 
     }
     public int scoreFishermen(Coord crd){
-        if(tiles.get(crd).getType().equals("w") && tiles.get(crd).getChecked() == false){
+        if(tiles.get(crd).getType().equals("w") && !tiles.get(crd).getChecked()){
             tiles.get(crd).setCheck(true);
             return 1;
         }
@@ -158,26 +158,26 @@ public class Board {
         }
     }
     public void scoreMiners(ArrayList<Player> players) {
-        for(int p = 0; p < players.size(); p++) {
+        for (Player player : players) {
             int cnt = 0;
-            for(int i = 0; i < players.get(p).getOccupiedTiles().size(); i++){
-                ArrayList<Coord> temp = findAdjacencies(players.get(p).getOccupiedTiles().get(i));
-                for(int k = 0; k < temp.size(); k++){
-                    cnt+=scoreMiners(temp.get(k));
+            for (int i = 0; i < player.getOccupiedTiles().size(); i++) {
+                ArrayList<Coord> temp = findAdjacencies(player.getOccupiedTiles().get(i));
+                for (Coord coord : temp) {
+                    cnt += scoreMiners(coord);
                 }
             }
-            for(int i = 0; i < players.get(p).getOccupiedTiles().size(); i++){
-                ArrayList<Coord> temp = findAdjacencies(players.get(p).getOccupiedTiles().get(i));
-                for(int k = 0; k < temp.size(); k++){
-                    setCheckedFalse(temp.get(k));
+            for (int i = 0; i < player.getOccupiedTiles().size(); i++) {
+                ArrayList<Coord> temp = findAdjacencies(player.getOccupiedTiles().get(i));
+                for (Coord coord : temp) {
+                    setCheckedFalse(coord);
                 }
             }
-            players.get(p).addPoints(cnt);
+            player.addPoints(cnt);
         }
 
     }
     public int scoreMiners(Coord crd){
-        if(tiles.get(crd).getType().equals("m") && tiles.get(crd).getChecked() == false){
+        if(tiles.get(crd).getType().equals("m") && !tiles.get(crd).getChecked()){
             tiles.get(crd).setCheck(true);
             return 1;
         }
@@ -186,30 +186,30 @@ public class Board {
         }
     }
     public void scoreWorkers(ArrayList<Player> players) {
-        for(int p = 0; p < players.size(); p++) {
+        for (Player player : players) {
             int cnt = 0;
-            for(int i = 0; i < players.get(p).getOccupiedTiles().size(); i++){
-                ArrayList<Coord> temp = findAdjacencies(players.get(p).getOccupiedTiles().get(i));
-                for(int k = 0; k < temp.size(); k++){
-                    cnt+=scoreWorkers(temp.get(k));
+            for (int i = 0; i < player.getOccupiedTiles().size(); i++) {
+                ArrayList<Coord> temp = findAdjacencies(player.getOccupiedTiles().get(i));
+                for (Coord coord : temp) {
+                    cnt += scoreWorkers(coord);
                 }
             }
-            for(int i = 0; i < players.get(p).getOccupiedTiles().size(); i++){
-                ArrayList<Coord> temp = findAdjacencies(players.get(p).getOccupiedTiles().get(i));
-                for(int k = 0; k < temp.size(); k++){
-                    setCheckedFalse(temp.get(k));
+            for (int i = 0; i < player.getOccupiedTiles().size(); i++) {
+                ArrayList<Coord> temp = findAdjacencies(player.getOccupiedTiles().get(i));
+                for (Coord coord : temp) {
+                    setCheckedFalse(coord);
                 }
             }
-            players.get(p).addPoints(cnt);
+            player.addPoints(cnt);
         }
 
     }
     public int scoreWorkers(Coord crd){
-        if(tiles.get(crd).getType().equals("castle") && tiles.get(crd).getChecked() == false){
+        if(tiles.get(crd).getType().equals("castle") && !tiles.get(crd).getChecked()){
             tiles.get(crd).setCheck(true);
             return 1;
         }
-        else if(tiles.get(crd).getType().equals("action") && tiles.get(crd).getChecked() == false){
+        else if(tiles.get(crd).getType().equals("action") && !tiles.get(crd).getChecked()){
             tiles.get(crd).setCheck(true);
             return 1;
         }
