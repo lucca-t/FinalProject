@@ -96,7 +96,7 @@ public class MainSceneController {
     private KingdomBuilderMain game;
 
     private ArrayList<Player> players;
-
+        //s forest, g meadow, c canyon, f flower field, d desert
     @FXML
     private void initialize(){
         game = new KingdomBuilderMain();
@@ -187,7 +187,38 @@ public class MainSceneController {
         return temp;
 
     }
+    public Image returnTileImage(String str){
+        Image temp = new Image(getClass().getResource("images/shrek.png").toExternalForm());
+        if(str.equals("c"))//canyon
+            temp=new Image(getClass().getResource("images/CanyonCard.jpg").toExternalForm());
+        else if(str.equals("d"))//desert
+            temp=new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
+        else if(str.equals("f"))//flower
+            temp=new Image(getClass().getResource("images/FlowerCard.jpg").toExternalForm());
+        else if(str.equals("g"))//meadow
+            temp=new Image(getClass().getResource("images/MeadowCard.jpg").toExternalForm());
+        else if(str.equals("s"))//forest
+            temp=new Image(getClass().getResource("images/ForestCard.jpg").toExternalForm());
+        else if(str.equals("m"))//mountain
+            temp=new Image(getClass().getResource("images/CanyonCard.jpg").toExternalForm());
+        else if(str.equals("castle"))//castle
+            temp=new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
+        else if(str.equals("Oasis"))//oasis
+            temp=new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
+        else if(str.equals("castle"))//oracle
+            temp=new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
+        else if(str.equals("castle"))//barn
+            temp=new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
+        else if(str.equals("castle"))//harbor
+            temp=new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
+        else if(str.equals("castle"))//idk
+            temp=new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
 
+
+        else
+            return temp;
+        return temp;
+    }
     private void drawPlayerinfo() {
         playerName.setText("players.get(game.getTurnNum()).toString()");
         int tempTurn=game.getTurnNum()+1;
