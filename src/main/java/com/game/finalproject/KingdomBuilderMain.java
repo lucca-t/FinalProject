@@ -164,6 +164,9 @@ public class KingdomBuilderMain {
     public void endGame(){
         end = true;
     }
+    public ArrayList<Card> getTerrains() {
+        return terrains;
+    }
     public void scorePlayers(){
         //using the board object, pass in each player to score as an argument
         for (int i = 0; i < pointCards.size(); i++) {

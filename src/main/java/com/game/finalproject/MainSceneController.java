@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import java.util.Collections;
 
 import java.util.ArrayList;
 
@@ -99,6 +100,8 @@ public class MainSceneController {
 
     private ArrayList<Player> players;
     private int turnNum;
+    private boolean end;
+    private ArrayList<Card> terrains;
 
     //s forest, g meadow, c canyon, f flower field, d desert
     @FXML
@@ -106,10 +109,52 @@ public class MainSceneController {
         game = new KingdomBuilderMain();
         turnNum = game.getTurnNum();
         drawPointsCards();
-        // players= game.getPlayers();
+        players = game.getPlayers();
         drawPlayerinfo();
+        end = false;
+        terrains = game.getTerrains();
     }
 
+        public void runGame() {
+        while (!end) {
+            for (int j = 0; j < players.size(); j++) {
+                Collections.shuffle(game.getTerrains());
+                players.get(j).setTerrain(terrains.get(0));
+                players.get(j).getTerrain().setVisibility(false);
+                terrains.remove(0);
+            }
+            players.get(game.getTurnNum()).getTerrain().setVisibility(true);
+//            playTurn();
+
+            if (game.getTurnNum() == 3) {
+                for (int i = 0; i < players.size(); i++) {
+                    if (players.get(i).getNumSettlements() == 0) {
+                        //might have issues?
+                        game.endGame();
+                        break;
+                    }
+                }
+            }
+//            nextTurn();
+        }
+    }
+//
+//    public void newRound() {
+//        for (int j = 0; j < players.size(); j++) {
+//            int choiceTerrain = (int)(Math.random()*25);
+//            players.get(j).setTerrain(terrains.get(choiceTerrain));
+//            players.get(j).getTerrain().setVisibility(false);
+//            terrains.remove(choiceTerrain);
+//        }
+//
+//    }
+//
+//    public void playTurn(){
+//        players.get(turn).getTerrain().setVisibility(true);
+//        for (int i = 0; i < settlementCords.size(); i++) {
+//            board.getTiles().get(settlementCords.get(i)).setOccupancy(players.get(turn));
+//        }
+//    }
 
     @FXML
     void confirmPlace(ActionEvent event) {
