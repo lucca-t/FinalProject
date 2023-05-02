@@ -193,6 +193,7 @@ public class KingdomBuilderMain {
         return board;
     }
 
+
     public boolean checkValidPlacement(Coord sC, String act, Player p) {
         /** time consuming plans: make a list of all tiles of a certian terrain type
          * make a list of all empty tiles adjacent to settled tiles, use retainAll to find intersection

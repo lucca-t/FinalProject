@@ -683,5 +683,7 @@ public class Board {
 //    public String getTilesTemp(){
 //        return tiles.toString();
 //    }
-
+    public String[][] getBoardArr(){
+        return boards;
+    }
 }
