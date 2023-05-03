@@ -163,11 +163,23 @@ public class MainSceneController {
 
     @FXML
     private void drawTheBoard(){
-
+        //20by20(or 10by10 to draw each board individually if it's easier
+        //call the polygon creation method,
+        //
     }
     //draw the board
 
     //drawhte polygon, 0,0-> hextile
+    private void testPolygons(){
+        game.getBoard().getTiles();
+        //this will create the polygon object, assign it the
+        // coordinate from the hexTile class,
+        //like, tie it to the hex object somehow
+        //whatever the terrain type is should call the tileImage method to set the image
+
+
+
+    }
     @FXML
     void next(ActionEvent event) {
         //using testing thing to test the buttons and stuff
