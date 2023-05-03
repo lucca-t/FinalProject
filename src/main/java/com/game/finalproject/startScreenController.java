@@ -22,12 +22,14 @@ public class startScreenController {
 
     @FXML
     void startButtonEntered(MouseEvent event) {
-        startButton.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("startbuttonhovered2.png"))));
+        //startButton.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("startbuttonhovered2.png"))));
+        startButton.setImage(new Image(getClass().getResource("images/startbuttonhovered2.png").toExternalForm()));
     }
 
     @FXML
     void startButtonExited(MouseEvent event) {
-        startButton.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("startbutton.png"))));
+       // startButton.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("startbutton.png"))));
+        startButton.setImage(new Image(getClass().getResource("images/startbutton.png").toExternalForm()));
     }
 
     @FXML

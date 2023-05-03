@@ -226,7 +226,7 @@ public class MainSceneController {
     public Image returnTileImage(String str) {
         Image temp = new Image(getClass().getResource("images/shrek.png").toExternalForm());
         if (str.equals("c"))//canyon
-            temp = new Image(getClass().getResource("images/CanyonCard.jpg").toExternalForm());
+            temp = new Image(getClass().getResource("images/canyonTile.png").toExternalForm());
         else if (str.equals("d"))//desert
             temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
         else if (str.equals("f"))//flower
@@ -316,7 +316,15 @@ public class MainSceneController {
         */
         return temp;
     }
+    private void drawTheBoards(){
 
+
+
+    }
+    private void drawAHex(){
+
+
+    }
 /*
     public MainSceneController(){
         game = new KingdomBuilderMain();
