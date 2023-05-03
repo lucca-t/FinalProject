@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.shape.Polygon;
 import java.util.Collections;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 //HOW TO DO IMAGES ALSO THIS LINK SUPER USEFUL DON'T FORGET
@@ -94,19 +95,30 @@ public class MainSceneController {
                 terrains.remove(0);
             }
             players.get(game.getTurnNum()).getTerrain().setVisibility(true);
+
+            //amount of settlements player can place
+            int settlementLimit = 3;
+            ArrayList<Action> playerActions = game.getTurnPlayer().getActions();
+            String[] actStr = {"Oracle", "Farm", "Oasis", "Tower", "Tavern"};
+            ArrayList<String> temp = new ArrayList(Arrays.asList(actStr));
+            playerActions.retainAll(temp);
+            settlementLimit += playerActions.size();
+
+            for (int i = 0; i < settlementLimit; i++) {
+                //ask for user to choose a settlement
+            }
 //            playTurn();
 
             if (game.getTurnNum() == 3) {
                 for (int i = 0; i < players.size(); i++) {
                     if (players.get(i).getNumSettlements() == 0) {
-                        //might have issues?
-                        game.endGame();
                         break;
                     }
                 }
             }
 //            nextTurn();
         }
+        game.endGame();
     }
 //
 //    public void newRound() {

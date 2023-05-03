@@ -30,8 +30,10 @@ public class Action {
     public boolean getUsed(){
         return used;
     }
-    public boolean equals(Action a) {
-        if (a.getType() == this.type) {
+    @Override
+    public boolean equals(Object c) {
+        String a = (String)(c);
+        if (a.equals(this.type)) {
             return true;
         }
         return false;

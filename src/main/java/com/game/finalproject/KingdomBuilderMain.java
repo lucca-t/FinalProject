@@ -99,7 +99,7 @@ public class KingdomBuilderMain {
     }
 
     public void setSettlementCord(Coord sC) {
-        if (checkValidPlacement(sC, "", players.get(0))) {
+        if (checkValidPlacement(sC, players.get(0))) {
 //            settlementCords = sC;
         }
     }
@@ -207,7 +207,8 @@ public class KingdomBuilderMain {
     }
 
 
-    public boolean checkValidPlacement(Coord sC, String act, Player p){
+    public boolean checkValidPlacement(Coord sC, Player p){
+        ArrayList<Action> act = p.getActions();
         String terrainTypes = board.getTiles().get(sC).getType();
         if(!board.getTiles().get(sC).getOccupancy().equals(null)){
             return false;
@@ -215,10 +216,10 @@ public class KingdomBuilderMain {
         if (terrainTypes.equals("m")) {
             return false;
         }
-        if (terrainTypes.equals("w") && !act.equals("Harbor")) {
+        if (terrainTypes.equals("w") && !act.contains("Harbor")) {
             return false;
         }
-        if(act.equals("")){
+        if(act.size() == 0){
             boolean occ = false;
             if(!terrainTypes.equals(players.get(turn).getTerrain())) {
                 return false;
@@ -239,7 +240,7 @@ public class KingdomBuilderMain {
             return false;
 
         }
-        if(act.equals("Farm")){
+        if(act.contains("Farm")){
             if(!terrainTypes.equals("g")){
                 return false;
             }
@@ -260,7 +261,7 @@ public class KingdomBuilderMain {
             return false;
 
         }
-        if(act.equals("Oasis")){
+        if(act.contains("Oasis")){
             if(!terrainTypes.equals("s")){
                 return false;
             }
@@ -280,7 +281,7 @@ public class KingdomBuilderMain {
             }
             return false;
         }
-        if(act.equals("Tower")){
+        if(act.contains("Tower")){
             if((!(sC.getX() == (0.0))) || (!(sC.getX() == (19.0))) || (!(sC.getX() == (19.5))) || (!(sC.getX() == (0.5)))){
                 if((!(sC.getY() == (0.0))) || (!(sC.getY() == (19.0)))){
                     return false;
