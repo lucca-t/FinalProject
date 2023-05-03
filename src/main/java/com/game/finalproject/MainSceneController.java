@@ -265,7 +265,9 @@ public class MainSceneController {
         //currentTerrainCard.setImage(returnImage(game.getPlayers().get(game.getTurnNum()).getTerrain().getType()));
 
         currentTerrainCard.setImage(returnImage("shrek"));
-
+        if(game.getTurnNum()==0){
+            firstPlayerToken.setImage(new Image(getClass().getResource("images/fPlayer.png").toExternalForm()));
+        }
     }
 
     private String getBoardInfo() {
