@@ -330,6 +330,28 @@ public class KingdomBuilderMain {
 
         }
 
+        if (act.equals("Paddock")) {
+//            HexTile[] possibilities = {((tiles.get(new Coord(sC.getX() + 1, sC.getY() + 2)))(HexTile)), };
+            ArrayList<Coord> possibleHexes = new ArrayList<Coord>();
+            Coord topRight = new Coord(sC.getX() + 1, sC.getY() + 2);
+            Coord right = new Coord(sC.getX() + 2, sC.getY());
+            Coord bottomRight = new Coord(sC.getX() + 1, sC.getY() - 2);
+            Coord bottom = new Coord(sC.getX(), sC.getY() - 2);
+            Coord bottomLeft = new Coord(sC.getX() - 1, sC.getY() - 2);
+            Coord left = new Coord(sC.getX() - 2, sC.getY());
+            Coord topLeft = new Coord(sC.getX() - 1, sC.getY() + 2);
+            possibleHexes.add(topRight);
+            possibleHexes.add(right);
+            possibleHexes.add(bottomRight);
+            possibleHexes.add(bottom);
+            possibleHexes.add(bottomLeft);
+            possibleHexes.add(left);
+            possibleHexes.add(topLeft);
+            if (possibleHexes.contains(sC)) {
+
+            }
+        }
+
 
         return true;
     }
