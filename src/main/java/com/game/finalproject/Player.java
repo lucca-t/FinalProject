@@ -10,6 +10,8 @@ public class Player {
     private ArrayList<Coord> occupiedTiles;
     private Card terrain;
 
+
+
     public Player(String col){
         points = 0;
         settlements = 40;

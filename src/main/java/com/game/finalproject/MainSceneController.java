@@ -23,40 +23,11 @@ import java.util.ArrayList;
 //pink "#ff6fd6"
 //orange "#ff6600"
 public class MainSceneController {
-    @FXML
-    private Label settleNum;
-    @FXML
-    private ImageView bonusTile0;
-
-    @FXML
-    private ImageView bonusTile1;
-
-    @FXML
-    private ImageView bonusTile2;
-
-    @FXML
-    private ImageView bonusTile3;
-
-    @FXML
-    private ImageView bonusTile4;
-
-    @FXML
-    private ImageView bonusTile5;
-
-    @FXML
-    private ImageView bonusTile6;
-
-    @FXML
-    private ImageView bonusTile7;
-
-    @FXML
-    private Button confirmPlaceButton;
-
-    @FXML
-    private Label current;
-
-    @FXML
-    private ImageView currentTerrainCard;
+    @FXML private Label settleNum,current,playerName;
+    @FXML private ImageView bonusTile0,bonusTile1,bonusTile2,bonusTile3,bonusTile4,bonusTile5,bonusTile6,bonusTile7;
+    @FXML private Button confirmPlaceButton,nextButton,prevButton;
+    @FXML private ImageView infoTile0,infoTile1,infoTile2,infoTile3;
+    @FXML private ImageView currentTerrainCard;
 
     @FXML
     private Button finishTurnButton;
@@ -64,23 +35,8 @@ public class MainSceneController {
     @FXML
     private ImageView firstPlayerToken;
 
-    @FXML
-    private ImageView infoTile0;
 
-    @FXML
-    private ImageView infoTile1;
 
-    @FXML
-    private ImageView infoTile2;
-
-    @FXML
-    private ImageView infoTile3;
-
-    @FXML
-    private Button nextButton;
-
-    @FXML
-    private Label playerName;
 
     @FXML
     private ImageView pointCard0;
@@ -91,8 +47,6 @@ public class MainSceneController {
     @FXML
     private ImageView pointCard2;
 
-    @FXML
-    private Button prevButton;
 
     @FXML
     private Button useBonusButton;
@@ -241,38 +195,7 @@ public class MainSceneController {
 
     }
 
-    public Image returnTileImage(String str) {
-        Image temp = new Image(getClass().getResource("images/shrek.png").toExternalForm());
-        if (str.equals("c"))//canyon
-            temp = new Image(getClass().getResource("images/CanyonCard.jpg").toExternalForm());
-        else if (str.equals("d"))//desert
-            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
-        else if (str.equals("f"))//flower
-            temp = new Image(getClass().getResource("images/FlowerCard.jpg").toExternalForm());
-        else if (str.equals("g"))//meadow
-            temp = new Image(getClass().getResource("images/MeadowCard.jpg").toExternalForm());
-        else if (str.equals("s"))//forest
-            temp = new Image(getClass().getResource("images/ForestCard.jpg").toExternalForm());
-        else if (str.equals("m"))//mountain
-            temp = new Image(getClass().getResource("images/CanyonCard.jpg").toExternalForm());
-        else if (str.equals("castle"))//castle
-            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
-        else if (str.equals("Oasis"))//oasis
-            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
-        else if (str.equals("castle"))//oracle
-            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
-        else if (str.equals("castle"))//barn
-            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
-        else if (str.equals("castle"))//harbor
-            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
-        else if (str.equals("castle"))//idk
-            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
 
-
-        else
-            return temp;
-        return temp;
-    }
 
     private void drawPlayerinfo() {
         playerName.setText("players.get(game.getTurnNum()).toString()");
@@ -281,7 +204,9 @@ public class MainSceneController {
         settleNum.setText("Total Settlements: "+game.getPlayers().get(game.getTurnNum()).getNumSettlements());
         //this will work once the players are actually assigned terrain cards, return error bc null atm
         //currentTerrainCard.setImage(returnImage(game.getPlayers().get(game.getTurnNum()).getTerrain().getType()));
-
+        if(game.getTurnNum()==0){
+            firstPlayerToken.setImage(new Image(getClass().getResource("images/fPlayer.png").toExternalForm()));
+        }
         currentTerrainCard.setImage(returnImage("shrek"));
 
     }
@@ -292,8 +217,10 @@ public class MainSceneController {
         String tile2 = "";
         String tile3 = "";
         String temp = "";/*
+
         //tedious way to do it fr, check each board array for the tile info by going through every element
         //(i aint doin allat)
+
         String[][]tempArr=game.getBoard().getBoardArr();
         for(int x=0;x<100;x++){
             if(tempArr[0][x].equals("Oasis")){
@@ -367,3 +294,36 @@ public class MainSceneController {
 * actually get the game to work*/
 
 
+    /*public Image returnTileImage(String str) {
+        Image temp = new Image(getClass().getResource("images/shrek.png").toExternalForm());
+        if (str.equals("c"))//canyon
+            temp = new Image(getClass().getResource("images/CanyonCard.jpg").toExternalForm());
+        else if (str.equals("d"))//desert
+            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
+        else if (str.equals("f"))//flower
+            temp = new Image(getClass().getResource("images/FlowerCard.jpg").toExternalForm());
+        else if (str.equals("g"))//meadow
+            temp = new Image(getClass().getResource("images/MeadowCard.jpg").toExternalForm());
+        else if (str.equals("s"))//forest
+            temp = new Image(getClass().getResource("images/ForestCard.jpg").toExternalForm());
+        else if (str.equals("m"))//mountain
+            temp = new Image(getClass().getResource("images/CanyonCard.jpg").toExternalForm());
+        else if (str.equals("castle"))//castle
+            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
+        else if (str.equals("Oasis"))//oasis
+            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
+        else if (str.equals("castle"))//oracle
+            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
+        else if (str.equals("castle"))//barn
+            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
+        else if (str.equals("castle"))//harbor
+            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
+        else if (str.equals("castle"))//idk
+            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
+
+
+        else
+            return temp;
+        return temp;
+    }*/
+//actually shuffle board
