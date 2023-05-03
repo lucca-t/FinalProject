@@ -162,6 +162,13 @@ public class MainSceneController {
     }
 
     @FXML
+    private void drawTheBoard(){
+
+    }
+    //draw the board
+
+    //drawhte polygon, 0,0-> hextile
+    @FXML
     void next(ActionEvent event) {
         //using testing thing to test the buttons and stuff
         game.testNextTurnNum();
