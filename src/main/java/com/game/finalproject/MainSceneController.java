@@ -2,15 +2,17 @@ package com.game.finalproject;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Polygon;
 import java.util.Collections;
-
 import java.util.ArrayList;
 
-//HOW TO DO IMAGES ALSO THIS LINK SUPERUSEFULDONTFORGET
+
+//HOW TO DO IMAGES ALSO THIS LINK SUPER USEFUL DON'T FORGET
 /////https://stackoverflow.com/questions/61531317/how-do-i-determine-the-correct-path-for-fxml-files-css-files-images-and-other
 /*      URL imageURL = getClass().getResource("images/CanyonCard.jpg");
         Image image = new Image(imageURL.toExternalForm());
@@ -26,32 +28,13 @@ public class MainSceneController {
     @FXML
     private Label settleNum;
     @FXML
-    private ImageView bonusTile0;
-
+    private ImageView bonusTile0,bonusTile1,bonusTile2,bonusTile3,bonusTile4,bonusTile5,bonusTile6,bonusTile7;
     @FXML
-    private ImageView bonusTile1;
-
+    private ImageView infoTile0,infoTile1,infoTile2,infoTile3;
     @FXML
-    private ImageView bonusTile2;
-
-    @FXML
-    private ImageView bonusTile3;
-
-    @FXML
-    private ImageView bonusTile4;
-
-    @FXML
-    private ImageView bonusTile5;
-
-    @FXML
-    private ImageView bonusTile6;
-
-    @FXML
-    private ImageView bonusTile7;
-
+    private ImageView pointCard0,pointCard1,pointCard2;
     @FXML
     private Button confirmPlaceButton;
-
     @FXML
     private Label current;
 
@@ -64,32 +47,12 @@ public class MainSceneController {
     @FXML
     private ImageView firstPlayerToken;
 
-    @FXML
-    private ImageView infoTile0;
-
-    @FXML
-    private ImageView infoTile1;
-
-    @FXML
-    private ImageView infoTile2;
-
-    @FXML
-    private ImageView infoTile3;
 
     @FXML
     private Button nextButton;
 
     @FXML
     private Label playerName;
-
-    @FXML
-    private ImageView pointCard0;
-
-    @FXML
-    private ImageView pointCard1;
-
-    @FXML
-    private ImageView pointCard2;
 
     @FXML
     private Button prevButton;
@@ -102,6 +65,10 @@ public class MainSceneController {
     private int turnNum;
     private boolean end;
     private ArrayList<Card> terrains;
+    @FXML
+    private Polygon testPolygon;
+    @FXML
+    private Node balls;
 
     //s forest, g meadow, c canyon, f flower field, d desert
     @FXML
@@ -113,8 +80,11 @@ public class MainSceneController {
         drawPlayerinfo();
         end = false;
         terrains = game.getTerrains();
-    }
 
+    }
+    private void hexClicked(){
+            
+    }
         public void runGame() {
         while (!end) {
             for (int j = 0; j < players.size(); j++) {

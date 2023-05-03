@@ -1,5 +1,7 @@
 package com.game.finalproject;
 
+
+
 public class HexTile {
     private String type;
 
@@ -8,6 +10,7 @@ public class HexTile {
     private Player occupant;
 
     public HexTile(String t) {
+
         type = t;
         edge = false;
         occupant = null;
