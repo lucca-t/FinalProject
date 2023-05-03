@@ -587,7 +587,7 @@
                         <HBox prefHeight="43.0" prefWidth="363.0">
                            <children>
                               <Polygon fx:id="testPolygon" fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
-                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -106, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
                               <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
                               <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
                               <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
