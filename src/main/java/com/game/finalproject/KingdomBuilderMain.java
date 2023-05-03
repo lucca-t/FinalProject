@@ -98,11 +98,11 @@ public class KingdomBuilderMain {
         return players.get(turn);
     }
 
-    public void setSettlementCord(Coord sC) {
+    /*public void setSettlementCord(Coord sC) {
         if (checkValidPlacement(sC, players.get(0))) {
 //            settlementCords = sC;
         }
-    }
+    }*/
 
 //    public void runGame() {
 //        while (!end) {
