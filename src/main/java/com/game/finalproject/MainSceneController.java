@@ -70,6 +70,7 @@ public class MainSceneController {
     private Polygon testPolygon;
     @FXML
     private Node balls;
+    private ArrayList<Coord> chosenSettlements;
 
     //s forest, g meadow, c canyon, f flower field, d desert
     @FXML
@@ -81,7 +82,7 @@ public class MainSceneController {
         drawPlayerinfo();
         end = false;
         terrains = game.getTerrains();
-
+        chosenSettlements = new ArrayList<Coord>();
     }
     private void hexClicked(){
             
@@ -94,9 +95,12 @@ public class MainSceneController {
                 players.get(j).getTerrain().setVisibility(false);
                 terrains.remove(0);
             }
-            players.get(game.getTurnNum()).getTerrain().setVisibility(true);
 
-            //amount of settlements player can place
+            //shows turnPlayer terrain
+            players.get(game.getTurnNum()).getTerrain().setVisibility(true);
+            //**repaint player screen with the available tiles
+
+            //determines amount of settlements player can place
             int settlementLimit = 3;
             ArrayList<Action> playerActions = game.getTurnPlayer().getActions();
             String[] actStr = {"Oracle", "Farm", "Oasis", "Tower", "Tavern"};
@@ -104,9 +108,13 @@ public class MainSceneController {
             playerActions.retainAll(temp);
             settlementLimit += playerActions.size();
 
+
             for (int i = 0; i < settlementLimit; i++) {
-                //ask for user to choose a settlement
+                //retrieve chosen settlement from a mouseclicked event thing
+                //while(!game.checkValidPlacement(retrieved coord)) {//paint choose another one, invalid}
+
             }
+            chosenSettlements.clear();
 //            playTurn();
 
             if (game.getTurnNum() == 3) {
@@ -119,6 +127,10 @@ public class MainSceneController {
 //            nextTurn();
         }
         game.endGame();
+    }
+
+    public void addChosenSettlements(Coord c) {
+        chosenSettlements.add(c);
     }
 //
 //    public void newRound() {
