@@ -1,5 +1,6 @@
 package com.game.finalproject;
 
+import com.game.finalproject.hextile.Tile;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -7,10 +8,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import java.util.Collections;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import static com.game.finalproject.hextile.Tile.*;
 
 
 //HOW TO DO IMAGES ALSO THIS LINK SUPER USEFUL DON'T FORGET
@@ -74,6 +79,11 @@ public class MainSceneController {
     @FXML
     private Node balls;
     private ArrayList<Coord> chosenSettlements;
+
+    private final static double r = 20; // the inner radius from hexagon center to outer corner
+    private final static double n = Math.sqrt(r * r * 0.75); // the inner radius from hexagon center to middle of the axis
+    private final static double TILE_HEIGHT = 2 * r;
+    private final static double TILE_WIDTH = 2 * n;
 
     //s forest, g meadow, c canyon, f flower field, d desert
     @FXML
@@ -161,6 +171,7 @@ public class MainSceneController {
 
     @FXML
     void finishTurn(ActionEvent event) {
+        //game.finishTurn();
 
     }
 
@@ -204,6 +215,7 @@ public class MainSceneController {
     }
 
     private void drawInfoCards() {
+
 
 
     }
@@ -352,7 +364,46 @@ public class MainSceneController {
         */
         return temp;
     }
+    public class Tile extends Polygon {
+
+        private final static double r = 20; // the inner radius from hexagon center to outer corner
+        private final static double n = Math.sqrt(r * r * 0.75); // the inner radius from hexagon center to middle of the axis
+        private final static double TILE_HEIGHT = 2 * r;
+        private final static double TILE_WIDTH = 2 * n;
+        Tile(double x, double y) {
+            // creates the polygon using the corner coordinates
+            getPoints().addAll(
+                    x, y,
+                    x, y + r,
+                    x + n, y + r * 1.5,
+                    x + TILE_WIDTH, y + r,
+                    x + TILE_WIDTH, y,
+                    x + n, y - r * 0.5
+            );
+
+            // set up the visuals and a click listener for the tile
+            setFill(Color.ANTIQUEWHITE);
+            setStrokeWidth(1);
+            setStroke(Color.BLACK);
+            setOnMouseClicked(e -> System.out.println("Clicked: " + this));
+        }
+    }
     private void drawTheBoards(){
+        AnchorPane tileMap = new AnchorPane();
+        int rowCount = 4; // how many rows of tiles should be created
+        int tilesPerRow = 6; // the amount of tiles that are contained in each row
+        int xStartOffset = 40; // offsets the entire field to the right
+        int yStartOffset = 40; // offsets the entire fiels downwards
+        for (int x = 0; x < tilesPerRow; x++) {
+            for (int y = 0; y < rowCount; y++) {
+                double xCoord = x * TILE_WIDTH + (y % 2) * n + xStartOffset;
+                double yCoord = y * TILE_HEIGHT * 0.75 + yStartOffset;
+
+                Polygon tile = new Tile(xCoord, yCoord);
+                tileMap.getChildren().add(tile);
+            }
+        }
+
 
 
 

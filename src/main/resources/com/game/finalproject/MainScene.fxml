@@ -32,23 +32,432 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<VBox maxHeight="801.0" maxWidth="1313.0" prefHeight="738.0" prefWidth="1313.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.game.finalproject.MainSceneController">
+<VBox maxHeight="801.0" maxWidth="1313.0" prefHeight="738.0" prefWidth="1313.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.game.finalproject.MainSceneController">
    <children>
       <AnchorPane maxHeight="760.0" maxWidth="1351.0" minHeight="760.0" minWidth="1351.0" prefHeight="760.0" prefWidth="1351.0" VBox.vgrow="ALWAYS">
          <children>
+            <AnchorPane layoutX="358.0" layoutY="89.0" prefHeight="332.0" prefWidth="390.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="2.0" layoutY="17.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="17.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="76.0" layoutY="17.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="17.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="150.0" layoutY="17.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="187.0" layoutY="17.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="224.0" layoutY="17.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="261.0" layoutY="17.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="298.0" layoutY="17.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="335.0" layoutY="17.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="49.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="49.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="95.0" layoutY="49.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="132.0" layoutY="49.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="169.0" layoutY="49.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="206.0" layoutY="49.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="243.0" layoutY="49.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="49.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="317.0" layoutY="49.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="355.0" layoutY="49.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="2.0" layoutY="81.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="81.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="76.0" layoutY="81.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="81.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="150.0" layoutY="81.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="187.0" layoutY="81.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="224.0" layoutY="81.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="261.0" layoutY="81.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="298.0" layoutY="81.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="335.0" layoutY="81.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="113.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="113.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="94.0" layoutY="113.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="131.0" layoutY="113.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="169.0" layoutY="113.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="206.0" layoutY="113.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="243.0" layoutY="113.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="113.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="317.0" layoutY="113.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="355.0" layoutY="113.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="1.0" layoutY="145.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="145.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="75.0" layoutY="145.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="145.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="149.0" layoutY="145.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="186.0" layoutY="145.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="223.0" layoutY="145.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="260.0" layoutY="145.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="297.0" layoutY="145.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="335.0" layoutY="146.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="177.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="177.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="94.0" layoutY="177.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="131.0" layoutY="177.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="168.0" layoutY="177.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="206.0" layoutY="177.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="242.0" layoutY="177.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="177.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="317.0" layoutY="177.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="354.0" layoutY="178.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="1.0" layoutY="209.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="209.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="75.0" layoutY="209.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="209.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="149.0" layoutY="209.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="186.0" layoutY="209.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="223.0" layoutY="209.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="260.0" layoutY="209.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="297.0" layoutY="209.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="334.0" layoutY="209.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="241.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="241.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="94.0" layoutY="241.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="131.0" layoutY="241.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="168.0" layoutY="241.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="205.0" layoutY="241.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="242.0" layoutY="241.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="241.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="316.0" layoutY="241.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="353.0" layoutY="241.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="1.0" layoutY="273.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="273.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="75.0" layoutY="273.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="273.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="149.0" layoutY="273.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="186.0" layoutY="273.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="223.0" layoutY="273.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="260.0" layoutY="273.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="297.0" layoutY="273.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="334.0" layoutY="273.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="305.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="305.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="94.0" layoutY="305.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="131.0" layoutY="305.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="168.0" layoutY="305.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="205.0" layoutY="305.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="242.0" layoutY="305.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="305.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="316.0" layoutY="305.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="353.0" layoutY="305.0" stroke="#ffffff00" strokeType="INSIDE" width="30.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="729.0" layoutY="89.0" prefHeight="332.0" prefWidth="390.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="2.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="76.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="150.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="187.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="224.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="261.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="298.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="335.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="95.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="132.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="169.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="206.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="243.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="317.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="354.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="2.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="76.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="150.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="187.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="224.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="261.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="298.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="335.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="94.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="131.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="169.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="206.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="243.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="317.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="354.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="1.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="75.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="149.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="186.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="223.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="260.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="297.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="335.0" layoutY="146.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="94.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="131.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="168.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="206.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="242.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="317.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="354.0" layoutY="178.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="1.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="75.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="149.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="186.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="223.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="260.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="297.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="334.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="94.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="131.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="168.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="205.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="242.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="316.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="354.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="1.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="75.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="149.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="186.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="223.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="260.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="297.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="334.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="94.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="131.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="168.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="205.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="242.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="316.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="354.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="358.0" layoutY="409.0" prefHeight="332.0" prefWidth="390.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="2.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="76.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="150.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="187.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="224.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="261.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="298.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="335.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="95.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="132.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="169.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="206.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="243.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="317.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="355.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="2.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="76.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="150.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="187.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="224.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="261.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="298.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="335.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="94.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="131.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="169.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="206.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="243.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="317.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="355.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="1.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="75.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="149.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="186.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="223.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="260.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="297.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="335.0" layoutY="146.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="94.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="131.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="168.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="206.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="242.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="317.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="355.0" layoutY="178.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="1.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="75.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="149.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="186.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="223.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="260.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="297.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="334.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="94.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="131.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="168.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="205.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="242.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="316.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="355.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="1.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="75.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="149.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="186.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="223.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="260.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="297.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="334.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="94.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="131.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="168.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="205.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="243.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="318.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="353.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="729.0" layoutY="409.0" prefHeight="332.0" prefWidth="390.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="2.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="76.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="150.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="187.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="224.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="261.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="298.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="335.0" layoutY="17.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="95.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="132.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="169.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="206.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="243.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="317.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="354.0" layoutY="49.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="2.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="76.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="150.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="187.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="224.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="261.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="298.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="335.0" layoutY="81.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="94.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="131.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="169.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="206.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="243.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="317.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="354.0" layoutY="113.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="1.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="75.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="149.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="186.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="223.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="260.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="297.0" layoutY="145.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="335.0" layoutY="146.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="94.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="131.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="168.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="206.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="242.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="317.0" layoutY="177.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="354.0" layoutY="178.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="1.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="75.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="149.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="186.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="223.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="260.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="297.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="334.0" layoutY="209.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="94.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="131.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="168.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="205.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="242.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="316.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="354.0" layoutY="241.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="1.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="39.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="75.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="113.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="149.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="186.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="223.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="260.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="297.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="334.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="21.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="58.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="94.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="131.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="168.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="205.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="242.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="280.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="316.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="20.0" layoutX="354.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="30.0" />
+               </children>
+            </AnchorPane>
             <VBox layoutX="42.0" layoutY="322.0" prefHeight="243.0" prefWidth="290.0">
                <children>
                   <Button fx:id="finishTurnButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#finishTurn" prefHeight="113.0" prefWidth="305.0" text="Finish Turn" />
@@ -134,8 +543,615 @@
                      </image></ImageView>
                </children>
             </HBox>
+            <ImageView fitHeight="334.0" fitWidth="390.0" layoutX="726.0" layoutY="92.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/board1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="339.0" fitWidth="391.0" layoutX="356.0" layoutY="411.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/board2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="335.0" fitWidth="393.0" layoutX="724.0" layoutY="413.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/board3.png" />
+               </image>
+            </ImageView>
+            <GridPane layoutX="357.0" layoutY="95.0" prefHeight="652.0" prefWidth="760.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="379.75" minWidth="10.0" prefWidth="370.25" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="390.75" minWidth="10.0" prefWidth="390.75" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="328.0" minHeight="10.0" prefHeight="320.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="338.0" minHeight="10.0" prefHeight="332.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Pane prefHeight="320.0" prefWidth="388.0">
+                     <children>
+                        <HBox prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="#ffffff00" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -106, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="32.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="64.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="96.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="128.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="160.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="192.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="224.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="256.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="288.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="320.0" prefWidth="388.0" GridPane.columnIndex="1">
+                     <children>
+                        <HBox prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="32.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="64.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="96.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="128.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="160.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="192.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="224.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="256.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="288.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="320.0" prefWidth="388.0" GridPane.rowIndex="1">
+                     <children>
+                        <HBox prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="32.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="64.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="96.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="128.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="160.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="192.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="224.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="256.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="288.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="320.0" prefWidth="388.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <HBox prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="32.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="64.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="96.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="128.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="160.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="192.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="224.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutY="256.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="19.0" layoutY="288.0" prefHeight="43.0" prefWidth="363.0">
+                           <children>
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                              <Polygon fill="DODGERBLUE" points="100.0, -73.5, 118.0, -83.75, 118.0, -105.5, 100.0, -116.0, 81.25, -105.5, 81.25, -83.75" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+               </children>
+            </GridPane>
+            <ImageView fitHeight="330.0" fitWidth="390.0" layoutX="357.0" layoutY="95.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/board0.png" />
+               </image>
+            </ImageView>
             <Label fx:id="settleNum" layoutX="66.0" layoutY="22.0" prefHeight="29.0" prefWidth="165.0" text="Settlements Total: " />
-            <StackPane layoutX="344.0" layoutY="118.0" prefHeight="594.0" prefWidth="778.0" />
          </children>
       </AnchorPane>
    </children>
