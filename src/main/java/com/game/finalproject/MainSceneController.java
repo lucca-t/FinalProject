@@ -79,7 +79,7 @@ public class MainSceneController {
         turnNum = game.getTurnNum();
         drawPointsCards();
         players = game.getPlayers();
-        drawPlayerinfo();
+        drawPlayerInfo();
         end = false;
         terrains = game.getTerrains();
         chosenSettlements = new ArrayList<Coord>();
@@ -129,6 +129,10 @@ public class MainSceneController {
         game.endGame();
     }
 
+    public void drawEverything() {
+        drawPlayerInfo();
+        drawPointsCards();
+    }
     public void addChosenSettlements(Coord c) {
         chosenSettlements.add(c);
     }
@@ -174,13 +178,13 @@ public class MainSceneController {
         game.testNextTurnNum();
         //local turnNum check against game instance "turn",
         //if it equals then display "current", if it doesn't then don't
-        drawPlayerinfo();
+        drawPlayerInfo();
     }
 
     @FXML
     void previous(ActionEvent event) {
         game.testPrevTurnNum();
-        drawPlayerinfo();
+        drawPlayerInfo();
     }
 
     @FXML
@@ -275,7 +279,7 @@ public class MainSceneController {
         return temp;
     }
 
-    private void drawPlayerinfo() {
+    private void drawPlayerInfo() {
         playerName.setText("players.get(game.getTurnNum()).toString()");
         int tempTurn = game.getTurnNum() + 1;
         playerName.setText("Player " + tempTurn);
@@ -283,6 +287,9 @@ public class MainSceneController {
         //this will work once the players are actually assigned terrain cards, return error bc null atm
         //currentTerrainCard.setImage(returnImage(game.getPlayers().get(game.getTurnNum()).getTerrain().getType()));
 
+        if (game.getTurnPlayer().getTerrain().getVisibility()) {
+//            currentTerrainCard.setImage(returnImage(""))
+        }
         currentTerrainCard.setImage(returnImage("shrek"));
         if(game.getTurnNum()==0){
             firstPlayerToken.setImage(new Image(getClass().getResource("images/fPlayer.png").toExternalForm()));
