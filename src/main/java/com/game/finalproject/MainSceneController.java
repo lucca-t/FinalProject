@@ -84,6 +84,7 @@ public class MainSceneController {
     private final static double n = Math.sqrt(r * r * 0.75); // the inner radius from hexagon center to middle of the axis
     private final static double TILE_HEIGHT = 2 * r;
     private final static double TILE_WIDTH = 2 * n;
+    private int displayedPlayer;
 
     //s forest, g meadow, c canyon, f flower field, d desert
     @FXML
@@ -92,10 +93,11 @@ public class MainSceneController {
         turnNum = game.getTurnNum();
         drawPointsCards();
         players = game.getPlayers();
-        drawPlayerInfo();
+        drawPlayerInfo(displayedPlayer);
         end = false;
         terrains = game.getTerrains();
         chosenSettlements = new ArrayList<Coord>();
+        displayedPlayer = 0;
     }
     private void hexClicked(){
             
@@ -143,7 +145,7 @@ public class MainSceneController {
     }
 
     public void drawEverything() {
-        drawPlayerInfo();
+        drawPlayerInfo(displayedPlayer);
         drawPointsCards();
     }
     public void addChosenSettlements(Coord c) {
@@ -202,15 +204,19 @@ public class MainSceneController {
     void next(ActionEvent event) {
         //using testing thing to test the buttons and stuff
         game.testNextTurnNum();
+        displayedPlayer++;
+        displayedPlayer = displayedPlayer%4;
         //local turnNum check against game instance "turn",
         //if it equals then display "current", if it doesn't then don't
-        drawPlayerInfo();
+        drawPlayerInfo(displayedPlayer);
     }
 
     @FXML
     void previous(ActionEvent event) {
         game.testPrevTurnNum();
-        drawPlayerInfo();
+        displayedPlayer+=3;
+        displayedPlayer = displayedPlayer%4;
+        drawPlayerInfo(displayedPlayer);
     }
 
     @FXML
@@ -306,17 +312,36 @@ public class MainSceneController {
         return temp;
     }
 
-    private void drawPlayerInfo() {
+    private void drawPlayerInfo(int p) {
         playerName.setText("players.get(game.getTurnNum()).toString()");
         int tempTurn = game.getTurnNum() + 1;
         playerName.setText("Player " + tempTurn);
         settleNum.setText("Total Settlements: "+game.getPlayers().get(game.getTurnNum()).getNumSettlements());
         //this will work once the players are actually assigned terrain cards, return error bc null atm
         //currentTerrainCard.setImage(returnImage(game.getPlayers().get(game.getTurnNum()).getTerrain().getType()));
+        int temp = players.indexOf(game.getTurnPlayer());
+//        switch(p) {
+////            int temp = players.indexOf(game.getTurnPlayer());
+//            case(temp):
+//                if (!game.getTurnPlayer().getTerrain().getVisibility()) {
+//                    currentTerrainCard.setImage(returnImage("ResourceCardBack"));
+//                }
+//                else {
+//                    switch(game.getTurnPlayer().getTerrain().getType()) {
+//                        case("g"):
+//                            currentTerrainCard.setImage(returnImage("MeadowCard"));
+//                        case("f"):
+//                            currentTerrainCard.setImage(returnImage("FlowerCard"));
+//                        case("s"):
+//                            currentTerrainCard.setImage(returnImage("ForestCard"));
+//                        case("c"):
+//                            currentTerrainCard.setImage(returnImage("CanyonCard"));
+//                        case("d"):
+//                            currentTerrainCard.setImage(returnImage("DesertCard"));
+//                    }
+//                }
+//        }
 
-        if (game.getTurnPlayer().getTerrain().getVisibility()) {
-//            currentTerrainCard.setImage(returnImage(""))
-        }
         currentTerrainCard.setImage(returnImage("shrek"));
         if(game.getTurnNum()==0){
             firstPlayerToken.setImage(new Image(getClass().getResource("images/fPlayer.png").toExternalForm()));
