@@ -209,6 +209,7 @@ public class KingdomBuilderMain {
         if(board.getTiles().get(new Coord(sC.getX() + 1, sC.getY())).getOccupancy().equals(p)){
             return 1 + tavernHelperRight(new Coord(sC.getX() + 1, sC.getY()), p);
         }
+        return 0;
     }
 
 

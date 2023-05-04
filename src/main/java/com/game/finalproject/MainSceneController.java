@@ -19,6 +19,9 @@ import java.util.Arrays;
         Image image = new Image(imageURL.toExternalForm());
         pointCard0.setImage(new Image(getClass().getResource("images/CanyonCard.jpg").toExternalForm()));
 */
+//https://www.pragmaticcoding.ca/javafx/hexmap example hexmap build
+//v well-made tbh but uses like 30 classes to make its thing
+
 
 //if there's an error in the images, shrek will show
 //red "#ff0000"
