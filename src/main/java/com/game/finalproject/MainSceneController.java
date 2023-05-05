@@ -4,6 +4,7 @@ import com.game.finalproject.hextile.Tile;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -85,6 +86,11 @@ public class MainSceneController {
     private final static double TILE_HEIGHT = 2 * r;
     private final static double TILE_WIDTH = 2 * n;
     private int displayedPlayer;
+    private final static int WINDOW_WIDTH = 800;
+    private final static int WINDOW_HEIGHT = 600;
+    @FXML
+    private AnchorPane container;
+
 
     //s forest, g meadow, c canyon, f flower field, d desert
     @FXML
@@ -98,6 +104,7 @@ public class MainSceneController {
         terrains = game.getTerrains();
         chosenSettlements = new ArrayList<Coord>();
         displayedPlayer = 0;
+        drawTheBoards();
     }
     private void hexClicked(){
             
@@ -284,11 +291,11 @@ public class MainSceneController {
         if (str.equals("c"))//canyon
             temp = new Image(getClass().getResource("images/canyonTile.png").toExternalForm());
         else if (str.equals("d"))//desert
-            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
+            temp = new Image(getClass().getResource("images/desertTile.png").toExternalForm());
         else if (str.equals("f"))//flower
-            temp = new Image(getClass().getResource("images/FlowerCard.jpg").toExternalForm());
+            temp = new Image(getClass().getResource("images/flowerTile.png").toExternalForm());
         else if (str.equals("g"))//meadow
-            temp = new Image(getClass().getResource("images/MeadowCard.jpg").toExternalForm());
+            temp = new Image(getClass().getResource("images/.png").toExternalForm());
         else if (str.equals("s"))//forest
             temp = new Image(getClass().getResource("images/ForestCard.jpg").toExternalForm());
         else if (str.equals("m"))//mountain
@@ -402,6 +409,10 @@ public class MainSceneController {
         private final static double n = Math.sqrt(r * r * 0.75); // the inner radius from hexagon center to middle of the axis
         private final static double TILE_HEIGHT = 2 * r;
         private final static double TILE_WIDTH = 2 * n;
+
+        private final static int WINDOW_WIDTH = 800;
+        private final static int WINDOW_HEIGHT = 600;
+        private ImageView tileHold;
         Tile(double x, double y) {
             // creates the polygon using the corner coordinates
             getPoints().addAll(
@@ -417,13 +428,20 @@ public class MainSceneController {
             setFill(Color.ANTIQUEWHITE);
             setStrokeWidth(1);
             setStroke(Color.BLACK);
-            setOnMouseClicked(e -> System.out.println("Clicked: " + this));
+            setOnMouseClicked(e -> {
+                System.out.println("Clicked: " + this);
+
+            });
         }
     }
     private void drawTheBoards(){
         AnchorPane tileMap = new AnchorPane();
-        int rowCount = 4; // how many rows of tiles should be created
-        int tilesPerRow = 6; // the amount of tiles that are contained in each row
+        //Scene content = new Scene(tileMap, WINDOW_WIDTH, WINDOW_HEIGHT);
+        container.getChildren().add(tileMap);
+
+        container.setVisible(true);
+        int rowCount = 20; // how many rows of tiles should be created
+        int tilesPerRow = 20; // the amount of tiles that are contained in each row
         int xStartOffset = 40; // offsets the entire field to the right
         int yStartOffset = 40; // offsets the entire fiels downwards
         for (int x = 0; x < tilesPerRow; x++) {
@@ -436,11 +454,8 @@ public class MainSceneController {
             }
         }
 
-
-
-
     }
-    private void drawAHex(){
+    private void actuallyDrawTheBoard(){
 
 
     }
