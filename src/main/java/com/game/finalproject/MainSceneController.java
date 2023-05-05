@@ -337,6 +337,7 @@ public class MainSceneController {
             tileHold.setVisible(true);*/
             ImageView imgTile = new ImageView(returnTileImage( "w"));
             String[][] tempBoard = game.getBoard().getBoardArr();
+
             //bypass the weird stuff by just getting the tile form the board arr
 
 
