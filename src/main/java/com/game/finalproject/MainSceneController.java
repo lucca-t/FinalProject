@@ -12,9 +12,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Rectangle;
+
 import java.util.Collections;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 import static com.game.finalproject.hextile.Tile.*;
 
@@ -42,7 +45,7 @@ public class MainSceneController {
     @FXML
     private Node balls;
     @FXML
-    private AnchorPane container,container2;
+    private AnchorPane container,container2,container3;
     private ArrayList<Coord> chosenSettlements;
     private final static double r = 20; // the inner radius from hexagon center to outer corner
     private final static double n = Math.sqrt(r * r * 0.75); // the inner radius from hexagon center to middle of the axis
@@ -281,7 +284,13 @@ public class MainSceneController {
 
         Tile(double x, double y) {
             // creates the polygon using the corner coordinates
-            getPoints().addAll(
+            getPoints().addAll(/*
+                    x, y,
+                    x, y + r,
+                    x + n, y + r * 1.5,
+                    x + TILE_WIDTH, y + r,
+                    x + TILE_WIDTH, y,
+                    x + n, y - r * 0.5*/
                     x, y,
                     x, y + r,
                     x + n, y + r * 1.5,
@@ -301,8 +310,11 @@ public class MainSceneController {
 
 
             });
+            setOpacity(.01);
             //could add mouselistener for highlighting maybe
-
+            //highlighting would work by turning the opacity up and it could change how it looks
+            //opacity and color could be turned to gray to gray out the stuff
+            //polygons are ontop of the images so a lot of possibilities
         }
 
     }
@@ -311,17 +323,30 @@ public class MainSceneController {
         private final static double n = Math.sqrt(r * r * 0.75); // the inner radius from hexagon center to middle of the axis
         private final static double TILE_HEIGHT = 2 * r;
         private final static double TILE_WIDTH = 2 * n;
-        private ImageView tileHold;
-        ImgTile(double x, double y){
+        //private ImageView tileHold;
+        ImgTile(double x, double y,Image img){
             //something here will add an image it "tileHold"
-            tileHold=new ImageView();
-            tileHold.setImage(returnTileImage( "c"));
+           // tileHold=new ImageView();
+           // ImageView tileHold= new ImageView(returnTileImage( "c"));
+           // tileHold.setImage(returnTileImage( "c"));
 
-            tileHold.setFitHeight(TILE_HEIGHT);
+            /*tileHold.setFitHeight(TILE_HEIGHT);
             tileHold.setFitWidth(TILE_WIDTH);
             tileHold.setX(x);
             tileHold.setY(y);
-            tileHold.setVisible(true);
+            tileHold.setVisible(true);*/
+            ImageView imgTile = new ImageView(returnTileImage( "w"));
+            String[][] tempBoard = game.getBoard().getBoardArr();
+            //bypass the weird stuff by just getting the tile form the board arr
+
+
+
+            imgTile.setX(x);
+            imgTile.setY(y-10);
+            imgTile.setFitHeight(40);
+            imgTile.setFitWidth(40);
+
+
         }
 
 
@@ -329,13 +354,20 @@ public class MainSceneController {
     private void drawTheBoards(){
         AnchorPane tileMap = new AnchorPane();
         AnchorPane imageMap= new AnchorPane();
+        AnchorPane setMap = new AnchorPane();
+
         //Scene content = new Scene(tileMap, WINDOW_WIDTH, WINDOW_HEIGHT);
 
         //container2 = new AnchorPane();
+
         container.getChildren().add(tileMap);
         container2.getChildren().add(imageMap);
+        container3.getChildren().add(setMap);
+        container.setVisible(true);
         container2.setVisible(true);
-        container.setVisible(false);
+        container3.setVisible(true);
+        container.toFront();
+
         //container.toBack();
         int rowCount = 20; // how many rows of tiles should be created
         int tilesPerRow = 20; // the amount of tiles that are contained in each row
@@ -345,7 +377,25 @@ public class MainSceneController {
             for (int y = 0; y < rowCount; y++) {
                 double xCoord = x * TILE_WIDTH + (y % 2) * n + xStartOffset;
                 double yCoord = y * TILE_HEIGHT * 0.75 + yStartOffset;
-                ImageView imgTile = new ImgTile(xCoord,yCoord);
+                //ImageView imgTile = new ImgTile(xCoord,yCoord);
+                //ImageView imgTile = new ImgTile(xCoord,yCoord,returnTileImage( "w"));
+                ImageView imgTile = new ImageView(returnTileImage( "w"));
+                imgTile.setX(xCoord);
+                imgTile.setY(yCoord-10);
+                imgTile.setFitHeight(40);
+                imgTile.setFitWidth(40);
+
+
+                Rectangle setTile = new Rectangle();
+                setTile.setX(xCoord + 7);
+                setTile.setY(yCoord + 2);
+                setTile.setWidth(25);
+                setTile.setHeight(15);
+                setTile.setFill(Color.PINK);
+                setMap.getChildren().add(setTile);
+
+
+                //setColor should corrsepond to player's color
 
                 imageMap.getChildren().add(imgTile);
                 //adds created tiles to anchor-pane and creates them

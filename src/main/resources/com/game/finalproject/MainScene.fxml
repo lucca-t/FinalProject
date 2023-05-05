@@ -136,6 +136,7 @@
             <Label fx:id="settleNum" layoutX="66.0" layoutY="22.0" prefHeight="29.0" prefWidth="165.0" text="Settlements Total: " />
             <AnchorPane fx:id="container" layoutX="342.0" layoutY="95.0" prefHeight="600.0" prefWidth="800.0" />
             <AnchorPane fx:id="container2" layoutX="342.0" layoutY="95.0" prefHeight="600.0" prefWidth="800.0" />
+            <AnchorPane fx:id="container3" layoutX="342.0" layoutY="95.0" prefHeight="600.0" prefWidth="800.0" />
          </children>
       </AnchorPane>
    </children>
