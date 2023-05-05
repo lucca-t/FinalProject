@@ -19,58 +19,20 @@ import java.util.Arrays;
 import static com.game.finalproject.hextile.Tile.*;
 
 
-//HOW TO DO IMAGES ALSO THIS LINK SUPER USEFUL DON'T FORGET
-/////https://stackoverflow.com/questions/61531317/how-do-i-determine-the-correct-path-for-fxml-files-css-files-images-and-other
-/*      URL imageURL = getClass().getResource("images/CanyonCard.jpg");
-        Image image = new Image(imageURL.toExternalForm());
-        pointCard0.setImage(new Image(getClass().getResource("images/CanyonCard.jpg").toExternalForm()));
-*/
-//https://www.pragmaticcoding.ca/javafx/hexmap example hexmap build
-//v well-made tbh but uses like 30 classes to make its thing
-
-
-//if there's an error in the images, shrek will show
-//red "#ff0000"
-//purple "#9d1cff"
-//pink "#ff6fd6"
-//orange "#ff6600"
 public class MainSceneController {
     @FXML
     private Label settleNum;
     @FXML
     private ImageView bonusTile0,bonusTile1,bonusTile2,bonusTile3,bonusTile4,bonusTile5,bonusTile6,bonusTile7;
     @FXML
-    private ImageView infoTile0,infoTile1,infoTile2,infoTile3;
+    private ImageView infoTile0,infoTile1,infoTile2,infoTile3,currentTerrainCard,firstPlayerToken;
     @FXML
     private ImageView pointCard0,pointCard1,pointCard2;
     @FXML
-    private Button confirmPlaceButton;
+    private Button confirmPlaceButton,finishTurnButton,prevButton,nextButton,useBonusButton;
     @FXML
-    private Label current;
-
-    @FXML
-    private ImageView currentTerrainCard;
-
-    @FXML
-    private Button finishTurnButton;
-
-    @FXML
-    private ImageView firstPlayerToken;
-
-
-    @FXML
-    private Button nextButton;
-
-    @FXML
-    private Label playerName;
-
-    @FXML
-    private Button prevButton;
-
-    @FXML
-    private Button useBonusButton;
+    private Label current,playerName;
     private KingdomBuilderMain game;
-
     private ArrayList<Player> players;
     private int turnNum;
     private boolean end;
@@ -79,8 +41,9 @@ public class MainSceneController {
     private Polygon testPolygon;
     @FXML
     private Node balls;
+    @FXML
+    private AnchorPane container,container2;
     private ArrayList<Coord> chosenSettlements;
-
     private final static double r = 20; // the inner radius from hexagon center to outer corner
     private final static double n = Math.sqrt(r * r * 0.75); // the inner radius from hexagon center to middle of the axis
     private final static double TILE_HEIGHT = 2 * r;
@@ -88,8 +51,7 @@ public class MainSceneController {
     private int displayedPlayer;
     private final static int WINDOW_WIDTH = 800;
     private final static int WINDOW_HEIGHT = 600;
-    @FXML
-    private AnchorPane container;
+
 
 
     //s forest, g meadow, c canyon, f flower field, d desert
@@ -105,9 +67,6 @@ public class MainSceneController {
         chosenSettlements = new ArrayList<Coord>();
         displayedPlayer = 0;
         drawTheBoards();
-    }
-    private void hexClicked(){
-            
     }
         public void runGame() {
         while (!end) {
@@ -158,7 +117,8 @@ public class MainSceneController {
     public void addChosenSettlements(Coord c) {
         chosenSettlements.add(c);
     }
-//
+
+
 //    public void newRound() {
 //        for (int j = 0; j < players.size(); j++) {
 //            int choiceTerrain = (int)(Math.random()*25);
@@ -187,26 +147,6 @@ public class MainSceneController {
         //game.finishTurn();
 
     }
-
-    @FXML
-    private void drawTheBoard(){
-        //20by20(or 10by10 to draw each board individually if it's easier
-        //call the polygon creation method,
-        //
-    }
-    //draw the board
-
-    //drawhte polygon, 0,0-> hextile
-    private void testPolygons(){
-        game.getBoard().getTiles();
-        //this will create the polygon object, assign it the
-        // coordinate from the hexTile class,
-        //like, tie it to the hex object somehow
-        //whatever the terrain type is should call the tileImage method to set the image
-
-
-
-    }
     @FXML
     void next(ActionEvent event) {
         //using testing thing to test the buttons and stuff
@@ -232,93 +172,19 @@ public class MainSceneController {
     }
 
     private void drawInfoCards() {
-
-
-
+        //haven't added anything yet until we fs have the new boards in there,
+        //will need to add action tile identifier to board class, and call that identifier to set the image
+        //something like this \/
+        //infoTile0.setImage(new Image(returnImage(game.getBoard().getAction().toString())));
     }
 
-    private void drawPointsCards() {
+    private void drawPointsCards() {//works
         ArrayList temp = game.getPointsCards();
         pointCard0.setImage(returnImage(temp.get(0).toString()));
         pointCard1.setImage(returnImage(temp.get(1).toString()));
         pointCard2.setImage(returnImage(temp.get(2).toString()));
 
     }
-
-    private Image returnImage(String str) {
-        Image temp = new Image(getClass().getResource("images/shrek.png").toExternalForm());
-
-        if (str.equals("Citizen"))
-            temp = new Image(getClass().getResource("images/CitizenCard.jpg").toExternalForm());
-        else if (str.equals("Discoverers"))
-            temp = new Image(getClass().getResource("images/DiscovererCard.jpg").toExternalForm());
-        else if (str.equals("Farmers"))
-            temp = new Image(getClass().getResource("images/FarmerCard.jpg").toExternalForm());
-        else if (str.equals("Fishermen"))
-            temp = new Image(getClass().getResource("images/FishermanCard.jpg").toExternalForm());
-        else if (str.equals("Hermits"))
-            temp = new Image(getClass().getResource("images/HermitCard.jpg").toExternalForm());
-        else if (str.equals("Knights"))
-            temp = new Image(getClass().getResource("images/KnightCard.jpg").toExternalForm());
-        else if (str.equals("Lords"))
-            temp = new Image(getClass().getResource("images/LordCard.jpg").toExternalForm());
-        else if (str.equals("Merchants"))
-            temp = new Image(getClass().getResource("images/MerchantCard.jpg").toExternalForm());
-        else if (str.equals("Miners"))
-            temp = new Image(getClass().getResource("images/MinerCard.jpg").toExternalForm());
-        else if (str.equals("Workers"))
-            temp = new Image(getClass().getResource("images/WorkerCard.jpg").toExternalForm());
-            //terrain cards below
-            //dont know the actual names so i guessed
-        else if (str.equals("c"))
-            temp = new Image(getClass().getResource("images/CanyonCard.jpg").toExternalForm());
-        else if (str.equals("d"))
-            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
-        else if (str.equals("f"))
-            temp = new Image(getClass().getResource("images/FlowerCard.jpg").toExternalForm());
-        else if (str.equals("g"))
-            temp = new Image(getClass().getResource("images/MeadowCard.jpg").toExternalForm());
-        else if (str.equals("s"))
-            temp = new Image(getClass().getResource("images/ForestCard.jpg").toExternalForm());
-        else
-            return temp;
-        return temp;
-
-    }
-
-    public Image returnTileImage(String str) {
-        Image temp = new Image(getClass().getResource("images/shrek.png").toExternalForm());
-        if (str.equals("c"))//canyon
-            temp = new Image(getClass().getResource("images/canyonTile.png").toExternalForm());
-        else if (str.equals("d"))//desert
-            temp = new Image(getClass().getResource("images/desertTile.png").toExternalForm());
-        else if (str.equals("f"))//flower
-            temp = new Image(getClass().getResource("images/flowerTile.png").toExternalForm());
-        else if (str.equals("g"))//meadow
-            temp = new Image(getClass().getResource("images/.png").toExternalForm());
-        else if (str.equals("s"))//forest
-            temp = new Image(getClass().getResource("images/ForestCard.jpg").toExternalForm());
-        else if (str.equals("m"))//mountain
-            temp = new Image(getClass().getResource("images/CanyonCard.jpg").toExternalForm());
-        else if (str.equals("castle"))//castle
-            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
-        else if (str.equals("Oasis"))//oasis
-            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
-        else if (str.equals("castle"))//oracle
-            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
-        else if (str.equals("castle"))//barn
-            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
-        else if (str.equals("castle"))//harbor
-            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
-        else if (str.equals("castle"))//idk
-            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
-
-
-        else
-            return temp;
-        return temp;
-    }
-
     private void drawPlayerInfo(int p) {
         playerName.setText("players.get(game.getTurnNum()).toString()");
         int tempTurn = game.getTurnNum() + 1;
@@ -412,7 +278,7 @@ public class MainSceneController {
 
         private final static int WINDOW_WIDTH = 800;
         private final static int WINDOW_HEIGHT = 600;
-        private ImageView tileHold;
+
         Tile(double x, double y) {
             // creates the polygon using the corner coordinates
             getPoints().addAll(
@@ -424,63 +290,155 @@ public class MainSceneController {
                     x + n, y - r * 0.5
             );
 
+
             // set up the visuals and a click listener for the tile
             setFill(Color.ANTIQUEWHITE);
             setStrokeWidth(1);
             setStroke(Color.BLACK);
             setOnMouseClicked(e -> {
                 System.out.println("Clicked: " + this);
+                //placing method will go here
+
 
             });
+            //could add mouselistener for highlighting maybe
+
         }
+
+    }
+    public class ImgTile extends ImageView{
+        private final static double r = 20; // the inner radius from hexagon center to outer corner
+        private final static double n = Math.sqrt(r * r * 0.75); // the inner radius from hexagon center to middle of the axis
+        private final static double TILE_HEIGHT = 2 * r;
+        private final static double TILE_WIDTH = 2 * n;
+        private ImageView tileHold;
+        ImgTile(double x, double y){
+            //something here will add an image it "tileHold"
+            tileHold=new ImageView();
+            tileHold.setImage(returnTileImage( "c"));
+
+            tileHold.setFitHeight(TILE_HEIGHT);
+            tileHold.setFitWidth(TILE_WIDTH);
+            tileHold.setX(x);
+            tileHold.setY(y);
+            tileHold.setVisible(true);
+        }
+
+
     }
     private void drawTheBoards(){
         AnchorPane tileMap = new AnchorPane();
+        AnchorPane imageMap= new AnchorPane();
         //Scene content = new Scene(tileMap, WINDOW_WIDTH, WINDOW_HEIGHT);
-        container.getChildren().add(tileMap);
 
-        container.setVisible(true);
+        //container2 = new AnchorPane();
+        container.getChildren().add(tileMap);
+        container2.getChildren().add(imageMap);
+        container2.setVisible(true);
+        container.setVisible(false);
+        //container.toBack();
         int rowCount = 20; // how many rows of tiles should be created
         int tilesPerRow = 20; // the amount of tiles that are contained in each row
         int xStartOffset = 40; // offsets the entire field to the right
-        int yStartOffset = 40; // offsets the entire fiels downwards
+        int yStartOffset = 40; // offsets the entire field downwards
         for (int x = 0; x < tilesPerRow; x++) {
             for (int y = 0; y < rowCount; y++) {
                 double xCoord = x * TILE_WIDTH + (y % 2) * n + xStartOffset;
                 double yCoord = y * TILE_HEIGHT * 0.75 + yStartOffset;
+                ImageView imgTile = new ImgTile(xCoord,yCoord);
 
+                imageMap.getChildren().add(imgTile);
+                //adds created tiles to anchor-pane and creates them
                 Polygon tile = new Tile(xCoord, yCoord);
                 tileMap.getChildren().add(tile);
             }
         }
 
     }
-    private void actuallyDrawTheBoard(){
-
+    private Image returnImage(String str) {
+        Image temp = new Image(getClass().getResource("images/shrek.png").toExternalForm());
+        if (str.equals("Citizen"))
+            temp = new Image(getClass().getResource("images/CitizenCard.jpg").toExternalForm());
+        else if (str.equals("Discoverers"))
+            temp = new Image(getClass().getResource("images/DiscovererCard.jpg").toExternalForm());
+        else if (str.equals("Farmers"))
+            temp = new Image(getClass().getResource("images/FarmerCard.jpg").toExternalForm());
+        else if (str.equals("Fishermen"))
+            temp = new Image(getClass().getResource("images/FishermanCard.jpg").toExternalForm());
+        else if (str.equals("Hermits"))
+            temp = new Image(getClass().getResource("images/HermitCard.jpg").toExternalForm());
+        else if (str.equals("Knights"))
+            temp = new Image(getClass().getResource("images/KnightCard.jpg").toExternalForm());
+        else if (str.equals("Lords"))
+            temp = new Image(getClass().getResource("images/LordCard.jpg").toExternalForm());
+        else if (str.equals("Merchants"))
+            temp = new Image(getClass().getResource("images/MerchantCard.jpg").toExternalForm());
+        else if (str.equals("Miners"))
+            temp = new Image(getClass().getResource("images/MinerCard.jpg").toExternalForm());
+        else if (str.equals("Workers"))
+            temp = new Image(getClass().getResource("images/WorkerCard.jpg").toExternalForm());
+            //terrain cards below
+            //dont know the actual names so i guessed
+        else if (str.equals("c"))
+            temp = new Image(getClass().getResource("images/CanyonCard.jpg").toExternalForm());
+        else if (str.equals("d"))
+            temp = new Image(getClass().getResource("images/DesertCard.jpg").toExternalForm());
+        else if (str.equals("f"))
+            temp = new Image(getClass().getResource("images/FlowerCard.jpg").toExternalForm());
+        else if (str.equals("g"))
+            temp = new Image(getClass().getResource("images/MeadowCard.jpg").toExternalForm());
+        else if (str.equals("s"))
+            temp = new Image(getClass().getResource("images/ForestCard.jpg").toExternalForm());
+        else
+            return temp;
+        return temp;
 
     }
-/*
-    public MainSceneController(){
-        game = new KingdomBuilderMain();
-        pointCard0= new ImageView();
-        pointCard1= new ImageView();
-        pointCard2= new ImageView();
-        //ArrayList players =game.getPlayers();
-        //game.getTurnPlayer();
-        //playerName.setText("Player "+game.getTurnNum());
-        //drawPlayerinfo();
-        drawPointsCards();
 
+    public Image returnTileImage(String str) {
+        Image temp = new Image(getClass().getResource("images/shrek.png").toExternalForm());
+        if (str.equals("c"))//canyon
+            temp = new Image(getClass().getResource("images/canyonTile.png").toExternalForm());
+        else if (str.equals("d"))//desert
+            temp = new Image(getClass().getResource("images/desertTile.png").toExternalForm());
+        else if (str.equals("f"))//flower
+            temp = new Image(getClass().getResource("images/flowerTile.png").toExternalForm());
+        else if (str.equals("g"))//meadow
+            temp = new Image(getClass().getResource("images/meadowTile.png").toExternalForm());
+        else if (str.equals("s"))//forest
+            temp = new Image(getClass().getResource("images/forestTile.png").toExternalForm());
+        else if (str.equals("m"))//mountain
+            temp = new Image(getClass().getResource("images/mountainTile.png").toExternalForm());
+        else if (str.equals("castle"))//castle
+            temp = new Image(getClass().getResource("images/castleTile.png").toExternalForm());
+        else if (str.equals("Oasis"))//oasis
+            temp = new Image(getClass().getResource("images/oasisTile.png").toExternalForm());
+        else if (str.equals("Oracle"))//oracle
+            temp = new Image(getClass().getResource("images/oracleTile.png").toExternalForm());
+        else if (str.equals("Barn"))//barn
+            temp = new Image(getClass().getResource("images/barnTile.png").toExternalForm());
+        else if (str.equals("Harbor"))//harbor  ///ik i misnamed it idc \/
+            temp = new Image(getClass().getResource("images/shipTile.png").toExternalForm());
+        else if (str.equals("Paddock"))//Paddock
+            temp = new Image(getClass().getResource("images/paddockTile.png").toExternalForm());
+        else if (str.equals("Tavern"))//Tavern
+            temp = new Image(getClass().getResource("images/tavernTile.png").toExternalForm());
+        else if (str.equals("Tower"))//Tower
+            temp = new Image(getClass().getResource("images/towerTile.png").toExternalForm());
+        else if (str.equals("w"))//WATER
+            temp = new Image(getClass().getResource("images/waterTile.png").toExternalForm());
+        else if (str.equals("Ship"))//supposed to be harbor but oopsies
+            temp = new Image(getClass().getResource("images/paddockTile.png").toExternalForm());
 
-        // drawInfoCards();
+        else
+            return temp;
+        return temp;
+    }
 
-
-
-//asld;fjadsf
-
-
-    }*/
 }
+
+
+
 /* TO DO LIST:
 * add placement method for polygons
 * show first player token(need add boolean to player class i think
@@ -490,4 +448,19 @@ public class MainSceneController {
 * (maaaaaaaybe draw tiles individually
 * actually get the game to work*/
 
+//HOW TO DO IMAGES ALSO THIS LINK SUPER USEFUL DON'T FORGET
+/////https://stackoverflow.com/questions/61531317/how-do-i-determine-the-correct-path-for-fxml-files-css-files-images-and-other
+/*      URL imageURL = getClass().getResource("images/CanyonCard.jpg");
+        Image image = new Image(imageURL.toExternalForm());
+        pointCard0.setImage(new Image(getClass().getResource("images/CanyonCard.jpg").toExternalForm()));
+*/
+//https://www.pragmaticcoding.ca/javafx/hexmap example hexmap build
+//v well-made tbh but uses like 30 classes to make its thing
+
+
+//if there's an error in the images, shrek will show
+//red "#ff0000"
+//purple "#9d1cff"
+//pink "#ff6fd6"
+//orange "#ff6600"
 
