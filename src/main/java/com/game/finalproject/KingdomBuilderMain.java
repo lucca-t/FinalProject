@@ -45,6 +45,15 @@ public class KingdomBuilderMain {
             pointCards.add(pointCardsall.get(x));
             pointCardsall.remove(x);
         }
+
+        //TESTING DISPLAYING ACTIONS
+        /*Action balls = new Action(1,"Harbor",false);
+        for(int x=0;x<8;x++);
+            players.get(0).addActions(balls);
+           */
+        //TEST^
+
+
         turn = 0;
         terrains = new ArrayList<Card>();
         resetTerrainDeck();

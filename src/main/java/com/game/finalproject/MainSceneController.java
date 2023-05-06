@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
@@ -56,6 +57,9 @@ public class MainSceneController {
     private final static int WINDOW_HEIGHT = 600;
 
 
+    @FXML
+    private GridPane actionGrid;
+
 
     //s forest, g meadow, c canyon, f flower field, d desert
     @FXML
@@ -70,6 +74,7 @@ public class MainSceneController {
         chosenSettlements = new ArrayList<Coord>();
         displayedPlayer = 0;
         drawTheBoards();
+        drawTheActionTiles();
     }
         public void runGame() {
         while (!end) {
@@ -224,54 +229,7 @@ public class MainSceneController {
         }
     }
 
-    private String getBoardInfo() {
-        String tile0 = "";
-        String tile1 = "";
-        String tile2 = "";
-        String tile3 = "";
-        String temp = "";/*
-        //tedious way to do it fr, check each board array for the tile info by going through every element
-        //(i aint doin allat)
-        String[][]tempArr=game.getBoard().getBoardArr();
-        for(int x=0;x<100;x++){
-            if(tempArr[0][x].equals("Oasis")){
-                tile0="Oasis";
-            }
-            else if(tempArr[0][x].equals("Barn")){
-                tile0="Oasis";
-            }
-            else if(tempArr[0][x].equals("Harbor")){
-                tile0="Oasis";
-            }
-            else if(tempArr[0][x].equals("Oracle")){
-                tile0="Oasis";
-            }
-            else if(tempArr[0][x].equals("Oasis")){
-                tile0="Oasis";
-            }
-            else if(tempArr[0][x].equals("Oasis")){
-                tile0="Oasis";
-            }
-            else if(tempArr[0][x].equals("Oasis")){
-                tile0="Oasis";
-            }
-            else if(tempArr[0][x].equals("Oasis")){
-                tile0="Oasis";
-            }
-            else if(tempArr[0][x].equals("Oasis")){
-                tile0="Oasis";
-            }
 
-        }
-
-        for(int x =0;x<100;x++){
-            for(int y=0; y<4;y++){
-
-            }
-        }
-        */
-        return temp;
-    }
     public class Tile extends Polygon {
 
         private final static double r = 20; // the inner radius from hexagon center to outer corner
@@ -406,6 +364,34 @@ public class MainSceneController {
         }
 
     }
+
+    private void drawTheActionTiles(){
+        //ArrayList tempActions= game.getPlayers().get(turnNum).getActions();
+        int count =0;
+        for(int x=0;x<4;x++){//this is what adds the images
+            for(int y=0;y<2;y++){
+                int tempInt = x+y;
+                //                                                          \/that'll get the actual image
+                String tempTile = game.getPlayers().get(0).getActions().get(0).getType();
+                count++;
+                //if(count<game.getPlayers().get(turnNum).getActions().size()) {
+                    //if statement to prevent it from going out of bounds idk
+                    Image temp = returnTileImage(tempTile);
+                    ImageView viewTemp = new ImageView(temp);
+                    viewTemp.setFitWidth(70);
+                    viewTemp.setFitHeight(79);
+                    actionGrid.add(viewTemp, x, y);
+                    actionGrid.setVisible(true);
+                //}
+                //count++;
+
+
+            }
+        }
+
+
+    }
+
     private Image returnImage(String str) {
         Image temp = new Image(getClass().getResource("images/shrek.png").toExternalForm());
         if (str.equals("Citizen"))
@@ -485,7 +471,54 @@ public class MainSceneController {
             return temp;
         return temp;
     }
+    private String getBoardInfo() {
+        String tile0 = "";
+        String tile1 = "";
+        String tile2 = "";
+        String tile3 = "";
+        String temp = "";/*
+        //tedious way to do it fr, check each board array for the tile info by going through every element
+        //(i aint doin allat)
+        String[][]tempArr=game.getBoard().getBoardArr();
+        for(int x=0;x<100;x++){
+            if(tempArr[0][x].equals("Oasis")){
+                tile0="Oasis";
+            }
+            else if(tempArr[0][x].equals("Barn")){
+                tile0="Oasis";
+            }
+            else if(tempArr[0][x].equals("Harbor")){
+                tile0="Oasis";
+            }
+            else if(tempArr[0][x].equals("Oracle")){
+                tile0="Oasis";
+            }
+            else if(tempArr[0][x].equals("Oasis")){
+                tile0="Oasis";
+            }
+            else if(tempArr[0][x].equals("Oasis")){
+                tile0="Oasis";
+            }
+            else if(tempArr[0][x].equals("Oasis")){
+                tile0="Oasis";
+            }
+            else if(tempArr[0][x].equals("Oasis")){
+                tile0="Oasis";
+            }
+            else if(tempArr[0][x].equals("Oasis")){
+                tile0="Oasis";
+            }
 
+        }
+
+        for(int x =0;x<100;x++){
+            for(int y=0; y<4;y++){
+
+            }
+        }
+        */
+        return temp;
+    }
 }
 
 
@@ -500,11 +533,16 @@ public class MainSceneController {
 * actually get the game to work*/
 
 //HOW TO DO IMAGES ALSO THIS LINK SUPER USEFUL DON'T FORGET
+//
+//
 /////https://stackoverflow.com/questions/61531317/how-do-i-determine-the-correct-path-for-fxml-files-css-files-images-and-other
 /*      URL imageURL = getClass().getResource("images/CanyonCard.jpg");
         Image image = new Image(imageURL.toExternalForm());
         pointCard0.setImage(new Image(getClass().getResource("images/CanyonCard.jpg").toExternalForm()));
 */
+///
+///
+///
 //https://www.pragmaticcoding.ca/javafx/hexmap example hexmap build
 //v well-made tbh but uses like 30 classes to make its thing
 
