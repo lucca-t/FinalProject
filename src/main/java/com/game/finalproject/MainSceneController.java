@@ -158,7 +158,7 @@ public class MainSceneController {
     @FXML
     void next(ActionEvent event) {
         //using testing thing to test the buttons and stuff
-        game.testNextTurnNum();
+//        game.testNextTurnNum();
         displayedPlayer++;
         displayedPlayer = displayedPlayer%4;
         //local turnNum check against game instance "turn",
@@ -168,7 +168,7 @@ public class MainSceneController {
 
     @FXML
     void previous(ActionEvent event) {
-        game.testPrevTurnNum();
+//        game.testPrevTurnNum();
         displayedPlayer+=3;
         displayedPlayer = displayedPlayer%4;
         drawPlayerInfo(displayedPlayer);
@@ -194,12 +194,12 @@ public class MainSceneController {
 
     }
     private void drawPlayerInfo(int p) {
-        playerName.setText("players.get(game.getTurnNum()).toString()");
+//        playerName.setText("players.get(game.getTurnNum()).toString()");
         int tempTurn = game.getTurnNum() + 1;
-        playerName.setText("Player " + tempTurn);
-        settleNum.setText("Total Settlements: "+game.getPlayers().get(game.getTurnNum()).getNumSettlements());
+        int temp = p + 1;
+        playerName.setText("Player " + temp);
+        settleNum.setText("Total Settlements: "+players.get(p).getNumSettlements());
         //this will work once the players are actually assigned terrain cards, return error bc null atm
-        //currentTerrainCard.setImage(returnImage(game.getPlayers().get(game.getTurnNum()).getTerrain().getType()));
         if (!players.get(p).getTerrain().getVisibility()){
                     currentTerrainCard.setImage(returnImage("ResourceCardBack"));
         }
