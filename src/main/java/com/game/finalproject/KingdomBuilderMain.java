@@ -47,10 +47,10 @@ public class KingdomBuilderMain {
         }
 
         //TESTING DISPLAYING ACTIONS
-        /*Action balls = new Action(1,"Harbor",false);
+        Action balls = new Action(1,"Harbor",true);
         for(int x=0;x<8;x++);
             players.get(0).addActions(balls);
-           */
+
         //TEST^
 
 

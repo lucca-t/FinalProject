@@ -344,13 +344,22 @@ public class MainSceneController {
                 imgTile.setFitHeight(40);
                 imgTile.setFitWidth(40);
 
-
+                //////rectangle code
+                //have an if statement checking if there's a settlement here from the player
+                //eg.    if(coord.hasSettlement) do this,
                 Rectangle setTile = new Rectangle();
                 setTile.setX(xCoord + 7);
                 setTile.setY(yCoord + 2);
                 setTile.setWidth(25);
                 setTile.setHeight(15);
-                setTile.setFill(Color.PINK);
+
+                //player color goes here
+                //Player player = player.getWhoeverPlacedIt
+                //setTile.setFill(player.getColor().getColorHex);
+                //getColorHex will return the Color variable for the setFill
+                //default is pink ->setTile.setFill(Color.PINK);
+
+
                 setMap.getChildren().add(setTile);
 
 
@@ -371,18 +380,18 @@ public class MainSceneController {
         for(int x=0;x<4;x++){//this is what adds the images
             for(int y=0;y<2;y++){
                 int tempInt = x+y;
-                //                                                          \/that'll get the actual image
-                String tempTile = game.getPlayers().get(0).getActions().get(0).getType();
-                count++;
-                //if(count<game.getPlayers().get(turnNum).getActions().size()) {
+                //count++;
+                if(tempInt<game.getPlayers().get(turnNum).getActions().size()-1) {
                     //if statement to prevent it from going out of bounds idk
+                    String tempTile = game.getPlayers().get(turnNum).getActions().get(tempInt).getType();
                     Image temp = returnTileImage(tempTile);
                     ImageView viewTemp = new ImageView(temp);
                     viewTemp.setFitWidth(70);
                     viewTemp.setFitHeight(79);
+                    viewTemp.setVisible(true);
                     actionGrid.add(viewTemp, x, y);
                     actionGrid.setVisible(true);
-                //}
+                }
                 //count++;
 
 

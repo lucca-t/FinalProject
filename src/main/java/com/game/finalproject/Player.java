@@ -1,5 +1,7 @@
 package com.game.finalproject;
 
+import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 
 public class Player {
@@ -60,4 +62,24 @@ public class Player {
     public ArrayList<Coord> getOccupiedTiles() {
         return occupiedTiles;
     }
+
+    private Color getColorHex(){
+        Color color= Color.BEIGE;
+
+        if(getColor().equals("red"))
+            color= Color.valueOf("#ff0000");
+        else if(getColor().equals("purple"))
+            color= Color.valueOf("#9d1cff");
+        else if(getColor().equals("pink"))
+            color= Color.valueOf("#ff6fd6");
+        else if(getColor().equals("orange"))
+            color= Color.valueOf("#ff6600");
+
+        return color;
+    }
+    //red "#ff0000"
+//purple "#9d1cff"
+//pink "#ff6fd6"
+//orange "#ff6600"
+
 }
