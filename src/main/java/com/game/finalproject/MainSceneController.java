@@ -60,6 +60,7 @@ public class MainSceneController {
 
     @FXML
     private GridPane actionGrid;
+    private AnchorPane setMap,tileMap,imageMap;
 
 
     //s forest, g meadow, c canyon, f flower field, d desert
@@ -254,21 +255,30 @@ public class MainSceneController {
                     if (ycoord% 2 == 0) {
                         c = new Coord(xcoord, ycoord);
                         HexTile temp = game.getBoard().getTiles().get(c);
-                        if(temp.getOccupancy()==null){
+
+                        if(temp.getOccupancy()==null&&temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType())){
                             temp.setOccupancy(players.get(turnNum));
                             System.out.println("added settle at:"+xcoord+ " "+ycoord);
-                            drawTheBoards();
-                            drawPlayerInfo(0);
+                            //drawTheBoards();
+                            game.getPlayers().get(turnNum).decSettlements(1);
+                            game.getPlayers().get(turnNum).addSettlementTile(c);
+                            quickDrawBoards();
+                            drawPlayerInfo(game.getTurnNum());
+
                         }
                     } else {
                         c = new Coord(xcoord + 0.5, ycoord);
                         HexTile temp = game.getBoard().getTiles().get(c);
-                        if(temp.getOccupancy()==null){
+                        if(temp.getOccupancy()==null&&temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType())){
                             temp.setOccupancy(players.get(turnNum));
                             System.out.println("added settle at:"+xcoord+ " "+ycoord);
+                            game.getPlayers().get(turnNum).decSettlements(1);
+                            game.getPlayers().get(turnNum).addSettlementTile(c);
+
                         }
-                        drawTheBoards();
-                        drawPlayerInfo(0);
+                        //drawTheBoards();
+                        drawPlayerInfo(game.getTurnNum());
+                        quickDrawBoards();
                     }
 
 
@@ -318,9 +328,9 @@ public class MainSceneController {
 
     }
     private void drawTheBoards(){
-        AnchorPane tileMap = new AnchorPane();
-        AnchorPane imageMap= new AnchorPane();
-        AnchorPane setMap = new AnchorPane();
+         tileMap = new AnchorPane();
+         imageMap= new AnchorPane();
+         setMap = new AnchorPane();
 
         //Scene content = new Scene(tileMap, WINDOW_WIDTH, WINDOW_HEIGHT);
 
@@ -404,6 +414,63 @@ public class MainSceneController {
                 //adds created tiles to anchor-pane and creates them
                 Polygon tile = new Tile(xCoord, yCoord,xint,yint,game);
                 tileMap.getChildren().add(tile);
+            }
+        }
+
+    }
+    private void quickDrawBoards(){
+        int rowCount = 20; // how many rows of tiles should be created
+        int tilesPerRow = 20; // the amount of tiles that are contained in each row
+        int xStartOffset = 40; // offsets the entire field to the right
+        int yStartOffset = 10; // offsets the entire field downwards
+        for (double x = 0; x < tilesPerRow; x++) {
+            for (double y = 0; y < rowCount; y++) {
+                int xint= (int)Math.round(x);
+                int yint= (int)Math.round(y);
+                double xCoord = x * TILE_WIDTH + (y % 2) * n + xStartOffset;
+                double yCoord = y * TILE_HEIGHT * 0.75 + yStartOffset;
+                Coord c;
+                if (y%2 == 0) {
+                    c = new Coord(x, y);
+                    HexTile temp = tiles.get(c);
+
+                }
+                else {
+                    c = new Coord(x + 0.5, y);
+                    HexTile temp = tiles.get(c);
+                }
+
+                //////rectangle code
+                //have an if statement checking if there's a settlement here from the player
+                //eg.    if(coord.hasSettlement) do this,
+                if (tiles.get(c).getOccupancy() != null) {
+                    Rectangle setTile = new Rectangle();
+                    setTile.setX(xCoord + 7);
+                    setTile.setY(yCoord + 2);
+                    setTile.setWidth(25);
+                    setTile.setHeight(15);
+
+                    //player color goes here
+                    //Player player = player.getWhoeverPlacedIt
+//                    setTile.setFill(player.getColor().getColorHex);
+                    String color = tiles.get(c).getOccupancy().getColor();
+                    // setTile.setFill(tiles.get(c).getOccupancy().getColorHex()); <-this would prolly be more efficient imo
+                    switch(color) {
+                        case "red": setTile.setFill(Color.RED);
+                        case "yellow": setTile.setFill(Color.YELLOW);
+                        case "orange": setTile.setFill(Color.ORANGE);
+                        case "green": setTile.setFill(Color.DARKGREEN);
+                        case "blue": setTile.setFill(Color.BLUEVIOLET);
+                        case "purple": setTile.setFill(Color.PURPLE);
+                    }
+//                    setTile.setFill(tiles.get(c).getOccupancy().getColor().getColorHex());
+                    //getColorHex will return the Color variable for the setFill
+                    //default is pink ->setTile.setFill(Color.PINK);
+
+
+                    setMap.getChildren().add(setTile);
+                }
+
             }
         }
 
