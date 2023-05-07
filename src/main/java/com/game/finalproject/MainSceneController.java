@@ -251,12 +251,12 @@ public class MainSceneController {
                 //placing method will go here
 
                     Coord c;
-
+                    Player pTemp = game.getPlayers().get(turnNum);
                     if (ycoord% 2 == 0) {
                         c = new Coord(xcoord, ycoord);
                         HexTile temp = game.getBoard().getTiles().get(c);
 
-                        if(temp.getOccupancy()==null&&temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType())){
+                        if(temp.getOccupancy()==null&&temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType())&&pTemp.getTSPlaced()>0){
                             temp.setOccupancy(players.get(turnNum));
                             System.out.println("added settle at:"+xcoord+ " "+ycoord);
                             //drawTheBoards();
@@ -264,17 +264,17 @@ public class MainSceneController {
                             game.getPlayers().get(turnNum).addSettlementTile(c);
                             quickDrawBoards();
                             drawPlayerInfo(game.getTurnNum());
-
+                            game.getPlayers().get(turnNum).decTSPlaced();
                         }
                     } else {
                         c = new Coord(xcoord + 0.5, ycoord);
                         HexTile temp = game.getBoard().getTiles().get(c);
-                        if(temp.getOccupancy()==null&&temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType())){
+                        if(temp.getOccupancy()==null&&temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType())&&pTemp.getTSPlaced()>0){
                             temp.setOccupancy(players.get(turnNum));
                             System.out.println("added settle at:"+xcoord+ " "+ycoord);
                             game.getPlayers().get(turnNum).decSettlements(1);
                             game.getPlayers().get(turnNum).addSettlementTile(c);
-
+                            game.getPlayers().get(turnNum).decTSPlaced();
                         }
                         //drawTheBoards();
                         drawPlayerInfo(game.getTurnNum());

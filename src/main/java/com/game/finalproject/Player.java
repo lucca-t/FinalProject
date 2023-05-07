@@ -11,7 +11,7 @@ public class Player {
     private ArrayList<Action> actions;
     private ArrayList<Coord> occupiedTiles;
     private Card terrain;
-
+    private int turnSettlePlaced;
     public Player(String col){
         points = 0;
         settlements = 40;
@@ -19,6 +19,7 @@ public class Player {
         actions = new ArrayList<Action>();
         terrain = null;
         occupiedTiles = new ArrayList<Coord>();
+        turnSettlePlaced=3;
     }
     public void setScore(int pnt){
         points = pnt;
@@ -84,6 +85,15 @@ public class Player {
             return true;
         }
         return false;
+    }
+    public int getTSPlaced(){
+        return turnSettlePlaced;
+    }
+    public void decTSPlaced(){
+        turnSettlePlaced--;
+    }
+    public void incTSPlaced(){
+        turnSettlePlaced++;
     }
     //red "#ff0000"
 //purple "#9d1cff"
