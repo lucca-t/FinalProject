@@ -68,11 +68,12 @@ public class KingdomBuilderMain {
         end = false;
 
         Collections.shuffle(terrains);
-//        for (int j = 0; j < players.size(); j++) {
-////            int choiceTerrain = (int)(Math.random()*25);
-//            players.get(j).setTerrain(terrains.get(choiceTerrain));
-//            terrains.remove(choiceTerrain);
-//        }
+        for (int j = 0; j < players.size(); j++) {
+            players.get(j).setTerrain(terrains.get(0));
+            players.get(j).getTerrain().setVisibility(false);
+            terrains.remove(0);
+        }
+        players.get(turn).getTerrain().setVisibility(true);
         settlementCords = new ArrayList<Coord>();
     }
     public ArrayList getPointsCards(){

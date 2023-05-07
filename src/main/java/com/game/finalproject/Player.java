@@ -77,6 +77,14 @@ public class Player {
 
         return color;
     }
+
+    public boolean equals(Object o) {
+        Player p = (Player)(o);
+        if (p.getColor().equals(settlementColor)) {
+            return true;
+        }
+        return false;
+    }
     //red "#ff0000"
 //purple "#9d1cff"
 //pink "#ff6fd6"

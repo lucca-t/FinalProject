@@ -6,8 +6,8 @@ public class Coord {
     private int num;
 
     public Coord(double r, double c){
-        x = c;
-        y = r;
+        x = r;
+        y = c;
         num = (int)((x*y + x + y)*10);
     }
 

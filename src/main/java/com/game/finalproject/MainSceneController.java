@@ -55,6 +55,7 @@ public class MainSceneController {
     private int displayedPlayer;
     private final static int WINDOW_WIDTH = 800;
     private final static int WINDOW_HEIGHT = 600;
+    private HashMap<Coord, HexTile> tiles;
 
 
     @FXML
@@ -65,16 +66,18 @@ public class MainSceneController {
     @FXML
     private void initialize() {
         game = new KingdomBuilderMain();
+        tiles = game.getBoard().getTiles();
         turnNum = game.getTurnNum();
         drawPointsCards();
         players = game.getPlayers();
+        displayedPlayer = 0;
         drawPlayerInfo(displayedPlayer);
         end = false;
         terrains = game.getTerrains();
         chosenSettlements = new ArrayList<Coord>();
-        displayedPlayer = 0;
         drawTheBoards();
         drawTheActionTiles();
+//        runGame();
     }
         public void runGame() {
         while (!end) {
@@ -145,10 +148,7 @@ public class MainSceneController {
 //    }
 
     @FXML
-    void confirmPlace(ActionEvent event) {
-
-    }
-
+    void confirmPlace(ActionEvent event) {}
 
     @FXML
     void finishTurn(ActionEvent event) {
@@ -200,31 +200,14 @@ public class MainSceneController {
         settleNum.setText("Total Settlements: "+game.getPlayers().get(game.getTurnNum()).getNumSettlements());
         //this will work once the players are actually assigned terrain cards, return error bc null atm
         //currentTerrainCard.setImage(returnImage(game.getPlayers().get(game.getTurnNum()).getTerrain().getType()));
-        int temp = players.indexOf(game.getTurnPlayer());
-//        switch(p) {
-////            int temp = players.indexOf(game.getTurnPlayer());
-//            case(temp):
-//                if (!game.getTurnPlayer().getTerrain().getVisibility()) {
-//                    currentTerrainCard.setImage(returnImage("ResourceCardBack"));
-//                }
-//                else {
-//                    switch(game.getTurnPlayer().getTerrain().getType()) {
-//                        case("g"):
-//                            currentTerrainCard.setImage(returnImage("MeadowCard"));
-//                        case("f"):
-//                            currentTerrainCard.setImage(returnImage("FlowerCard"));
-//                        case("s"):
-//                            currentTerrainCard.setImage(returnImage("ForestCard"));
-//                        case("c"):
-//                            currentTerrainCard.setImage(returnImage("CanyonCard"));
-//                        case("d"):
-//                            currentTerrainCard.setImage(returnImage("DesertCard"));
-//                    }
-//                }
-//        }
-
-        currentTerrainCard.setImage(returnImage("shrek"));
-        if(game.getTurnNum()==0){
+        if (!players.get(p).getTerrain().getVisibility()){
+                    currentTerrainCard.setImage(returnImage("ResourceCardBack"));
+        }
+        else {
+                    currentTerrainCard.setImage(returnImage(players.get(p).getTerrain().getType()));
+        }
+//        currentTerrainCard.setImage(returnImage("shrek"));
+        if(p==0){
             firstPlayerToken.setImage(new Image(getClass().getResource("images/fPlayer.png").toExternalForm()));
         }
     }
@@ -332,13 +315,25 @@ public class MainSceneController {
         int tilesPerRow = 20; // the amount of tiles that are contained in each row
         int xStartOffset = 40; // offsets the entire field to the right
         int yStartOffset = 40; // offsets the entire field downwards
-        for (int x = 0; x < tilesPerRow; x++) {
-            for (int y = 0; y < rowCount; y++) {
+        for (double x = 0; x < tilesPerRow; x++) {
+            for (double y = 0; y < rowCount; y++) {
                 double xCoord = x * TILE_WIDTH + (y % 2) * n + xStartOffset;
                 double yCoord = y * TILE_HEIGHT * 0.75 + yStartOffset;
                 //ImageView imgTile = new ImgTile(xCoord,yCoord);
                 //ImageView imgTile = new ImgTile(xCoord,yCoord,returnTileImage( "w"));
-                ImageView imgTile = new ImageView(returnTileImage( "w"));
+                ImageView imgTile;
+                Coord c;
+                if (y%2 == 0) {
+                    c = new Coord(x, y);
+                    HexTile temp = tiles.get(c);
+                    imgTile = new ImageView(returnTileImage(temp.getType()));
+                }
+                else {
+                    c = new Coord(x + 0.5, y);
+                    HexTile temp = tiles.get(c);
+                    imgTile = new ImageView(returnTileImage(temp.getType()));
+                }
+//                ImageView imgTile = new ImageView(returnTileImage( "w"));
                 imgTile.setX(xCoord);
                 imgTile.setY(yCoord-10);
                 imgTile.setFitHeight(40);
@@ -347,20 +342,33 @@ public class MainSceneController {
                 //////rectangle code
                 //have an if statement checking if there's a settlement here from the player
                 //eg.    if(coord.hasSettlement) do this,
-                Rectangle setTile = new Rectangle();
-                setTile.setX(xCoord + 7);
-                setTile.setY(yCoord + 2);
-                setTile.setWidth(25);
-                setTile.setHeight(15);
+                if (tiles.get(c).getOccupancy() != null) {
+                    Rectangle setTile = new Rectangle();
+                    setTile.setX(xCoord + 7);
+                    setTile.setY(yCoord + 2);
+                    setTile.setWidth(25);
+                    setTile.setHeight(15);
 
-                //player color goes here
-                //Player player = player.getWhoeverPlacedIt
-                //setTile.setFill(player.getColor().getColorHex);
-                //getColorHex will return the Color variable for the setFill
-                //default is pink ->setTile.setFill(Color.PINK);
+                    //player color goes here
+                    //Player player = player.getWhoeverPlacedIt
+//                    setTile.setFill(player.getColor().getColorHex);
+                    String color = tiles.get(c).getOccupancy().getColor();
+                    switch(color) {
+                        case "red": setTile.setFill(Color.RED);
+                        case "yellow": setTile.setFill(Color.YELLOW);
+                        case "orange": setTile.setFill(Color.ORANGE);
+                        case "green": setTile.setFill(Color.DARKGREEN);
+                        case "blue": setTile.setFill(Color.BLUEVIOLET);
+                        case "purple": setTile.setFill(Color.PURPLE);
+                    }
+//                    setTile.setFill(tiles.get(c).getOccupancy().getColor().getColorHex());
+                    //getColorHex will return the Color variable for the setFill
+                    //default is pink ->setTile.setFill(Color.PINK);
 
 
-                setMap.getChildren().add(setTile);
+                    setMap.getChildren().add(setTile);
+                }
+
 
 
                 //setColor should corrsepond to player's color
@@ -435,6 +443,8 @@ public class MainSceneController {
             temp = new Image(getClass().getResource("images/MeadowCard.jpg").toExternalForm());
         else if (str.equals("s"))
             temp = new Image(getClass().getResource("images/ForestCard.jpg").toExternalForm());
+        else if (str.equals("ResourceCardBack"))
+            temp = new Image(getClass().getResource("images/ResourceCardBack.jpg").toExternalForm());
         else
             return temp;
         return temp;

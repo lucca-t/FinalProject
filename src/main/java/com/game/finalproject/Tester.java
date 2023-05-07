@@ -27,7 +27,8 @@ public class Tester {
         //printing out the HashMap of tiles and retreiving through the KingdomBuilderMain class
         KingdomBuilderMain game = new KingdomBuilderMain();
         System.out.println(game.getBoard().getTiles().toString());
-        System.out.println(game.getBoard().getTiles().get(c).toString());
+        Coord j = new Coord(0.5, 1);
+        System.out.println(game.getBoard().getTiles().get(j).toString());
         //random assignment of terrain
         ArrayList<Player> players = game.getPlayers();
         for (int t = 0; t < 4; t++) {
