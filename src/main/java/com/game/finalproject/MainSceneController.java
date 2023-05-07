@@ -223,7 +223,7 @@ public class MainSceneController {
         private final static int WINDOW_WIDTH = 800;
         private final static int WINDOW_HEIGHT = 600;
 
-        Tile(double x, double y) {
+        Tile(double x, double y,int xcoord,int ycoord,KingdomBuilderMain game) {
             // creates the polygon using the corner coordinates
             getPoints().addAll(/*
                     x, y,
@@ -246,12 +246,34 @@ public class MainSceneController {
             setStrokeWidth(1);
             setStroke(Color.BLACK);
             setOnMouseClicked(e -> {
-                System.out.println("Clicked: " + this);
+                System.out.println("Clicked: " + xcoord +" "+ycoord);
                 //placing method will go here
+
+                    Coord c;
+
+                    if (ycoord% 2 == 0) {
+                        c = new Coord(xcoord, ycoord);
+                        HexTile temp = game.getBoard().getTiles().get(c);
+                        if(temp.getOccupancy()==null){
+                            temp.setOccupancy(players.get(turnNum));
+                            System.out.println("added settle at:"+xcoord+ " "+ycoord);
+                        }
+                    } else {
+                        c = new Coord(x + 0.5, y);
+                        HexTile temp = game.getBoard().getTiles().get(c);
+                        if(temp.getOccupancy()==null){
+                            temp.setOccupancy(players.get(turnNum));
+                            System.out.println("added settle at:"+xcoord+ " "+ycoord);
+                        }
+                    }
+
+
+
+
 
 
             });
-            setOpacity(.5);
+            setOpacity(.000001);
             //setFill(Color.TRANSPARENT);
 
             //could add mouselistener for highlighting maybe
@@ -280,11 +302,7 @@ public class MainSceneController {
             tileHold.setVisible(true);*/
             ImageView imgTile = new ImageView(returnTileImage( "w"));
             String[][] tempBoard = game.getBoard().getBoardArr();
-
             //bypass the weird stuff by just getting the tile form the board arr
-
-
-
             imgTile.setX(x);
             imgTile.setY(y-10);
             imgTile.setFitHeight(40);
@@ -319,6 +337,8 @@ public class MainSceneController {
         int yStartOffset = 10; // offsets the entire field downwards
         for (double x = 0; x < tilesPerRow; x++) {
             for (double y = 0; y < rowCount; y++) {
+                int xint= (int)Math.round(x);
+                int yint= (int)Math.round(y);
                 double xCoord = x * TILE_WIDTH + (y % 2) * n + xStartOffset;
                 double yCoord = y * TILE_HEIGHT * 0.75 + yStartOffset;
                 //ImageView imgTile = new ImgTile(xCoord,yCoord);
@@ -378,7 +398,7 @@ public class MainSceneController {
 
                 imageMap.getChildren().add(imgTile);
                 //adds created tiles to anchor-pane and creates them
-                Polygon tile = new Tile(xCoord, yCoord);
+                Polygon tile = new Tile(xCoord, yCoord,xint,yint,game);
                 tileMap.getChildren().add(tile);
             }
         }
