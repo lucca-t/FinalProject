@@ -63,7 +63,7 @@ public class Player {
         return occupiedTiles;
     }
 
-    private Color getColorHex(){
+    Color getColorHex(){
         Color color= Color.BEIGE;
 
         if(getColor().equals("red"))

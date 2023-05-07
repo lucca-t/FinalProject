@@ -251,7 +251,9 @@ public class MainSceneController {
 
 
             });
-            setOpacity(.01);
+            setOpacity(.5);
+            //setFill(Color.TRANSPARENT);
+
             //could add mouselistener for highlighting maybe
             //highlighting would work by turning the opacity up and it could change how it looks
             //opacity and color could be turned to gray to gray out the stuff
@@ -314,7 +316,7 @@ public class MainSceneController {
         int rowCount = 20; // how many rows of tiles should be created
         int tilesPerRow = 20; // the amount of tiles that are contained in each row
         int xStartOffset = 40; // offsets the entire field to the right
-        int yStartOffset = 40; // offsets the entire field downwards
+        int yStartOffset = 10; // offsets the entire field downwards
         for (double x = 0; x < tilesPerRow; x++) {
             for (double y = 0; y < rowCount; y++) {
                 double xCoord = x * TILE_WIDTH + (y % 2) * n + xStartOffset;
@@ -353,6 +355,7 @@ public class MainSceneController {
                     //Player player = player.getWhoeverPlacedIt
 //                    setTile.setFill(player.getColor().getColorHex);
                     String color = tiles.get(c).getOccupancy().getColor();
+                   // setTile.setFill(tiles.get(c).getOccupancy().getColorHex()); <-this would prolly be more efficient imo
                     switch(color) {
                         case "red": setTile.setFill(Color.RED);
                         case "yellow": setTile.setFill(Color.YELLOW);
@@ -389,9 +392,9 @@ public class MainSceneController {
             for(int y=0;y<2;y++){
                 int tempInt = x+y;
                 //count++;
-                if(tempInt<game.getPlayers().get(turnNum).getActions().size()-1) {
+                //if(tempInt<game.getPlayers().get(turnNum).getActions().size()-1) {
                     //if statement to prevent it from going out of bounds idk
-                    String tempTile = game.getPlayers().get(turnNum).getActions().get(tempInt).getType();
+                    String tempTile = game.getPlayers().get(turnNum).getActions().get(0).getType();
                     Image temp = returnTileImage(tempTile);
                     ImageView viewTemp = new ImageView(temp);
                     viewTemp.setFitWidth(70);
@@ -399,7 +402,7 @@ public class MainSceneController {
                     viewTemp.setVisible(true);
                     actionGrid.add(viewTemp, x, y);
                     actionGrid.setVisible(true);
-                }
+                //}
                 //count++;
 
 

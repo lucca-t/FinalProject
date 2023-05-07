@@ -39,7 +39,7 @@ public class startScreenController {
     void startButtonPressed(MouseEvent event)throws Exception{
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainScene.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1351, 760);
+        Scene scene = new Scene(fxmlLoader.load(), 1351, 720);
         Stage stage = (Stage) startButton.getScene().getWindow();
         stage.setScene(scene);
 

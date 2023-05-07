@@ -11,7 +11,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("start-screen.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1351, 760);
+        Scene scene = new Scene(fxmlLoader.load(), 1351, 720);
         stage.setTitle("Kingdom Builder Game");
         stage.setScene(scene);
         stage.show();
