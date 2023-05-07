@@ -257,14 +257,18 @@ public class MainSceneController {
                         if(temp.getOccupancy()==null){
                             temp.setOccupancy(players.get(turnNum));
                             System.out.println("added settle at:"+xcoord+ " "+ycoord);
+                            drawTheBoards();
+                            drawPlayerInfo(0);
                         }
                     } else {
-                        c = new Coord(x + 0.5, y);
+                        c = new Coord(xcoord + 0.5, ycoord);
                         HexTile temp = game.getBoard().getTiles().get(c);
                         if(temp.getOccupancy()==null){
                             temp.setOccupancy(players.get(turnNum));
                             System.out.println("added settle at:"+xcoord+ " "+ycoord);
                         }
+                        drawTheBoards();
+                        drawPlayerInfo(0);
                     }
 
 
