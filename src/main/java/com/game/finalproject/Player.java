@@ -1,5 +1,7 @@
 package com.game.finalproject;
 
+import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 
 public class Player {
@@ -9,7 +11,8 @@ public class Player {
     private ArrayList<Action> actions;
     private ArrayList<Coord> occupiedTiles;
     private Card terrain;
-
+    private int turnSettlePlaced;
+    private ArrayList<Coord> choiceHex;
     public Player(String col){
         points = 0;
         settlements = 40;
@@ -17,6 +20,8 @@ public class Player {
         actions = new ArrayList<Action>();
         terrain = null;
         occupiedTiles = new ArrayList<Coord>();
+        turnSettlePlaced=3;
+        choiceHex = new ArrayList<Coord>();
     }
     public void setScore(int pnt){
         points = pnt;
@@ -60,4 +65,53 @@ public class Player {
     public ArrayList<Coord> getOccupiedTiles() {
         return occupiedTiles;
     }
+
+    public void addChoiceHex(Coord c) {
+        choiceHex.add(c);
+    }
+
+    public ArrayList<Coord> getChoiceHexes() {
+        return choiceHex;
+    }
+
+    public void clearChoiceHexes() {
+        choiceHex.clear();
+    }
+
+    Color getColorHex(){
+        Color color= Color.BEIGE;
+
+        if(getColor().equals("red"))
+            color= Color.valueOf("#ff0000");
+        else if(getColor().equals("purple"))
+            color= Color.valueOf("#9d1cff");
+        else if(getColor().equals("pink"))
+            color= Color.valueOf("#ff6fd6");
+        else if(getColor().equals("orange"))
+            color= Color.valueOf("#ff6600");
+
+        return color;
+    }
+
+    public boolean equals(Object o) {
+        Player p = (Player)(o);
+        if (p.getColor().equals(settlementColor)) {
+            return true;
+        }
+        return false;
+    }
+    public int getTSPlaced(){
+        return turnSettlePlaced;
+    }
+    public void decTSPlaced(){
+        turnSettlePlaced--;
+    }
+    public void incTSPlaced(){
+        turnSettlePlaced++;
+    }
+    //red "#ff0000"
+//purple "#9d1cff"
+//pink "#ff6fd6"
+//orange "#ff6600"
+
 }

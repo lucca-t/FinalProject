@@ -17,6 +17,8 @@ public class HexTile {
         checked = false;
         counted = false;
         touched = false;
+
+
     }
     public void setOccupancy(Player p) {occupant = p;}
 
