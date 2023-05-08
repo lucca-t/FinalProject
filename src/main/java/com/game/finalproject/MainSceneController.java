@@ -252,89 +252,39 @@ public class MainSceneController {
             setOnMouseClicked(e -> {
                 System.out.println("Clicked: " + xcoord +" "+ycoord);
                 //placing method will go here
-
-                    Coord c;
-                    Player pTemp = game.getPlayers().get(turnNum);
-                    if (game.getTurnPlayer().getActions().size() == 0) {
-                        if (ycoord % 2 == 0) {
-                            c = new Coord(xcoord, ycoord);
-                            HexTile temp = game.getBoard().getTiles().get(c);
-
-//                        if(temp.getOccupancy()==null&&temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType())&&pTemp.getTSPlaced()>0)
-//                        for (int i = 0; i < game.getTurnPlayer().getActions().size(); i++) {
-                            if (game.checkValidPlacement(c, game.getTurnPlayer(), "")) {
-//                                temp.setOccupancy(players.get(turnNum));
-                                game.getTurnPlayer().addChoiceHex(c);
-                                System.out.println("added settle at:" + xcoord + " " + ycoord);
-                                //drawTheBoards();
-                                game.getPlayers().get(turnNum).decSettlements(1);
-//                            game.getPlayers().get(turnNum).addSettlementTile(c);
-                                drawTheBoards();
-                                drawPlayerInfo(game.getTurnNum());
-                                game.getPlayers().get(turnNum).decTSPlaced();
-                            }
-                            else if (!(game.checkValidPlacement(c, game.getTurnPlayer(), ""))) {
-                                System.out.println("invalid placement");
-                            }
-                        } else {
-                            c = new Coord(xcoord + 0.5, ycoord);
-                            HexTile temp = game.getBoard().getTiles().get(c);
-//                        if (temp.getOccupancy() == null && temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType()) && pTemp.getTSPlaced() > 0)
-                            if (game.checkValidPlacement(c, game.getTurnPlayer(), "")) {
-                                temp.setOccupancy(players.get(turnNum));
-                                System.out.println("added settle at:" + xcoord + " " + ycoord);
-                                game.getPlayers().get(turnNum).decSettlements(1);
-//                            game.getPlayers().get(turnNum).addSettlementTile(c);
-                                game.getPlayers().get(turnNum).decTSPlaced();
-                            }
-                            else if (!(game.checkValidPlacement(c, game.getTurnPlayer(), ""))) {
-                                System.out.println("invalid placement");
-                            }
-                            drawTheBoards();
-                            drawPlayerInfo(game.getTurnNum());
-//                        drawTheBoards();
-                        }
+                Coord c;
+                Player pTemp = game.getTurnPlayer();
+                if (ycoord% 2 == 0) {
+                    c = new Coord(xcoord, ycoord);
+                    HexTile temp = game.getBoard().getTiles().get(c);
+                                                                                                if(temp.getOccupancy()==null&&temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType())&&pTemp.getTSPlaced()>0){
+                    //if(game.checkValidPlacement(c,game.getPlayers().get(turnNum),"")){
+                        temp.setOccupancy(players.get(turnNum));
+                        System.out.println("added settle at:"+xcoord+ " "+ycoord);
+                        game.getPlayers().get(turnNum).decSettlements(1);
+                        game.getPlayers().get(turnNum).addSettlementTile(c);
+                        quickDrawBoards();
+                        drawPlayerInfo(game.getTurnNum());
+                        game.getPlayers().get(turnNum).decTSPlaced();
                     }
-                    else {
-                        for (int i = 0; i < game.getTurnPlayer().getActions().size(); i++) {
-                            if (ycoord % 2 == 0) {
-                                c = new Coord(xcoord, ycoord);
-                                HexTile temp = game.getBoard().getTiles().get(c);
+                    //else {System.out.println("invalid or wtv");}
 
-//                        if(temp.getOccupancy()==null&&temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType())&&pTemp.getTSPlaced()>0)
-//                        for (int i = 0; i < game.getTurnPlayer().getActions().size(); i++) {
-                                if (game.checkValidPlacement(c, game.getTurnPlayer(), game.getTurnPlayer().getActions().get(i).getType())) {
-//                                temp.setOccupancy(players.get(turnNum));
-                                    game.getTurnPlayer().addChoiceHex(c);
-                                    System.out.println("added settle at:" + xcoord + " " + ycoord);
-                                    //drawTheBoards();
-                                    game.getPlayers().get(turnNum).decSettlements(1);
-//                            game.getPlayers().get(turnNum).addSettlementTile(c);
-                                    drawTheBoards();
-                                    drawPlayerInfo(game.getTurnNum());
-                                    game.getPlayers().get(turnNum).decTSPlaced();
-                                } else if (!(game.checkValidPlacement(c, game.getTurnPlayer(), game.getTurnPlayer().getActions().get(i).getType()))) {
-                                    System.out.println("invalid placement");
-                                }
-                            } else {
-                                c = new Coord(xcoord + 0.5, ycoord);
-                                HexTile temp = game.getBoard().getTiles().get(c);
-//                        if (temp.getOccupancy() == null && temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType()) && pTemp.getTSPlaced() > 0)
-                                if (game.checkValidPlacement(c, game.getTurnPlayer(), game.getTurnPlayer().getActions().get(i).getType())) {
-                                    temp.setOccupancy(players.get(turnNum));
-                                    System.out.println("added settle at:" + xcoord + " " + ycoord);
-                                    game.getPlayers().get(turnNum).decSettlements(1);
-//                            game.getPlayers().get(turnNum).addSettlementTile(c);
-                                    game.getPlayers().get(turnNum).decTSPlaced();
-                                } else if (!(game.checkValidPlacement(c, game.getTurnPlayer(), game.getTurnPlayer().getActions().get(i).getType()))) {
-                                    System.out.println("invalid placement");
-                                }
-                                drawTheBoards();
-                                drawPlayerInfo(game.getTurnNum());
-//                        drawTheBoards();
-                            }
-                        }
+                }
+                else {
+                    c = new Coord(xcoord + 0.5, ycoord);
+                    HexTile temp = game.getBoard().getTiles().get(c);
+                                                                                                if(temp.getOccupancy()==null&&temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType())&&pTemp.getTSPlaced()>0){
+                    //if(game.checkValidPlacement(c,game.getPlayers().get(turnNum),"")){
+                        temp.setOccupancy(players.get(turnNum));
+                        System.out.println("added settle at:"+xcoord+ " "+ycoord);
+                        game.getPlayers().get(turnNum).decSettlements(1);
+                        game.getPlayers().get(turnNum).addSettlementTile(c);
+                        game.getPlayers().get(turnNum).decTSPlaced();
                     }
+                    drawPlayerInfo(game.getTurnNum());
+                    quickDrawBoards();
+                }
+
 
             });
             setOpacity(.000001);
@@ -719,3 +669,103 @@ public class MainSceneController {
 //pink "#ff6fd6"
 //orange "#ff6600"
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////ii moved this whole thing i hate it
+/* Coord c;
+                    Player pTemp = game.getPlayers().get(turnNum);
+                    if (game.getTurnPlayer().getActions().size() == 0) {
+                        if (ycoord % 2 == 0) {
+                            c = new Coord(xcoord, ycoord);
+                            HexTile temp = game.getBoard().getTiles().get(c);
+
+//                        if(temp.getOccupancy()==null&&temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType())&&pTemp.getTSPlaced()>0)
+//                        for (int i = 0; i < game.getTurnPlayer().getActions().size(); i++) {
+                            if (game.checkValidPlacement(c, game.getTurnPlayer(), "")) {
+//                                temp.setOccupancy(players.get(turnNum));
+                                game.getTurnPlayer().addChoiceHex(c);
+                                System.out.println("added settle at:" + xcoord + " " + ycoord);
+                                //drawTheBoards();
+                                game.getPlayers().get(turnNum).decSettlements(1);
+//                            game.getPlayers().get(turnNum).addSettlementTile(c);
+                                drawTheBoards();
+                                drawPlayerInfo(game.getTurnNum());
+                                game.getPlayers().get(turnNum).decTSPlaced();
+                            }
+                            else if (!(game.checkValidPlacement(c, game.getTurnPlayer(), ""))) {
+                                System.out.println("invalid placement");
+                            }
+                        } else {
+                            c = new Coord(xcoord + 0.5, ycoord);
+                            HexTile temp = game.getBoard().getTiles().get(c);
+//                        if (temp.getOccupancy() == null && temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType()) && pTemp.getTSPlaced() > 0)
+                            if (game.checkValidPlacement(c, game.getTurnPlayer(), "")) {
+                                temp.setOccupancy(players.get(turnNum));
+                                System.out.println("added settle at:" + xcoord + " " + ycoord);
+                                game.getPlayers().get(turnNum).decSettlements(1);
+//                            game.getPlayers().get(turnNum).addSettlementTile(c);
+                                game.getPlayers().get(turnNum).decTSPlaced();
+                            }
+                            else if (!(game.checkValidPlacement(c, game.getTurnPlayer(), ""))) {
+                                System.out.println("invalid placement");
+                            }
+                            drawTheBoards();
+                            drawPlayerInfo(game.getTurnNum());
+//                        drawTheBoards();
+                        }
+                    }
+                    else {
+                        for (int i = 0; i < game.getTurnPlayer().getActions().size(); i++) {
+                            if (ycoord % 2 == 0) {
+                                c = new Coord(xcoord, ycoord);
+                                HexTile temp = game.getBoard().getTiles().get(c);
+
+//                        if(temp.getOccupancy()==null&&temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType())&&pTemp.getTSPlaced()>0)
+//                        for (int i = 0; i < game.getTurnPlayer().getActions().size(); i++) {
+                                if (game.checkValidPlacement(c, game.getTurnPlayer(), game.getTurnPlayer().getActions().get(i).getType())) {
+//                                temp.setOccupancy(players.get(turnNum));
+                                    game.getTurnPlayer().addChoiceHex(c);
+                                    System.out.println("added settle at:" + xcoord + " " + ycoord);
+                                    //drawTheBoards();
+                                    game.getPlayers().get(turnNum).decSettlements(1);
+//                            game.getPlayers().get(turnNum).addSettlementTile(c);
+                                    drawTheBoards();
+                                    drawPlayerInfo(game.getTurnNum());
+                                    game.getPlayers().get(turnNum).decTSPlaced();
+                                } else if (!(game.checkValidPlacement(c, game.getTurnPlayer(), game.getTurnPlayer().getActions().get(i).getType()))) {
+                                    System.out.println("invalid placement");
+                                }
+                            } else {
+                                c = new Coord(xcoord + 0.5, ycoord);
+                                HexTile temp = game.getBoard().getTiles().get(c);
+//                        if (temp.getOccupancy() == null && temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType()) && pTemp.getTSPlaced() > 0)
+                                if (game.checkValidPlacement(c, game.getTurnPlayer(), game.getTurnPlayer().getActions().get(i).getType())) {
+                                    temp.setOccupancy(players.get(turnNum));
+                                    System.out.println("added settle at:" + xcoord + " " + ycoord);
+                                    game.getPlayers().get(turnNum).decSettlements(1);
+//                            game.getPlayers().get(turnNum).addSettlementTile(c);
+                                    game.getPlayers().get(turnNum).decTSPlaced();
+                                } else if (!(game.checkValidPlacement(c, game.getTurnPlayer(), game.getTurnPlayer().getActions().get(i).getType()))) {
+                                    System.out.println("invalid placement");
+                                }
+                                drawTheBoards();
+                                drawPlayerInfo(game.getTurnNum());
+//                        drawTheBoards();
+                            }
+                        }
+                    }*/
