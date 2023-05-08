@@ -12,6 +12,7 @@ public class Player {
     private ArrayList<Coord> occupiedTiles;
     private Card terrain;
     private int turnSettlePlaced;
+    private ArrayList<Coord> choiceHex;
     public Player(String col){
         points = 0;
         settlements = 40;
@@ -20,6 +21,7 @@ public class Player {
         terrain = null;
         occupiedTiles = new ArrayList<Coord>();
         turnSettlePlaced=3;
+        choiceHex = new ArrayList<Coord>();
     }
     public void setScore(int pnt){
         points = pnt;
@@ -62,6 +64,18 @@ public class Player {
     }
     public ArrayList<Coord> getOccupiedTiles() {
         return occupiedTiles;
+    }
+
+    public void addChoiceHex(Coord c) {
+        choiceHex.add(c);
+    }
+
+    public ArrayList<Coord> getChoiceHexes() {
+        return choiceHex;
+    }
+
+    public void clearChoiceHexes() {
+        choiceHex.clear();
     }
 
     Color getColorHex(){

@@ -162,6 +162,7 @@ public class KingdomBuilderMain {
         }
         players.get(turn).setTerrain(null);
         turn++;
+        turn = turn%4;
         if (terrains.size() == 0) {
             resetTerrainDeck();
         }
@@ -169,7 +170,6 @@ public class KingdomBuilderMain {
         players.get(turn).setTerrain(terrains.get(choiceTerrain));
         terrains.remove(choiceTerrain);
         players.get(turn).getTerrain().setVisibility(true);
-        turn = turn%4;
     }
     public void endGame(){
         end = true;
@@ -225,152 +225,166 @@ public class KingdomBuilderMain {
 
     public boolean checkValidPlacement(Coord sC, Player p, String act){
         String terrainTypes = board.getTiles().get(sC).getType();
-        if(!board.getTiles().get(sC).getOccupancy().equals(null)){
+        if(!(board.getTiles().get(sC).getOccupancy() == null)){
             return false;
         }
-        if (terrainTypes.equals("m")) {
-            return false;
-        }
-        if (terrainTypes.equals("w") && !act.equals("Harbor")) {
-            return false;
-        }
-        if(act.equals("")){
-            boolean occ = false;
-            if(!terrainTypes.equals(players.get(turn).getTerrain())) {
+        else {
+            if (terrainTypes.equals("m")) {
                 return false;
             }
-            for(int i = 0; i < p.getOccupiedTiles().size(); i++){
-                if(board.getTiles().get(p.getOccupiedTiles().get(i)).getType().equals(terrainTypes)){
-                    occ = true;
-                }
+            if (terrainTypes.equals("w") && !act.equals("Harbor")) {
+                return false;
             }
-            if(!occ){
-                return true;
-            }
-            if((!(sC.getX() == (0.0))) || (!(sC.getX() == (19.0))) || (!(sC.getX() == (19.5))) || (!(sC.getX() == (0.5)))){
-                if((!(sC.getY() == (0.0))) || (!(sC.getY() == (19.0)))){
-                    for(int i = 0 ; i < findAdjacencies(sC).size(); i++){
-                        if(board.getTiles().get(findAdjacencies(sC).get(i)).getOccupancy().equals(p)){
-                            return true;
-                        }
-                    }
+            if(act.equals("")){
+                boolean occ = false;
+                if(!terrainTypes.equals(players.get(turn).getTerrain())) {
                     return false;
                 }
-            }
-            for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
-                if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
+                for(int i = 0; i < p.getOccupiedTiles().size(); i++){
+                    if(board.getTiles().get(p.getOccupiedTiles().get(i)).getType().equals(terrainTypes)){
+                        occ = true;
+                    }
+                }
+                if(!occ){
                     return true;
                 }
-            }
-            return false;
-        }
-        if(act.equals("Farm")){
-            if(!terrainTypes.equals("g")){
+                if((!(sC.getX() == (0.0))) || (!(sC.getX() == (19.0))) || (!(sC.getX() == (19.5))) || (!(sC.getX() == (0.5)))){
+                    if((!(sC.getY() == (0.0))) || (!(sC.getY() == (19.0)))){
+                        for(int i = 0 ; i < findAdjacencies(sC).size(); i++){
+                            if(board.getTiles().get(findAdjacencies(sC).get(i)).getOccupancy().equals(p)){
+                                return true;
+                            }
+                        }
+                        return false;
+                    }
+                }
+                for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
+                    if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
+                        return true;
+                    }
+                }
                 return false;
             }
-            boolean occ = false;
-            for(int i = 0; i < p.getOccupiedTiles().size(); i++){
-                if(board.getTiles().get(p.getOccupiedTiles().get(i)).getType().equals("g")){
-                    if((!(sC.getX() == (0.0))) || (!(sC.getX() == (19.0))) || (!(sC.getX() == (19.5))) || (!(sC.getX() == (0.5)))){
-                        if((!(sC.getY() == (0.0))) || (!(sC.getY() == (19.0)))){
-                            for(int k = 0; k < findAdjacencies(sC).size(); k++){
-                                if(board.getTiles().get(findAdjacencies(sC).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacencies(sC).get(k)).getType().equals("g")){
+            if(act.equals("Farm")){
+                if(!terrainTypes.equals("g")){
+                    return false;
+                }
+                boolean occ = false;
+                for(int i = 0; i < p.getOccupiedTiles().size(); i++){
+                    if(board.getTiles().get(p.getOccupiedTiles().get(i)).getType().equals("g")){
+                        if((!(sC.getX() == (0.0))) || (!(sC.getX() == (19.0))) || (!(sC.getX() == (19.5))) || (!(sC.getX() == (0.5)))){
+                            if((!(sC.getY() == (0.0))) || (!(sC.getY() == (19.0)))){
+                                for(int k = 0; k < findAdjacencies(sC).size(); k++){
+                                    if(board.getTiles().get(findAdjacencies(sC).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacencies(sC).get(k)).getType().equals("g")){
+                                        occ = true;
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(int k = 0; k < findAdjacenciesEdge(sC).size(); k++){
+                                if(board.getTiles().get(findAdjacenciesEdge(sC).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacenciesEdge(sC).get(k)).getType().equals("g")){
                                     occ = true;
                                 }
                             }
                         }
                     }
-                    else{
-                        for(int k = 0; k < findAdjacenciesEdge(sC).size(); k++){
-                            if(board.getTiles().get(findAdjacenciesEdge(sC).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacenciesEdge(sC).get(k)).getType().equals("g")){
-                                occ = true;
-                            }
-                        }
-                    }
                 }
-            }
-            if(!occ){
-                return true;
-            }
-            if((!(sC.getX() == (0.0))) || (!(sC.getX() == (19.0))) || (!(sC.getX() == (19.5))) || (!(sC.getX() == (0.5)))){
-                if((!(sC.getY() == (0.0))) || (!(sC.getY() == (19.0)))){
-                    for(int i = 0 ; i < findAdjacencies(sC).size(); i++){
-                        if(board.getTiles().get(findAdjacencies(sC).get(i)).getOccupancy().equals(p)){
-                            return true;
-                        }
-                    }
-                    return false;
-                }
-            }
-            for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
-                if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
+                if(!occ){
                     return true;
                 }
-            }
-            return false;
+                if((!(sC.getX() == (0.0))) || (!(sC.getX() == (19.0))) || (!(sC.getX() == (19.5))) || (!(sC.getX() == (0.5)))){
+                    if((!(sC.getY() == (0.0))) || (!(sC.getY() == (19.0)))){
+                        for(int i = 0 ; i < findAdjacencies(sC).size(); i++){
+                            if(board.getTiles().get(findAdjacencies(sC).get(i)).getOccupancy().equals(p)){
+                                return true;
+                            }
+                        }
+                        return false;
+                    }
+                }
+                for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
+                    if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
+                        return true;
+                    }
+                }
+                return false;
 
-        }
-        if(act.equals("Oasis")){
-            if(!terrainTypes.equals("s")){
-                return false;
             }
-            boolean occ = false;
-            for(int i = 0; i < p.getOccupiedTiles().size(); i++){
-                if(board.getTiles().get(p.getOccupiedTiles().get(i)).getType().equals("s")){
-                    if((!(sC.getX() == (0.0))) || (!(sC.getX() == (19.0))) || (!(sC.getX() == (19.5))) || (!(sC.getX() == (0.5)))){
-                        if((!(sC.getY() == (0.0))) || (!(sC.getY() == (19.0)))){
-                            for(int k = 0; k < findAdjacencies(sC).size(); k++){
-                                if(board.getTiles().get(findAdjacencies(sC).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacencies(sC).get(k)).getType().equals("s")){
+            if(act.equals("Oasis")){
+                if(!terrainTypes.equals("s")){
+                    return false;
+                }
+                boolean occ = false;
+                for(int i = 0; i < p.getOccupiedTiles().size(); i++){
+                    if(board.getTiles().get(p.getOccupiedTiles().get(i)).getType().equals("s")){
+                        if((!(sC.getX() == (0.0))) || (!(sC.getX() == (19.0))) || (!(sC.getX() == (19.5))) || (!(sC.getX() == (0.5)))){
+                            if((!(sC.getY() == (0.0))) || (!(sC.getY() == (19.0)))){
+                                for(int k = 0; k < findAdjacencies(sC).size(); k++){
+                                    if(board.getTiles().get(findAdjacencies(sC).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacencies(sC).get(k)).getType().equals("s")){
+                                        occ = true;
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            for(int k = 0; k < findAdjacenciesEdge(sC).size(); k++){
+                                if(board.getTiles().get(findAdjacenciesEdge(sC).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacenciesEdge(sC).get(k)).getType().equals("s")){
                                     occ = true;
                                 }
                             }
                         }
                     }
-                    else{
-                        for(int k = 0; k < findAdjacenciesEdge(sC).size(); k++){
-                            if(board.getTiles().get(findAdjacenciesEdge(sC).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacenciesEdge(sC).get(k)).getType().equals("s")){
-                                occ = true;
+                }
+                if(!occ){
+                    return true;
+                }
+                if((!(sC.getX() == (0.0))) || (!(sC.getX() == (19.0))) || (!(sC.getX() == (19.5))) || (!(sC.getX() == (0.5)))){
+                    if((!(sC.getY() == (0.0))) || (!(sC.getY() == (19.0)))){
+                        for(int i = 0 ; i < findAdjacencies(sC).size(); i++){
+                            if(board.getTiles().get(findAdjacencies(sC).get(i)).getOccupancy().equals(p)){
+                                return true;
+                            }
+                        }
+                        return false;
+                    }
+                }
+                for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
+                    if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
+                        return true;
+                    }
+                }
+                return false;
+            }
+            if(act.equals("Tower")){
+                if((!(sC.getX() == (0.0))) || (!(sC.getX() == (19.0))) || (!(sC.getX() == (19.5))) || (!(sC.getX() == (0.5)))){
+                    if((!(sC.getY() == (0.0))) || (!(sC.getY() == (19.0)))){
+                        return false;
+                    }
+                }
+                boolean occ = false;
+                ArrayList<Coord> available = new ArrayList<>();
+                for(int i = 0; i < p.getOccupiedTiles().size(); i++){
+                    if((!(p.getOccupiedTiles().get(i).getX() == (0.0))) || (!(p.getOccupiedTiles().get(i).getX() == (19.0))) || (!(p.getOccupiedTiles().get(i).getX() == (19.5))) || (!(sC.getX() == (0.5)))){
+                        if((!(p.getOccupiedTiles().get(i).getY() == (0.0))) || (!(p.getOccupiedTiles().get(i).getY() == (19.0)))){
+                            for(int k = 0; k < findAdjacencies(p.getOccupiedTiles().get(i)).size(); k++){
+                                if(findAdjacencies(p.getOccupiedTiles().get(i)).get(k).getX() == (0.0) || findAdjacencies(p.getOccupiedTiles().get(i)).get(k).getX() == (19.0) || findAdjacencies(p.getOccupiedTiles().get(i)).get(k).getX() == (19.5) || findAdjacencies(p.getOccupiedTiles().get(i)).get(k).getX() == (0.5)){
+                                    if(findAdjacencies(p.getOccupiedTiles().get(i)).get(k).getY() == (0.0) || findAdjacencies(p.getOccupiedTiles().get(i)).get(k).getY() == (19.0)){
+                                        occ = true;
+                                        if(board.getTiles().get(findAdjacencies(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null){
+                                            available.add(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k));
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
-                }
-            }
-            if(!occ){
-                return true;
-            }
-            if((!(sC.getX() == (0.0))) || (!(sC.getX() == (19.0))) || (!(sC.getX() == (19.5))) || (!(sC.getX() == (0.5)))){
-                if((!(sC.getY() == (0.0))) || (!(sC.getY() == (19.0)))){
-                    for(int i = 0 ; i < findAdjacencies(sC).size(); i++){
-                        if(board.getTiles().get(findAdjacencies(sC).get(i)).getOccupancy().equals(p)){
-                            return true;
-                        }
-                    }
-                    return false;
-                }
-            }
-            for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
-                if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
-                    return true;
-                }
-            }
-            return false;
-        }
-        if(act.equals("Tower")){
-            if((!(sC.getX() == (0.0))) || (!(sC.getX() == (19.0))) || (!(sC.getX() == (19.5))) || (!(sC.getX() == (0.5)))){
-                if((!(sC.getY() == (0.0))) || (!(sC.getY() == (19.0)))){
-                    return false;
-                }
-            }
-            boolean occ = false;
-            ArrayList<Coord> available = new ArrayList<>();
-            for(int i = 0; i < p.getOccupiedTiles().size(); i++){
-                if((!(p.getOccupiedTiles().get(i).getX() == (0.0))) || (!(p.getOccupiedTiles().get(i).getX() == (19.0))) || (!(p.getOccupiedTiles().get(i).getX() == (19.5))) || (!(sC.getX() == (0.5)))){
-                    if((!(p.getOccupiedTiles().get(i).getY() == (0.0))) || (!(p.getOccupiedTiles().get(i).getY() == (19.0)))){
-                        for(int k = 0; k < findAdjacencies(p.getOccupiedTiles().get(i)).size(); k++){
-                            if(findAdjacencies(p.getOccupiedTiles().get(i)).get(k).getX() == (0.0) || findAdjacencies(p.getOccupiedTiles().get(i)).get(k).getX() == (19.0) || findAdjacencies(p.getOccupiedTiles().get(i)).get(k).getX() == (19.5) || findAdjacencies(p.getOccupiedTiles().get(i)).get(k).getX() == (0.5)){
-                                if(findAdjacencies(p.getOccupiedTiles().get(i)).get(k).getY() == (0.0) || findAdjacencies(p.getOccupiedTiles().get(i)).get(k).getY() == (19.0)){
+                    else{
+                        for(int k = 0; k < findAdjacenciesEdge(p.getOccupiedTiles().get(i)).size(); k++){
+                            if(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k).getX() == (0.0) || findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k).getX() == (19.0) || findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k).getX() == (19.5)|| findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k).getX() == (0.5)){
+                                if(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k).getY() == (0.0) || findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k).getY() == (19.0)){
                                     occ = true;
-                                    if(board.getTiles().get(findAdjacencies(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null){
+                                    if(board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null){
                                         available.add(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k));
                                     }
                                 }
@@ -378,60 +392,49 @@ public class KingdomBuilderMain {
                         }
                     }
                 }
-                else{
-                    for(int k = 0; k < findAdjacenciesEdge(p.getOccupiedTiles().get(i)).size(); k++){
-                        if(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k).getX() == (0.0) || findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k).getX() == (19.0) || findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k).getX() == (19.5)|| findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k).getX() == (0.5)){
-                            if(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k).getY() == (0.0) || findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k).getY() == (19.0)){
-                                occ = true;
-                                if(board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null){
-                                    available.add(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k));
-                                }
-                            }
-                        }
+
+                if(!occ) {
+                    return true;
+                }
+                for(int i = 0; i < available.size(); i++){
+                    if(available.get(i).equals(sC)){
+                        return true;
+                    }
+                }
+                return false;
+
+            }
+            if(act.equals("Tavern")){
+                if(board.getTiles().get(new Coord(sC.getX() + 1, sC.getY())).getOccupancy().equals(p)){
+                    if(tavernHelperRight(new Coord(sC.getX() + 1, sC.getY()), p) >= 3){
+                        return true;
                     }
                 }
             }
 
-            if(!occ) {
-                return true;
-            }
-            for(int i = 0; i < available.size(); i++){
-                if(available.get(i).equals(sC)){
-                    return true;
-                }
-            }
-            return false;
-
-        }
-        if(act.equals("Tavern")){
-            if(board.getTiles().get(new Coord(sC.getX() + 1, sC.getY())).getOccupancy().equals(p)){
-                if(tavernHelperRight(new Coord(sC.getX() + 1, sC.getY()), p) >= 3){
-                    return true;
-                }
-            }
-        }
-
-        if (act.equals("Paddock")) {
+            if (act.equals("Paddock")) {
 //            HexTile[] possibilities = {((tiles.get(new Coord(sC.getX() + 1, sC.getY() + 2)))(HexTile)), };
-            ArrayList<Coord> possibleHexes = new ArrayList<Coord>();
-            Coord topRight = new Coord(sC.getX() + 1, sC.getY() + 2);
-            Coord right = new Coord(sC.getX() + 2, sC.getY());
-            Coord bottomRight = new Coord(sC.getX() + 1, sC.getY() - 2);
-            Coord bottom = new Coord(sC.getX(), sC.getY() - 2);
-            Coord bottomLeft = new Coord(sC.getX() - 1, sC.getY() - 2);
-            Coord left = new Coord(sC.getX() - 2, sC.getY());
-            Coord topLeft = new Coord(sC.getX() - 1, sC.getY() + 2);
-            possibleHexes.add(topRight);
-            possibleHexes.add(right);
-            possibleHexes.add(bottomRight);
-            possibleHexes.add(bottom);
-            possibleHexes.add(bottomLeft);
-            possibleHexes.add(left);
-            possibleHexes.add(topLeft);
-            if (possibleHexes.contains(sC)) {
+                ArrayList<Coord> possibleHexes = new ArrayList<Coord>();
+                Coord topRight = new Coord(sC.getX() + 1, sC.getY() + 2);
+                Coord right = new Coord(sC.getX() + 2, sC.getY());
+                Coord bottomRight = new Coord(sC.getX() + 1, sC.getY() - 2);
+                Coord bottom = new Coord(sC.getX(), sC.getY() - 2);
+                Coord bottomLeft = new Coord(sC.getX() - 1, sC.getY() - 2);
+                Coord left = new Coord(sC.getX() - 2, sC.getY());
+                Coord topLeft = new Coord(sC.getX() - 1, sC.getY() + 2);
+                possibleHexes.add(topRight);
+                possibleHexes.add(right);
+                possibleHexes.add(bottomRight);
+                possibleHexes.add(bottom);
+                possibleHexes.add(bottomLeft);
+                possibleHexes.add(left);
+                possibleHexes.add(topLeft);
+                if (possibleHexes.contains(sC)) {
 
+                }
             }
         }
+
 
 
         return true;

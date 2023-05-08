@@ -130,7 +130,6 @@ public class MainSceneController {
         chosenSettlements.add(c);
     }
 
-
 //    public void newRound() {
 //        for (int j = 0; j < players.size(); j++) {
 //            int choiceTerrain = (int)(Math.random()*25);
@@ -149,12 +148,18 @@ public class MainSceneController {
 //    }
 
     @FXML
-    void confirmPlace(ActionEvent event) {}
+    void confirmPlace(ActionEvent event) {
+        ArrayList<Coord> validHexes = game.getTurnPlayer().getChoiceHexes();
+        for (int i = 0; i < validHexes.size(); i++) {
+            tiles.get(validHexes.get(i)).setOccupancy(game.getTurnPlayer());
+        }
+        game.getTurnPlayer().clearChoiceHexes();
+        drawTheBoards();
+    }
 
     @FXML
     void finishTurn(ActionEvent event) {
-        //game.finishTurn();
-
+        game.nextTurn();
     }
     @FXML
     void next(ActionEvent event) {
@@ -213,7 +218,6 @@ public class MainSceneController {
         }
     }
 
-
     public class Tile extends Polygon {
 
         private final static double r = 20; // the inner radius from hexagon center to outer corner
@@ -224,7 +228,7 @@ public class MainSceneController {
         private final static int WINDOW_WIDTH = 800;
         private final static int WINDOW_HEIGHT = 600;
 
-        Tile(double x, double y,int xcoord,int ycoord,KingdomBuilderMain game) {
+        Tile(double x, double y, int xcoord, int ycoord, KingdomBuilderMain game) {
             // creates the polygon using the corner coordinates
             getPoints().addAll(/*
                     x, y,
@@ -241,7 +245,6 @@ public class MainSceneController {
                     x + n, y - r * 0.5
             );
 
-
             // set up the visuals and a click listener for the tile
             setFill(Color.ANTIQUEWHITE);
             setStrokeWidth(1);
@@ -252,39 +255,46 @@ public class MainSceneController {
 
                     Coord c;
                     Player pTemp = game.getPlayers().get(turnNum);
-                    if (ycoord% 2 == 0) {
+                for (int i = 0; i < game.getTurnPlayer().getActions().size(); i++) {
+                    if (ycoord % 2 == 0) {
                         c = new Coord(xcoord, ycoord);
                         HexTile temp = game.getBoard().getTiles().get(c);
 
-                        if(temp.getOccupancy()==null&&temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType())&&pTemp.getTSPlaced()>0){
-                            temp.setOccupancy(players.get(turnNum));
-                            System.out.println("added settle at:"+xcoord+ " "+ycoord);
+//                        if(temp.getOccupancy()==null&&temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType())&&pTemp.getTSPlaced()>0)
+//                        for (int i = 0; i < game.getTurnPlayer().getActions().size(); i++) {
+                        if (game.checkValidPlacement(c, game.getTurnPlayer(), game.getTurnPlayer().getActions().get(i).getType())) {
+//                                temp.setOccupancy(players.get(turnNum));
+                            game.getTurnPlayer().addChoiceHex(c);
+                            System.out.println("added settle at:" + xcoord + " " + ycoord);
                             //drawTheBoards();
                             game.getPlayers().get(turnNum).decSettlements(1);
-                            game.getPlayers().get(turnNum).addSettlementTile(c);
-                            quickDrawBoards();
+//                            game.getPlayers().get(turnNum).addSettlementTile(c);
+                            drawTheBoards();
                             drawPlayerInfo(game.getTurnNum());
                             game.getPlayers().get(turnNum).decTSPlaced();
+                        }
+                        else if (!(game.checkValidPlacement(c, game.getTurnPlayer(), game.getTurnPlayer().getActions().get(i).getType()))) {
+                            System.out.println("invalid placement");
                         }
                     } else {
                         c = new Coord(xcoord + 0.5, ycoord);
                         HexTile temp = game.getBoard().getTiles().get(c);
-                        if(temp.getOccupancy()==null&&temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType())&&pTemp.getTSPlaced()>0){
+//                        if (temp.getOccupancy() == null && temp.getType().equals(game.getPlayers().get(turnNum).getTerrain().getType()) && pTemp.getTSPlaced() > 0)
+                        if (game.checkValidPlacement(c, game.getTurnPlayer(), game.getTurnPlayer().getActions().get(i).getType())) {
                             temp.setOccupancy(players.get(turnNum));
-                            System.out.println("added settle at:"+xcoord+ " "+ycoord);
+                            System.out.println("added settle at:" + xcoord + " " + ycoord);
                             game.getPlayers().get(turnNum).decSettlements(1);
-                            game.getPlayers().get(turnNum).addSettlementTile(c);
+//                            game.getPlayers().get(turnNum).addSettlementTile(c);
                             game.getPlayers().get(turnNum).decTSPlaced();
                         }
-                        //drawTheBoards();
+                        else if (!(game.checkValidPlacement(c, game.getTurnPlayer(), game.getTurnPlayer().getActions().get(i).getType()))) {
+                            System.out.println("invalid placement");
+                        }
+                        drawTheBoards();
                         drawPlayerInfo(game.getTurnNum());
-                        quickDrawBoards();
+//                        drawTheBoards();
                     }
-
-
-
-
-
+                }
 
             });
             setOpacity(.000001);
@@ -322,10 +332,7 @@ public class MainSceneController {
             imgTile.setFitHeight(40);
             imgTile.setFitWidth(40);
 
-
         }
-
-
     }
     private void drawTheBoards(){
          tileMap = new AnchorPane();
@@ -390,23 +397,29 @@ public class MainSceneController {
 //                    setTile.setFill(player.getColor().getColorHex);
                     String color = tiles.get(c).getOccupancy().getColor();
                    // setTile.setFill(tiles.get(c).getOccupancy().getColorHex()); <-this would prolly be more efficient imo
-                    switch(color) {
-                        case "red": setTile.setFill(Color.RED);
-                        case "yellow": setTile.setFill(Color.YELLOW);
-                        case "orange": setTile.setFill(Color.ORANGE);
-                        case "green": setTile.setFill(Color.DARKGREEN);
-                        case "blue": setTile.setFill(Color.BLUEVIOLET);
-                        case "purple": setTile.setFill(Color.PURPLE);
-                    }
+//                    if (game.getTurnPlayer().getChoiceHexes().contains(c)) {
+//
+//                    }
+//                    else {
+                        switch(color) {
+                            case "red": setTile.setFill(Color.RED);
+                            case "yellow": setTile.setFill(Color.YELLOW);
+                            case "orange": setTile.setFill(Color.ORANGE);
+                            case "green": setTile.setFill(Color.DARKGREEN);
+                            case "blue": setTile.setFill(Color.BLUEVIOLET);
+                            case "purple": setTile.setFill(Color.PURPLE);
+                        }
+//                    }
 //                    setTile.setFill(tiles.get(c).getOccupancy().getColor().getColorHex());
                     //getColorHex will return the Color variable for the setFill
                     //default is pink ->setTile.setFill(Color.PINK);
 
-
                     setMap.getChildren().add(setTile);
                 }
-
-
+                else if (game.getTurnPlayer().getChoiceHexes().contains(c)) {
+                    Rectangle setTile = new Rectangle();
+                    setTile.setFill(Color.GREY);
+                }
 
                 //setColor should corrsepond to player's color
 
