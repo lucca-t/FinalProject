@@ -38,6 +38,8 @@ public class endScreenController {
 
 
 
+
+
         }
         void setGame(KingdomBuilderMain games){
                 game=games;
@@ -61,9 +63,14 @@ public class endScreenController {
         @FXML
         void ReturnBackButtonPressed(MouseEvent event) throws IOException {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainScene.fxml"));
+
+
                 Scene scene = new Scene(fxmlLoader.load(), 1351, 720);
                 Stage stage = (Stage) returnBack.getScene().getWindow();
                 stage.setScene(scene);
+
+
+
         }
 
         @FXML

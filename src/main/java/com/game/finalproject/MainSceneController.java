@@ -134,7 +134,7 @@ public class MainSceneController {
         game.endGame();
     }
     public void goEnd() throws IOException {
-        if(game.getEnd()){
+        //if(game.getEnd()){
 
 
 //            FXMLLoader loader = new FXMLLoader(getClass().getResource("end-screen.fxml"));
@@ -159,7 +159,7 @@ public class MainSceneController {
 
 
 
-        }
+        //}
 
     }
 
@@ -206,7 +206,7 @@ public class MainSceneController {
     }
 
     @FXML
-    void finishTurn(ActionEvent event) {
+    void finishTurn(ActionEvent event) throws IOException {
         game.nextTurn();
         drawPlayerInfo(game.getTurnNum());
         ArrayList<Coord> validHexes = game.getTurnPlayer().getChoiceHexes();
@@ -216,6 +216,20 @@ public class MainSceneController {
         game.getTurnPlayer().clearChoiceHexes();
         quickDrawBoards();
         game.getTurnPlayer().resTSPlaced();
+
+        if(game.getTurnPlayer().getNumSettlements()==0){
+            gameEnd=true;
+        }
+        if(game.getTurnNum()==3){
+            roundEnd =true;
+        }
+        else
+            roundEnd=false;
+
+        if(gameEnd&&roundEnd){
+            goEnd();
+        }
+
     }
     @FXML
     void next(ActionEvent event) {
@@ -372,8 +386,9 @@ public class MainSceneController {
                             game.getPlayers().get(game.getTurnNum()).addSettlementTile(c);
 
                             game.getBoard().getTiles().get(c).setOccupancy(game.getPlayers().get(game.getTurnNum()));
-
+                            game.getTurnPlayer().minusSettlements();
                             game.getTurnPlayer().decTSPlaced();
+                            drawPlayerInfo(game.getTurnNum());
                         }
                     }
 
@@ -782,6 +797,7 @@ public class MainSceneController {
     private KingdomBuilderMain getGame(){
         return game;
     }
+    void setGame(KingdomBuilderMain games){game=games;}
 
 }
 

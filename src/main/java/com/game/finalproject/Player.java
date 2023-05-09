@@ -62,6 +62,7 @@ public class Player {
     public void decSettlements(int amount){
         settlements -= amount;
     }
+    public void minusSettlements(){settlements=settlements-1;}
     public void addSettlementTile(Coord h) {
         occupiedTiles.add(h);
     }
