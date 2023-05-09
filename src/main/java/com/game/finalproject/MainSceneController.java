@@ -27,6 +27,8 @@ public class MainSceneController {
     @FXML
     private Label settleNum;
     @FXML
+    private Rectangle playerRect;
+    @FXML
     private ImageView bonusTile0,bonusTile1,bonusTile2,bonusTile3,bonusTile4,bonusTile5,bonusTile6,bonusTile7;
     @FXML
     private ImageView infoTile0,infoTile1,infoTile2,infoTile3,currentTerrainCard,firstPlayerToken;
@@ -81,6 +83,8 @@ public class MainSceneController {
         drawTheActionTiles();
         roundEnd=false;
         gameEnd=false;
+        playerRect=new Rectangle();
+        playerRect.setFill(Color.TRANSPARENT);
 
 //        runGame();
     }
@@ -229,6 +233,13 @@ public class MainSceneController {
         int tempTurn = game.getTurnNum() + 1;
         int temp = p + 1;
         firstPlayerToken.setImage(new Image(getClass().getResource("images/fPlayer.png").toExternalForm()));
+
+
+
+
+        playerRect.setFill(players.get(p).getColorHex());
+
+
         if (game.getTurnNum() == p) {
             playerName.setText("Player " + temp );
             current.setText("current");

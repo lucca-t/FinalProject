@@ -42,6 +42,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <VBox maxHeight="791.0" maxWidth="1313.0" prefHeight="720.0" prefWidth="1313.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.game.finalproject.MainSceneController">
@@ -137,6 +138,7 @@
             <AnchorPane fx:id="container" layoutX="342.0" layoutY="85.0" prefHeight="600.0" prefWidth="800.0" />
             <AnchorPane fx:id="container2" layoutX="342.0" layoutY="85.0" prefHeight="600.0" prefWidth="800.0" />
             <AnchorPane fx:id="container3" layoutX="342.0" layoutY="85.0" prefHeight="600.0" prefWidth="800.0" />
+            <Rectangle fx:id="playerRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="29.0" layoutX="209.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" width="42.0" />
          </children>
       </AnchorPane>
    </children>
