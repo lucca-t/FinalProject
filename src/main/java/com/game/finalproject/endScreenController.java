@@ -30,19 +30,30 @@ public class endScreenController {
 
         private KingdomBuilderMain game;
         private MainSceneController mcont;
+        void setGame(KingdomBuilderMain games){
+                game=games;
+        }
 
         @FXML
         private void initialize(){
                 mcont = new MainSceneController();
                 //game=mcont.getGame();
+                label1.setText("Player 1"+game.getPlayers().get(0).getScore());
+                label2.setText("Player 2"+game.getPlayers().get(1).getScore());
+                label3.setText("Player 3"+game.getPlayers().get(2).getScore());
+                label4.setText("Player 4"+game.getPlayers().get(3).getScore());
+
+                int max = Integer.MIN_VALUE; // initialize max to the smallest possible integer
+                int track=69420;
+                for (int i = 0; i < game.getPlayers().size(); i++) {
+                        if (game.getPlayers().get(i).getScore() > max) {
+                                max = game.getPlayers().get(i).getScore();
+                                track=i;
+                        }
+                }
+                winLabel.setText("Player "+track+game.getPlayers().get(track).getScore());
 
 
-
-
-
-        }
-        void setGame(KingdomBuilderMain games){
-                game=games;
         }
 
 
