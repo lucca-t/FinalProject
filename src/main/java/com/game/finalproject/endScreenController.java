@@ -24,13 +24,18 @@ public class endScreenController {
         private Label label1,label2,label3,label4,winLabel;
 
         private KingdomBuilderMain game;
+        private MainSceneController mcont;
 
         @FXML
         private void initialize(){
+                mcont = new MainSceneController();
+                //game=mcont.getGame();
 
 
 
-
+        }
+        void setGame(KingdomBuilderMain games){
+                game=games;
         }
 
 
