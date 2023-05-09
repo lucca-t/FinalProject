@@ -47,9 +47,9 @@ public class KingdomBuilderMain {
         }
 
         //TESTING DISPLAYING ACTIONS
-        Action balls = new Action(1,"Harbor",true);
-        for(int x=0;x<8;x++);
-            players.get(0).addActions(balls);
+//        Action balls = new Action(1,"Harbor",true);
+//        for(int x=0;x<8;x++);
+//            players.get(0).addActions(balls);
 
         //TEST^
 
@@ -160,16 +160,28 @@ public class KingdomBuilderMain {
         for (int i = 0; i < temp.size(); i++) {
             temp.get(i).setUsed(false);
         }
-        players.get(turn).setTerrain(null);
+        players.get(turn).setTerrain(terrains.get(0));
+        terrains.remove(0);
         turn++;
         turn = turn%4;
         if (terrains.size() == 0) {
             resetTerrainDeck();
         }
-        int choiceTerrain = (int)(Math.random()*25);
-        players.get(turn).setTerrain(terrains.get(choiceTerrain));
-        terrains.remove(choiceTerrain);
+//        int choiceTerrain = (int)(Math.random()*25);
+//        players.get(turn).setTerrain(terrains.get(choiceTerrain));
+//        terrains.remove(choiceTerrain);
         players.get(turn).getTerrain().setVisibility(true);
+
+        boolean settlementsDepleted = false;
+        for (int p = 0; p < players.size(); p++) {
+            if (players.get(p).getNumSettlements() == 0) {
+                settlementsDepleted = true;
+            }
+        }
+
+        if (turn == 0 && settlementsDepleted) {
+            endGame();
+        }
     }
     public void endGame(){
         end = true;
@@ -221,6 +233,39 @@ public class KingdomBuilderMain {
         }
         return 0;
     }
+
+    public int tavernHelperLeft(Coord sC, Player p){
+        if(board.getTiles().get(new Coord(sC.getX() - 1, sC.getY())).getOccupancy().equals(p)){
+            return 1 + tavernHelperLeft(new Coord(sC.getX() - 1, sC.getY()), p);
+        }
+        return 0;
+    }
+    public int tavernHelperUpLeft(Coord sC, Player p){
+        if(board.getTiles().get(new Coord(sC.getX() - 0.5, sC.getY() - 1)).getOccupancy().equals(p)){
+            return 1 + tavernHelperUpLeft(new Coord(sC.getX() - 0.5, sC.getY() - 1), p);
+        }
+        return 0;
+    }
+    public int tavernHelperDownLeft(Coord sC, Player p){
+        if(board.getTiles().get(new Coord(sC.getX() - 0.5, sC.getY() + 1)).getOccupancy().equals(p)){
+            return 1 + tavernHelperDownLeft(new Coord(sC.getX() - 0.5, sC.getY() + 1), p);
+        }
+        return 0;
+    }
+    public int tavernHelperUpRight(Coord sC, Player p){
+        if(board.getTiles().get(new Coord(sC.getX() + 0.5, sC.getY() - 1)).getOccupancy().equals(p)){
+            return 1 + tavernHelperUpRight(new Coord(sC.getX() + 0.5, sC.getY() - 1), p);
+        }
+        return 0;
+    }
+    public int tavernHelperDownRight(Coord sC, Player p){
+        if(board.getTiles().get(new Coord(sC.getX() + 0.5, sC.getY() + 1)).getOccupancy().equals(p)){
+            return 1 + tavernHelperDownRight(new Coord(sC.getX() + 0.5, sC.getY() + 1), p);
+        }
+        return 0;
+    }
+
+
 
 
     public boolean checkValidPlacement(Coord sC, Player p, String act){
@@ -377,6 +422,34 @@ public class KingdomBuilderMain {
                                     }
                                 }
                             }
+                            //possibly the wrong place?
+                            if(board.getTiles().get(new Coord(sC.getX() - 1, sC.getY())).getOccupancy().equals(p)){
+                                if(tavernHelperLeft(new Coord(sC.getX() - 1, sC.getY()), p) >= 3){
+                                    return true;
+                                }
+                            }
+                            if(board.getTiles().get(new Coord(sC.getX() - 0.5, sC.getY() - 1)).getOccupancy().equals(p)){
+                                if(tavernHelperUpLeft(new Coord(sC.getX() - 0.5, sC.getY() - 1), p) >= 3){
+                                    return true;
+                                }
+                            }
+                            if(board.getTiles().get(new Coord(sC.getX() - 0.5, sC.getY() + 1)).getOccupancy().equals(p)){
+                                if(tavernHelperDownLeft(new Coord(sC.getX() - 0.5, sC.getY() + 1), p) >= 3){
+                                    return true;
+                                }
+                            }
+                            if(board.getTiles().get(new Coord(sC.getX() + 0.5, sC.getY() + 1)).getOccupancy().equals(p)){
+                                if(tavernHelperDownRight(new Coord(sC.getX() + 0.5, sC.getY() + 1), p) >= 3){
+                                    return true;
+                                }
+                            }
+                            if(board.getTiles().get(new Coord(sC.getX() + 0.5, sC.getY() - 1)).getOccupancy().equals(p)){
+                                if(tavernHelperUpRight(new Coord(sC.getX() + 0.5, sC.getY() - 1), p) >= 3){
+                                    return true;
+                                }
+                            }
+
+
                         }
                     }
                     else{
