@@ -2,11 +2,16 @@
 package com.game.finalproject;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Objects;
 
 
@@ -49,8 +54,11 @@ public class endScreenController {
         }
 
         @FXML
-        void ReturnBackButtonPressed(MouseEvent event) {
-
+        void ReturnBackButtonPressed(MouseEvent event) throws IOException {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainScene.fxml"));
+                Scene scene = new Scene(fxmlLoader.load(), 1351, 720);
+                Stage stage = (Stage) returnBack.getScene().getWindow();
+                stage.setScene(scene);
         }
 
         @FXML
@@ -72,6 +80,8 @@ public class endScreenController {
 
         @FXML
         void playAgainButtonPressed(MouseEvent event) {
+                Stage stage = (Stage) playAgain.getScene().getWindow();
+                stage.close();
 
         }
 
