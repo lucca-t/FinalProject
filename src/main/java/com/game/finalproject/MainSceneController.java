@@ -258,6 +258,8 @@ public class MainSceneController {
                 System.out.println("Clicked: " + xcoord +" "+ycoord);
                 //placing method will go here
                     Player turn = game.getTurnPlayer();
+                    System.out.println("Player " + game.getTurnNum() + ", " + turn.getTerrain().getType());
+
                     int loopNum;
                     if (turn.getActions().size() == 0) {
                         loopNum = 0;
@@ -276,6 +278,7 @@ public class MainSceneController {
                         c = new Coord(xcoord + 0.5, ycoord);
                         even = false;
                     }
+                    System.out.println(tiles.get(c).getType());
                     temp = game.getBoard().getTiles().get(c);
 
                     for (int i = 0; i < loopNum + 1; i++) {

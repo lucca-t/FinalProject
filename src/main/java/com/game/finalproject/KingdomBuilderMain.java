@@ -270,7 +270,7 @@ public class KingdomBuilderMain {
 
     public boolean checkValidPlacement(Coord sC, Player p, String act){
         String terrainTypes = board.getTiles().get(sC).getType();
-        if(!(board.getTiles().get(sC).getOccupancy() == null)){
+        if(board.getTiles().get(sC).getOccupancy() != null){
             return false;
         }
         else {
@@ -283,7 +283,7 @@ public class KingdomBuilderMain {
             if(act.equals("")){
                 boolean occ = false;
                 if(!terrainTypes.equals(players.get(turn).getTerrain())) {
-                    return false;
+                    return true;
                 }
                 for(int i = 0; i < p.getOccupiedTiles().size(); i++){
                     if(board.getTiles().get(p.getOccupiedTiles().get(i)).getType().equals(terrainTypes)){
@@ -308,7 +308,8 @@ public class KingdomBuilderMain {
                         return true;
                     }
                 }
-                return false;
+//                return false;
+                return true;
             }
             if(act.equals("Farm")){
                 if(!terrainTypes.equals("g")){
