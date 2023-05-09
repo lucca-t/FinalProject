@@ -282,8 +282,8 @@ public class KingdomBuilderMain {
             }
             if(act.equals("")){
                 boolean occ = false;
-                if(!terrainTypes.equals(players.get(turn).getTerrain())) {
-                    return true;
+                if(!terrainTypes.equals(p.getTerrain().getType())) {
+                    return false;
                 }
                 for(int i = 0; i < p.getOccupiedTiles().size(); i++){
                     if(board.getTiles().get(p.getOccupiedTiles().get(i)).getType().equals(terrainTypes)){

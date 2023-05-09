@@ -391,12 +391,7 @@ public class MainSceneController {
                     HexTile temp = tiles.get(c);
                     imgTile = new ImageView(returnTileImage(temp.getType()));
                 }
-//                ImageView imgTile = new ImageView(returnTileImage( "w"));
-                imgTile.setX(xCoord);
-                imgTile.setY(yCoord-10);
-                imgTile.setFitHeight(40);
-                imgTile.setFitWidth(40);
-
+                imgTile.setX(xCoord);imgTile.setY(yCoord-10);imgTile.setFitHeight(40);imgTile.setFitWidth(40);
                 //////rectangle code
                 //have an if statement checking if there's a settlement here from the player
                 //eg.    if(coord.hasSettlement) do this,

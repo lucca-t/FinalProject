@@ -91,7 +91,7 @@ public class Board {
                     coord[0] = y;
                     coord[1] = x + 0.5;
                 }
-                tiles.put(c, new HexTile((boards[b1][i])));
+                tiles.put(c, new HexTile((boards[b4][i])));
                 i++;
             }
         }
