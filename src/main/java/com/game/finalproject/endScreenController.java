@@ -30,18 +30,17 @@ public class endScreenController {
 
         private KingdomBuilderMain game;
         private MainSceneController mcont;
-        void setGame(KingdomBuilderMain games){
+       /* void setGame(KingdomBuilderMain games){
                 game=games;
-        }
+        }*/
 
         @FXML
-        private void initialize(){
-                mcont = new MainSceneController();
-                //game=mcont.getGame();
-                label1.setText("Player 1"+game.getPlayers().get(0).getScore());
-                label2.setText("Player 2"+game.getPlayers().get(1).getScore());
-                label3.setText("Player 3"+game.getPlayers().get(2).getScore());
-                label4.setText("Player 4"+game.getPlayers().get(3).getScore());
+        void initialize(KingdomBuilderMain games){
+                game=games;
+                label1.setText("Player 1: "+game.getPlayers().get(0).getScore());
+                label2.setText("Player 2: "+game.getPlayers().get(1).getScore());
+                label3.setText("Player 3: "+game.getPlayers().get(2).getScore());
+                label4.setText("Player 4: "+game.getPlayers().get(3).getScore());
 
                 int max = Integer.MIN_VALUE; // initialize max to the smallest possible integer
                 int track=69420;
@@ -51,7 +50,7 @@ public class endScreenController {
                                 track=i;
                         }
                 }
-                winLabel.setText("Player "+track+game.getPlayers().get(track).getScore());
+                winLabel.setText("Player "+track+" wins!!");
 
 
         }
@@ -79,7 +78,8 @@ public class endScreenController {
                 Scene scene = new Scene(fxmlLoader.load(), 1351, 720);
                 Stage stage = (Stage) returnBack.getScene().getWindow();
                 stage.setScene(scene);
-
+                MainSceneController mainController= fxmlLoader.getController();
+                mainController.initialize(game);
 
 
         }

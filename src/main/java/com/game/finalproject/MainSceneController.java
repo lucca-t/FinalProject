@@ -11,11 +11,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.StrokeType;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -30,7 +32,7 @@ import static com.game.finalproject.hextile.Tile.*;
 public class MainSceneController {
     @FXML
     private Label settleNum;
-    @FXML
+    //@FXML
     private Rectangle playerRect;
     @FXML
     private ImageView bonusTile0,bonusTile1,bonusTile2,bonusTile3,bonusTile4,bonusTile5,bonusTile6,bonusTile7;
@@ -87,11 +89,43 @@ public class MainSceneController {
         drawTheActionTiles();
         roundEnd=false;
         gameEnd=false;
-        playerRect=new Rectangle();
-        playerRect.setFill(Color.TRANSPARENT);
+         playerRect=new Rectangle();
+        comicalAmountofCode();
 
-//        runGame();
     }
+    void initialize(KingdomBuilderMain games) {
+        game = games;
+        tiles = game.getBoard().getTiles();
+        turnNum = game.getTurnNum();
+        drawPointsCards();
+        players = game.getPlayers();
+        displayedPlayer = 0;
+        drawPlayerInfo(displayedPlayer);
+        end = false;
+        terrains = game.getTerrains();
+        chosenSettlements = new ArrayList<Coord>();
+        drawTheBoards();
+        drawTheActionTiles();
+        roundEnd=false;
+        gameEnd=false;
+        playerRect=new Rectangle();
+        comicalAmountofCode();
+
+    }
+
+        public void comicalAmountofCode(){
+            playerRect.setFill(game.getPlayers().get(0).getColorHex());
+            playerRect.setStroke(Color.BLACK);
+            playerRect.setStrokeWidth(2);
+            playerRect.setHeight(29);
+            playerRect.setWidth(42);
+            playerRect.setLayoutX(0);
+            playerRect.setLayoutY(0);
+            playerRect.setVisible(true);
+            playerRect.setOpacity(1);
+
+            anchorPlayerRect.getChildren().add(playerRect);
+        }
         public void runGame() {
         while (!end) {
             for (int j = 0; j < players.size(); j++) {
@@ -137,11 +171,15 @@ public class MainSceneController {
         //if(game.getEnd()){
 
 
+            game.scorePlayers();
+
 //            FXMLLoader loader = new FXMLLoader(getClass().getResource("end-screen.fxml"));
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("end-screen.fxml"));
             Scene endScene = new Scene(fxmlLoader.load(), 1351, 720);
+            //Parent root = (Parent)fxmlLoader.load();
+
             endScreenController endcontroller= fxmlLoader.getController();
-            endcontroller.setGame(game);
+            endcontroller.initialize(game);
 
             //Parent endSceneParent = fxmlLoader.load();
             //Scene endScene = new Scene(endSceneParent);
@@ -230,6 +268,9 @@ public class MainSceneController {
             goEnd();
         }
 
+
+
+
     }
     @FXML
     void next(ActionEvent event) {
@@ -277,9 +318,11 @@ public class MainSceneController {
 
 
 
-
-        playerRect.setFill(players.get(p).getColorHex());
-
+         playerRect= new Rectangle(42,29,game.getPlayers().get(p).getColorHex());
+        playerRect.setFill(players.get(game.getTurnNum()).getColorHex());
+        playerRect.setStroke(Color.BLACK);
+        playerRect.setStrokeWidth(1);
+        anchorPlayerRect.getChildren().add(playerRect);
 
         if (game.getTurnNum() == p) {
             playerName.setText("Player " + temp );
@@ -507,34 +550,7 @@ public class MainSceneController {
                     setTile.setY(yCoord + 2);
                     setTile.setWidth(25);
                     setTile.setHeight(15);
-
-                    //player color goes here
-                    //Player player = player.getWhoeverPlacedIt
-//                    setTile.setFill(player.getColor().getColorHex);
-                    String color = tiles.get(c).getOccupancy().getColor();
-                   // setTile.setFill(tiles.get(c).getOccupancy().getColorHex()); <-this would prolly be more efficient imo
-//                    if (game.getTurnPlayer().getChoiceHexes().contains(c)) {
-//
-//                    }
-//                    else {
-                        switch(color) {
-                            case "red": setTile.setFill(Color.RED);
-                            case "yellow": setTile.setFill(Color.YELLOW);
-                            case "orange": setTile.setFill(Color.ORANGE);
-                            case "green": setTile.setFill(Color.DARKGREEN);
-                            case "blue": setTile.setFill(Color.BLUEVIOLET);
-                            case "purple": setTile.setFill(Color.PURPLE);
-                            case "pink": setTile.setFill(Color.HOTPINK);
-
-
-
-                        }
-//                    }
-//                    setTile.setFill(tiles.get(c).getOccupancy().getColor().getColorHex());
-
-                    //getColorHex will return the Color variable for the setFill
-                    //default is pink ->setTile.setFill(Color.PINK);
-
+                    setTile.setFill(tiles.get(c).getOccupancy().getColorHex());
                     setMap.getChildren().add(setTile);
                 }
                 else if (game.getTurnPlayer().getChoiceHexes().contains(c)) {
@@ -798,6 +814,11 @@ public class MainSceneController {
         return game;
     }
     void setGame(KingdomBuilderMain games){game=games;}
+
+
+
+
+
 
 }
 

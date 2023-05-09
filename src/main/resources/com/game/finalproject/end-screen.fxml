@@ -25,22 +25,22 @@
       </ImageView>
       <VBox layoutX="896.0" layoutY="198.0" prefHeight="474.0" prefWidth="342.0">
          <children>
-            <Label fx:id="label1" prefHeight="119.0" prefWidth="342.0" text="Player  : ">
+            <Label fx:id="label1" prefHeight="119.0" prefWidth="342.0">
                <font>
                   <Font size="61.0" />
                </font>
             </Label>
-            <Label fx:id="label2" prefHeight="119.0" prefWidth="342.0" text="Player  : ">
+            <Label fx:id="label2" prefHeight="119.0" prefWidth="342.0">
                <font>
                   <Font size="61.0" />
                </font>
             </Label>
-            <Label fx:id="label3" prefHeight="119.0" prefWidth="342.0" text="Player  : ">
+            <Label fx:id="label3" prefHeight="119.0" prefWidth="342.0">
                <font>
                   <Font size="61.0" />
                </font>
             </Label>
-            <Label fx:id="label4" prefHeight="119.0" prefWidth="342.0" text="Player  : ">
+            <Label fx:id="label4" prefHeight="119.0" prefWidth="342.0">
                <font>
                   <Font size="61.0" />
                </font>

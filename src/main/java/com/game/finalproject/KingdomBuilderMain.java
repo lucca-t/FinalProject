@@ -18,15 +18,15 @@ public class KingdomBuilderMain {
     public KingdomBuilderMain(){
         pointCardsall = new ArrayList<String>();
         pointCards = new ArrayList<String>();
-        pointCardsall.add("Citizen");
+       // pointCardsall.add("Citizen");to avoid scoring error
         pointCardsall.add("Discoverers");
         pointCardsall.add("Farmers");
         pointCardsall.add("Fishermen");
-        pointCardsall.add("Hermits");
+       // pointCardsall.add("Hermits"); to avoid scoring error
         pointCardsall.add("Knights");
         pointCardsall.add("Lords");
-        pointCardsall.add("Merchants");
-        pointCardsall.add("Miners");
+        //pointCardsall.add("Merchants");to avoid scoring error
+       // pointCardsall.add("Miners");
         pointCardsall.add("Workers");
 
         //choosing boards
@@ -192,7 +192,7 @@ public class KingdomBuilderMain {
     }
     public void scorePlayers(){
         //using the board object, pass in each player to score as an argument
-        for (String pointCard : pointCards) {
+        /*for (String pointCard : pointCards) {
             switch (pointCardsall.indexOf(pointCard)) {
                 case 0:
                     board.scoreCitizens(players);
@@ -215,10 +215,33 @@ public class KingdomBuilderMain {
                 case 9:
                     board.scoreWorkers(players);
             }
+        }*/
+        for (int x=0;x<3;x++) {
+            String pointCard=pointCards.get(x);
+            switch (pointCard) {
+                case "Citizen":
+                    board.scoreCitizens(players);
+                case "Discoverers":
+                    board.scoreDiscoverers(players);
+                case "Farmers":
+                    board.scoreFarmers(players);
+                case "Fishermen":
+                    board.scoreFishermen(players);
+                case "Hermits":
+                    board.scoreHermits(players);
+                case "Knights":
+                    board.scoreKnights(players);
+                case "Lords":
+                    board.scoreLords(players);
+                case "Merchants":
+                    board.scoreMerchants(players);
+                case "Miners":
+                    board.scoreMiners(players);
+                case "Workers":
+                    board.scoreWorkers(players);
+            }
+
         }
-//        for (int i = 0; i < 4; i++) {
-//            board.score(players.get(i));
-//        }
     }
     public ArrayList<Player> getPlayers(){
         return players;

@@ -42,7 +42,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <VBox maxHeight="791.0" maxWidth="1313.0" prefHeight="720.0" prefWidth="1313.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.game.finalproject.MainSceneController">
@@ -52,7 +51,6 @@
             <VBox layoutX="42.0" layoutY="302.0" prefHeight="243.0" prefWidth="290.0">
                <children>
                   <Button fx:id="finishTurnButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#finishTurn" prefHeight="113.0" prefWidth="305.0" text="Finish Turn" />
-                  <Button fx:id="confirmPlaceButton" mnemonicParsing="false" onAction="#confirmPlace" prefHeight="113.0" prefWidth="335.0" text="Confirm Placements" />
                   <Button fx:id="useBonusButton" mnemonicParsing="false" onAction="#useBonus" prefHeight="113.0" prefWidth="311.0" text="Use Bonus Tile" />
                   <HBox prefHeight="90.0" prefWidth="290.0">
                      <children>
@@ -138,8 +136,8 @@
             <AnchorPane fx:id="container" layoutX="342.0" layoutY="85.0" prefHeight="600.0" prefWidth="800.0" />
             <AnchorPane fx:id="container2" layoutX="342.0" layoutY="85.0" prefHeight="600.0" prefWidth="800.0" />
             <AnchorPane fx:id="container3" layoutX="342.0" layoutY="85.0" prefHeight="600.0" prefWidth="800.0" />
-            <Rectangle fx:id="playerRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="29.0" layoutX="209.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" width="42.0" />
-            <AnchorPane fx:id="anchorPlayerRect" layoutX="210.0" layoutY="43.0" prefHeight="29.0" prefWidth="42.0" />
+            <AnchorPane fx:id="anchorPlayerRect" layoutX="210.0" layoutY="44.0" prefHeight="29.0" prefWidth="42.0" />
+            <Button fx:id="confirmPlaceButton" layoutY="693.0" mnemonicParsing="false" onAction="#confirmPlace" prefHeight="25.0" prefWidth="1.0" />
          </children>
       </AnchorPane>
    </children>
