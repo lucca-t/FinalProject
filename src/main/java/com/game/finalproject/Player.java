@@ -13,6 +13,7 @@ public class Player {
     private Card terrain;
     private int turnSettlePlaced;
     private ArrayList<Coord> choiceHex;
+    private boolean fPlayer;
     public Player(String col){
         points = 0;
         settlements = 40;
@@ -22,6 +23,8 @@ public class Player {
         occupiedTiles = new ArrayList<Coord>();
         turnSettlePlaced=3;
         choiceHex = new ArrayList<Coord>();
+        fPlayer=false;
+
     }
     public void setScore(int pnt){
         points = pnt;
@@ -81,13 +84,13 @@ public class Player {
     Color getColorHex(){
         Color color= Color.BEIGE;
 
-        if(getColor().equals("red"))
+        if(settlementColor.equals("red"))
             color= Color.valueOf("#ff0000");
-        else if(getColor().equals("purple"))
+        else if(settlementColor.equals("purple"))
             color= Color.valueOf("#9d1cff");
-        else if(getColor().equals("pink"))
+        else if(settlementColor.equals("pink"))
             color= Color.valueOf("#ff6fd6");
-        else if(getColor().equals("orange"))
+        else if(settlementColor.equals("orange"))
             color= Color.valueOf("#ff6600");
 
         return color;
@@ -106,9 +109,12 @@ public class Player {
     public void decTSPlaced(){
         turnSettlePlaced--;
     }
+    public void resTSPlaced(){turnSettlePlaced=3;}
     public void incTSPlaced(){
         turnSettlePlaced++;
     }
+    public void setfPlayer(boolean balls){fPlayer=balls;}
+    public boolean getfPlayer(){return fPlayer;}
     //red "#ff0000"
 //purple "#9d1cff"
 //pink "#ff6fd6"

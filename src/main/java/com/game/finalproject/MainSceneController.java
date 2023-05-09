@@ -57,6 +57,7 @@ public class MainSceneController {
     private final static int WINDOW_HEIGHT = 600;
     private HashMap<Coord, HexTile> tiles;
 
+    private boolean roundEnd,gameEnd;
 
     @FXML
     private GridPane actionGrid;
@@ -78,6 +79,9 @@ public class MainSceneController {
         chosenSettlements = new ArrayList<Coord>();
         drawTheBoards();
         drawTheActionTiles();
+        roundEnd=false;
+        gameEnd=false;
+
 //        runGame();
     }
         public void runGame() {
@@ -121,6 +125,18 @@ public class MainSceneController {
         }
         game.endGame();
     }
+    public void goEnd(){
+        if(game.getEnd()){
+
+
+
+        }
+
+    }
+
+
+
+
 
     public void drawEverything() {
         drawPlayerInfo(displayedPlayer);
@@ -149,17 +165,26 @@ public class MainSceneController {
 
     @FXML
     void confirmPlace(ActionEvent event) {
+//        ArrayList<Coord> validHexes = game.getTurnPlayer().getChoiceHexes();
+//        for (int i = 0; i < validHexes.size(); i++) {
+//            tiles.get(validHexes.get(i)).setOccupancy(game.getTurnPlayer());
+//        }
+//        game.getTurnPlayer().clearChoiceHexes();
+//        quickDrawBoards();
+//        game.getTurnPlayer().resTSPlaced();
+    }
+
+    @FXML
+    void finishTurn(ActionEvent event) {
+        game.nextTurn();
+        drawPlayerInfo(game.getTurnNum());
         ArrayList<Coord> validHexes = game.getTurnPlayer().getChoiceHexes();
         for (int i = 0; i < validHexes.size(); i++) {
             tiles.get(validHexes.get(i)).setOccupancy(game.getTurnPlayer());
         }
         game.getTurnPlayer().clearChoiceHexes();
         quickDrawBoards();
-    }
-
-    @FXML
-    void finishTurn(ActionEvent event) {
-        game.nextTurn();
+        game.getTurnPlayer().resTSPlaced();
     }
     @FXML
     void next(ActionEvent event) {
@@ -203,11 +228,14 @@ public class MainSceneController {
 //        playerName.setText("players.get(game.getTurnNum()).toString()");
         int tempTurn = game.getTurnNum() + 1;
         int temp = p + 1;
+        firstPlayerToken.setImage(new Image(getClass().getResource("images/fPlayer.png").toExternalForm()));
         if (game.getTurnNum() == p) {
-            playerName.setText("Player " + temp + " CURRENT");
+            playerName.setText("Player " + temp );
+            current.setText("current");
         }
         else {
             playerName.setText("Player " + temp);
+            current.setText("");
         }
         settleNum.setText("Total Settlements: "+players.get(p).getNumSettlements());
         //this will work once the players are actually assigned terrain cards, return error bc null atm
@@ -218,9 +246,8 @@ public class MainSceneController {
                     currentTerrainCard.setImage(returnImage(players.get(p).getTerrain().getType()));
         }
 //        currentTerrainCard.setImage(returnImage("shrek"));
-        if(p==0){
-            firstPlayerToken.setImage(new Image(getClass().getResource("images/fPlayer.png").toExternalForm()));
-        }
+        if(p==0){firstPlayerToken.setVisible(true);}
+        else{firstPlayerToken.setVisible(false);}
     }
 
     public class Tile extends Polygon {
@@ -232,16 +259,13 @@ public class MainSceneController {
 
         private final static int WINDOW_WIDTH = 800;
         private final static int WINDOW_HEIGHT = 600;
-
+        private int useX,useY;
         Tile(double x, double y, int xcoord, int ycoord, KingdomBuilderMain game) {
             // creates the polygon using the corner coordinates
-            getPoints().addAll(/*
-                    x, y,
-                    x, y + r,
-                    x + n, y + r * 1.5,
-                    x + TILE_WIDTH, y + r,
-                    x + TILE_WIDTH, y,
-                    x + n, y - r * 0.5*/
+            //drawBorder();
+            useX=xcoord;
+            useY=ycoord;
+            getPoints().addAll(
                     x, y,
                     x, y + r,
                     x + n, y + r * 1.5,
@@ -251,9 +275,10 @@ public class MainSceneController {
             );
 
             // set up the visuals and a click listener for the tile
-            setFill(Color.ANTIQUEWHITE);
-            setStrokeWidth(1);
-            setStroke(Color.BLACK);
+            //setFill(Color.ANTIQUEWHITE);
+            //setStrokeWidth(1);
+            //setStroke(Color.BLACK);
+
             setOnMouseClicked(e -> {
                 System.out.println("Clicked: " + xcoord +" "+ycoord);
                 //placing method will go here
@@ -268,8 +293,8 @@ public class MainSceneController {
                         loopNum = turn.getActions().size();
                     }
                     HexTile temp;
-                    Coord c;
-                    boolean even;
+                boolean even;
+                Coord c;
                     if (ycoord % 2 == 0) {
                         c = new Coord(xcoord, ycoord);
                         even = true;
@@ -281,17 +306,18 @@ public class MainSceneController {
                     System.out.println(tiles.get(c).getType());
                     temp = game.getBoard().getTiles().get(c);
 
-                    for (int i = 0; i < loopNum + 1; i++) {
+                    //for (int i = 0; i < loopNum + 1; i++) {
+                    if(game.getTurnPlayer().getTSPlaced()>0){
                         boolean validPlacement;
-                        if (turn.getActions().size() == 0) {
-                            validPlacement = game.checkValidPlacement(c, turn, "");
-                        }
-                        else if (i < loopNum){
-                            validPlacement = game.checkValidPlacement(c, turn, turn.getActions().get(i).getType());
-                        }
-                        else {
-                            validPlacement = game.checkValidPlacement(c, turn, "");
-                        }
+                        validPlacement = game.checkValidPlacement(c, turn, "");
+                        //if (turn.getActions().size() == 0) {
+                       // }
+                        //else if(i < loopNum){
+//                            validPlacement = game.checkValidPlacement(c, turn, turn.getActions().get(i).getType());
+                        //}
+                       // else {
+                       //     validPlacement = game.checkValidPlacement(c, turn, "");
+                       // }
                         if (!validPlacement) {
 
                             System.out.println("invalid placement, the row is " + even);
@@ -301,24 +327,51 @@ public class MainSceneController {
 //                            quickDrawBoards();
                         }
                         else {
-                            turn.addChoiceHex(c);
+                            game.getPlayers().get(game.getTurnNum()).addChoiceHex(c);
                             game.getBoard().getTiles().get(c).setSelected();
                             System.out.println("Added choice to queue");
                             quickDrawBoards();
-                            break;
+                            game.getPlayers().get(game.getTurnNum()).addSettlementTile(c);
+
+                            game.getBoard().getTiles().get(c).setOccupancy(game.getPlayers().get(game.getTurnNum()));
+
+                            game.getTurnPlayer().decTSPlaced();
                         }
                     }
 
 //
             });
-            setOpacity(.000001);
+            //setOpacity(.000001);
 
-            //setFill(Color.TRANSPARENT);
+
+
+            setFill(Color.TRANSPARENT);
 
             //could add mouselistener for highlighting maybe
             //highlighting would work by turning the opacity up and it could change how it looks
             //opacity and color could be turned to gray to gray out the stuff
             //polygons are ontop of the images so a lot of possibilities
+
+        }
+        public void drawBorder(){
+            Coord c;
+            if (useX % 2 == 0) {
+                c = new Coord(useX, useY);
+            }
+            else {
+                c = new Coord(useX + 0.5, useY);
+            }
+            boolean validPlacement;
+            validPlacement = game.checkValidPlacement(c, game.getTurnPlayer(), "");
+            if(validPlacement) {
+                setStroke(Color.WHITE);
+                setStrokeWidth(1.5);
+                setOpacity(1);
+                setFill(Color.TRANSPARENT);
+            }
+            else
+                setStrokeWidth(0);
+
         }
 
     }
@@ -418,9 +471,14 @@ public class MainSceneController {
                             case "green": setTile.setFill(Color.DARKGREEN);
                             case "blue": setTile.setFill(Color.BLUEVIOLET);
                             case "purple": setTile.setFill(Color.PURPLE);
+                            case "pink": setTile.setFill(Color.HOTPINK);
+
+
+
                         }
 //                    }
 //                    setTile.setFill(tiles.get(c).getOccupancy().getColor().getColorHex());
+
                     //getColorHex will return the Color variable for the setFill
                     //default is pink ->setTile.setFill(Color.PINK);
 
@@ -435,6 +493,9 @@ public class MainSceneController {
 
                 imageMap.getChildren().add(imgTile);
                 //adds created tiles to anchor-pane and creates them
+                //
+
+
                 Polygon tile = new Tile(xCoord, yCoord,xint,yint,game);
                 tileMap.getChildren().add(tile);
             }
@@ -446,12 +507,16 @@ public class MainSceneController {
         int tilesPerRow = 20; // the amount of tiles that are contained in each row
         int xStartOffset = 40; // offsets the entire field to the right
         int yStartOffset = 10; // offsets the entire field downwards
+
         for (double x = 0; x < tilesPerRow; x++) {
             for (double y = 0; y < rowCount; y++) {
                 int xint= (int)Math.round(x);
                 int yint= (int)Math.round(y);
                 double xCoord = x * TILE_WIDTH + (y % 2) * n + xStartOffset;
                 double yCoord = y * TILE_HEIGHT * 0.75 + yStartOffset;
+
+
+
                 Coord c;
                 if (y%2 == 0) {
                     c = new Coord(x, y);
@@ -474,21 +539,24 @@ public class MainSceneController {
                     setTile.setY(yCoord + 2);
                     setTile.setWidth(25);
                     setTile.setHeight(15);
-
+                    setTile.setStroke(Color.BLACK);
+                    setTile.setStrokeWidth(1);
                     //player color goes here
                     //Player player = player.getWhoeverPlacedIt
 //                    setTile.setFill(player.getColor().getColorHex);
-                    String color = tiles.get(c).getOccupancy().getColor();
+                   /* String color = tiles.get(c).getOccupancy().getColor();
+
                     // setTile.setFill(tiles.get(c).getOccupancy().getColorHex()); <-this would prolly be more efficient imo
                     switch(color) {
                         case "red": setTile.setFill(Color.RED);
+                        //case "purple": setTile.setFill(Color.PURPLE);
                         case "yellow": setTile.setFill(Color.YELLOW);
                         case "orange": setTile.setFill(Color.ORANGE);
                         case "green": setTile.setFill(Color.DARKGREEN);
-                        case "blue": setTile.setFill(Color.BLUEVIOLET);
-                        case "purple": setTile.setFill(Color.PURPLE);
-                    }
-//                    setTile.setFill(tiles.get(c).getOccupancy().getColor().getColorHex());
+                        //case "blue": setTile.setFill(Color.BLUEVIOLET);
+
+                    }*/
+                    setTile.setFill(tiles.get(c).getOccupancy().getColorHex());
                     //getColorHex will return the Color variable for the setFill
                     //default is pink ->setTile.setFill(Color.PINK);
 
@@ -673,6 +741,10 @@ public class MainSceneController {
         */
         return temp;
     }
+    private KingdomBuilderMain getGame(){
+        return game;
+    }
+
 }
 
 

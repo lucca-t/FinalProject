@@ -14,6 +14,7 @@ public class KingdomBuilderMain {
     public boolean end;
     private ArrayList<Coord> settlementCords;
 
+
     public KingdomBuilderMain(){
         pointCardsall = new ArrayList<String>();
         pointCards = new ArrayList<String>();
@@ -45,7 +46,7 @@ public class KingdomBuilderMain {
             pointCards.add(pointCardsall.get(x));
             pointCardsall.remove(x);
         }
-
+        players.get(0).setfPlayer(true);
         //TESTING DISPLAYING ACTIONS
 //        Action balls = new Action(1,"Harbor",true);
 //        for(int x=0;x<8;x++);
@@ -163,7 +164,7 @@ public class KingdomBuilderMain {
         players.get(turn).setTerrain(terrains.get(0));
         terrains.remove(0);
         turn++;
-        turn = turn%4;
+        turn%=4;
         if (terrains.size() == 0) {
             resetTerrainDeck();
         }
@@ -293,23 +294,29 @@ public class KingdomBuilderMain {
                 if(!occ){
                     return true;
                 }
-                if((!(sC.getX() == (0.0))) || (!(sC.getX() == (19.0))) || (!(sC.getX() == (19.5))) || (!(sC.getX() == (0.5)))){
-                    if((!(sC.getY() == (0.0))) || (!(sC.getY() == (19.0)))){
+                if((!(sC.getX() == (0.0))) && (!(sC.getX() == (19.0))) && (!(sC.getX() == (19.5))) && (!(sC.getX() == (0.5)))){
+
+                    if((!(sC.getY() == (0.0))) && (!(sC.getY() == (19.0)))){
                         for(int i = 0 ; i < findAdjacencies(sC).size(); i++){
-                            if(board.getTiles().get(findAdjacencies(sC).get(i)).getOccupancy().equals(p)){
-                                return true;
+                            if(board.getTiles().get(findAdjacencies(sC).get(i)).getOccupancy() != null){
+                                if(board.getTiles().get(findAdjacencies(sC).get(i)).getOccupancy().equals(p)){
+                                    return true;
+                                }
                             }
+
                         }
                         return false;
                     }
                 }
                 for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
-                    if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
-                        return true;
+                    if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy() != null) {
+                        if (board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)) {
+                            return true;
+                        }
                     }
                 }
-//                return false;
-                return true;
+                return false;
+//                return true;
             }
             if(act.equals("Farm")){
                 if(!terrainTypes.equals("g")){
@@ -517,63 +524,77 @@ public class KingdomBuilderMain {
         ArrayList<Coord> adjacent = new ArrayList<>();
         if(c.getX() == 0.0){
             if(c.getY() == 0.0){
-                adjacent.add(new Coord(c.getY() + 1, c.getX() + 0.5));
-                adjacent.add(new Coord(c.getY(), c.getX() + 1));
+                adjacent.add(new Coord( c.getX() + 0.5,c.getY() + 1));
+                adjacent.add(new Coord( c.getX() + 1,c.getY()));
             }
-            adjacent.add(new Coord(c.getY(), c.getX() + 1));
-            adjacent.add(new Coord(c.getY() - 1, c.getX() + 0.5));
-            adjacent.add(new Coord(c.getY() + 1, c.getX() + 0.5));
+            adjacent.add(new Coord( c.getX() + 1,c.getY()));
+            adjacent.add(new Coord( c.getX() + 0.5,c.getY() - 1));
+            adjacent.add(new Coord( c.getX() + 0.5,c.getY() + 1));
             return adjacent;
         }
+
         if(c.getX() == 0.5){
             if(c.getY() == 19.0){
-                adjacent.add(new Coord(c.getY() - 1, c.getX() - 0.5));
-                adjacent.add(new Coord(c.getY() - 1, c.getX() + 0.5));
-                adjacent.add(new Coord(c.getY(), c.getX() + 1));
+                adjacent.add(new Coord( c.getX() - 0.5,c.getY() - 1));
+                adjacent.add(new Coord( c.getX() + 0.5,c.getY() - 1));
+                adjacent.add(new Coord( c.getX() + 1,c.getY()));
             }
-            adjacent.add(new Coord(c.getY() - 1, c.getX() - 0.5));
-            adjacent.add(new Coord(c.getY() - 1, c.getX() + 0.5));
-            adjacent.add(new Coord(c.getY(), c.getX() + 1));
-            adjacent.add(new Coord(c.getY() + 1, c.getX() - 0.5));
-            adjacent.add(new Coord(c.getY() + 1, c.getX() + 0.5));
+            adjacent.add(new Coord( c.getX() - 0.5,c.getY() - 1));
+            adjacent.add(new Coord( c.getX() + 0.5,c.getY() - 1));
+            adjacent.add(new Coord( c.getX() + 1,c.getY()));
+            adjacent.add(new Coord( c.getX() - 0.5,c.getY() + 1));
+            adjacent.add(new Coord( c.getX() + 0.5,c.getY() + 1));
             return adjacent;
         }
         if(c.getX() == 19.0){
             if(c.getY() == 0.0){
-                adjacent.add(new Coord(c.getY() + 1, c.getX() + 0.5));
-                adjacent.add(new Coord(c.getY(), c.getX() + 1));
-                adjacent.add(new Coord(c.getY() - 1, c.getX() - 0.5));
+                adjacent.add(new Coord( c.getX() + 0.5,c.getY() + 1));
+                adjacent.add(new Coord( c.getX() + 1,c.getY()));
+                adjacent.add(new Coord( c.getX() - 0.5,c.getY() - 1));
 
             }
-            adjacent.add(new Coord(c.getY() - 1, c.getX() - 0.5));
-            adjacent.add(new Coord(c.getY() - 1, c.getX() + 0.5));
-            adjacent.add(new Coord(c.getY(), c.getX() - 1));
-            adjacent.add(new Coord(c.getY() + 1, c.getX() - 0.5));
-            adjacent.add(new Coord(c.getY() + 1, c.getX() + 0.5));
+            adjacent.add(new Coord( c.getX() - 0.5,c.getY() - 1));
+            adjacent.add(new Coord( c.getX() + 0.5,c.getY() - 1));
+            adjacent.add(new Coord( c.getX() - 1,c.getY()));
+            adjacent.add(new Coord( c.getX() - 0.5,c.getY() + 1));
+            adjacent.add(new Coord( c.getX() + 0.5,c.getY() + 1));
             return adjacent;
         }
         if(c.getX() == 19.5){
             if(c.getY() == 19.0){
-                adjacent.add(new Coord(c.getY() - 1, c.getX() - 0.5));
-                adjacent.add(new Coord(c.getY(), c.getX() - 1));
+                adjacent.add(new Coord( c.getX() - 0.5,c.getY() - 1));
+                adjacent.add(new Coord( c.getX() - 1,c.getY()));
 
             }
-            adjacent.add(new Coord(c.getY() - 1, c.getX() - 0.5));
-            adjacent.add(new Coord(c.getY(), c.getX() - 1));
-            adjacent.add(new Coord(c.getY() + 1, c.getX() - 0.5));
+            adjacent.add(new Coord( c.getX() - 0.5,c.getY() - 1));
+            adjacent.add(new Coord( c.getX() - 1,c.getY()));
+            adjacent.add(new Coord( c.getX() - 0.5,c.getY() + 1));
             return adjacent;
+        }
+
+        if(c.getY()==0){
+            adjacent.add(new Coord(c.getX()-1,c.getY()));
+            adjacent.add(new Coord(c.getX()+1,c.getY()));
+            adjacent.add(new Coord(c.getX()-.5,c.getY()+1));
+            adjacent.add(new Coord(c.getX()+.5,c.getY()+1));
+        }
+        if(c.getY()==19){
+            adjacent.add(new Coord(c.getX()-1,c.getY()));
+            adjacent.add(new Coord(c.getX()+1,c.getY()));
+            adjacent.add(new Coord(c.getX()-.5,c.getY()-1));
+            adjacent.add(new Coord(c.getX()+.5,c.getY()-1));
         }
         return adjacent;
 
     }
     public ArrayList<Coord> findAdjacencies(Coord c){
         ArrayList<Coord> adjacent = new ArrayList<>();
-        Coord right = new Coord(c.getY(), c.getX() + 1);
-        Coord tL = new Coord(c.getY() + 1, c.getX() - 0.5);
-        Coord tR = new Coord(c.getY() + 1, c.getX() + 0.5);
-        Coord bL = new Coord(c.getY() - 1, c.getX()- 0.5);
-        Coord bR = new Coord(c.getY() - 1, c.getX() + 0.5);
-        Coord left = new Coord(c.getY(), c.getX() - 1);
+        Coord right = new Coord(c.getX() + 1, c.getY());
+        Coord tL = new Coord( c.getX() - 0.5,c.getY() + 1);
+        Coord tR = new Coord( c.getX() + 0.5,c.getY() + 1);
+        Coord bL = new Coord( c.getX()- 0.5,c.getY() - 1);
+        Coord bR = new Coord( c.getX() + 0.5,c.getY() - 1);
+        Coord left = new Coord( c.getX() - 1,c.getY());
         adjacent.add(left);
         adjacent.add(right);
         adjacent.add(tL);
@@ -595,4 +616,5 @@ public class KingdomBuilderMain {
         turn%=4;
 
     }
+    public boolean getEnd(){return end;}
 }

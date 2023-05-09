@@ -24,7 +24,7 @@ public class Board {
         actions.add(new Action(2, "Oasis", false));
         actions.add(new Action(2, "Harbor", false));
         actions.add(new Action(2, "Oracle", false));
-        tiles = new HashMap<Coord, HexTile>();
+        tiles = new HashMap<>();
         int i = 0;
         int y = 0;
         int x = 0;
@@ -37,7 +37,6 @@ public class Board {
                 else {
                     c = new Coord(x + 0.5, y);
                 }
-//                if (boards[b1][i])
                 tiles.put(c, new HexTile((boards[b1][i])));
                 i++;
             }
@@ -98,17 +97,17 @@ public class Board {
     }
     public ArrayList<Coord> findAdjacencies(Coord c){
         ArrayList<Coord> adjacent = new ArrayList<Coord>();
-        Coord left = new Coord(c.getY(), c.getX() - 1);
+        Coord left = new Coord( c.getX() - 1,c.getY());
 //        double[] left = {coord[0] - 1, coord[1]};
-        Coord right = new Coord(c.getY(), c.getX() + 1);
+        Coord right = new Coord( c.getX() + 1,c.getY());
 //        double[] right = {coord[0] + 1, coord[1]};
-        Coord tL = new Coord(c.getY() + 1, c.getX() - 0.5);
+        Coord tL = new Coord( c.getX() - 0.5,c.getY() + 1);
 //        double[] tL = {coord[0] - 0.5, coord[1] + 1};
-        Coord tR = new Coord(c.getY() + 1, c.getX() + 0.5);
+        Coord tR = new Coord( c.getX() + 0.5,c.getY() + 1);
 //        double[] tR = {coord[0] + 0.5, coord[1] + 1};
-        Coord bL = new Coord(c.getY() - 1, c.getX()- 0.5);
+        Coord bL = new Coord( c.getX()- 0.5,c.getY() - 1);
 //        double[] bL = {coord[0] - 0.5, coord[1] - 1};
-        Coord bR = new Coord(c.getY() - 1, c.getX() + 0.5);
+        Coord bR = new Coord( c.getX() + 0.5,c.getY() - 1);
 //        double[] bR = {coord[0] + 0.5, coord[1] - 1};
         adjacent.add(left);
         adjacent.add(right);
@@ -680,9 +679,7 @@ public class Board {
     public HashMap<Coord, HexTile> getTiles(){
         return tiles;
     }
-//    public String getTilesTemp(){
-//        return tiles.toString();
-//    }
+
     public String[][] getBoardArr(){
         return boards;
     }
