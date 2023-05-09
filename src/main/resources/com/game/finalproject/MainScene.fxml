@@ -139,6 +139,7 @@
             <AnchorPane fx:id="container2" layoutX="342.0" layoutY="85.0" prefHeight="600.0" prefWidth="800.0" />
             <AnchorPane fx:id="container3" layoutX="342.0" layoutY="85.0" prefHeight="600.0" prefWidth="800.0" />
             <Rectangle fx:id="playerRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="29.0" layoutX="209.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" width="42.0" />
+            <AnchorPane fx:id="anchorPlayerRect" layoutX="210.0" layoutY="43.0" prefHeight="29.0" prefWidth="42.0" />
          </children>
       </AnchorPane>
    </children>

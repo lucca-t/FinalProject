@@ -3,7 +3,9 @@ package com.game.finalproject;
 import com.game.finalproject.hextile.Tile;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,7 +16,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,7 +52,7 @@ public class MainSceneController {
     @FXML
     private Node balls;
     @FXML
-    private AnchorPane container,container2,container3;
+    private AnchorPane container,container2,container3,anchorPlayerRect;
     private ArrayList<Coord> chosenSettlements;
     private final static double r = 20; // the inner radius from hexagon center to outer corner
     private final static double n = Math.sqrt(r * r * 0.75); // the inner radius from hexagon center to middle of the axis
@@ -129,8 +133,29 @@ public class MainSceneController {
         }
         game.endGame();
     }
-    public void goEnd(){
+    public void goEnd() throws IOException {
         if(game.getEnd()){
+
+
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("end-screen.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("end-screen.fxml"));
+            Scene endScene = new Scene(fxmlLoader.load(), 1351, 720);
+            endScreenController endcontroller= fxmlLoader.getController();
+            endcontroller.setGame(game);
+
+            //Parent endSceneParent = fxmlLoader.load();
+            //Scene endScene = new Scene(endSceneParent);
+
+
+            Stage stage = (Stage) finishTurnButton.getScene().getWindow();
+            stage.setScene(endScene);
+            stage.show();
+
+
+
+
+
+
 
 
 
@@ -168,7 +193,7 @@ public class MainSceneController {
 //    }
 
     @FXML
-    void confirmPlace(ActionEvent event) {
+    void confirmPlace(ActionEvent event) throws IOException {
 //        ArrayList<Coord> validHexes = game.getTurnPlayer().getChoiceHexes();
 //        for (int i = 0; i < validHexes.size(); i++) {
 //            tiles.get(validHexes.get(i)).setOccupancy(game.getTurnPlayer());
@@ -176,6 +201,8 @@ public class MainSceneController {
 //        game.getTurnPlayer().clearChoiceHexes();
 //        quickDrawBoards();
 //        game.getTurnPlayer().resTSPlaced();
+        goEnd();
+        //end=true;
     }
 
     @FXML
