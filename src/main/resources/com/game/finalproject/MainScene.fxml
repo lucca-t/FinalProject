@@ -138,6 +138,11 @@
             <AnchorPane fx:id="container3" layoutX="342.0" layoutY="85.0" prefHeight="600.0" prefWidth="800.0" />
             <AnchorPane fx:id="anchorPlayerRect" layoutX="210.0" layoutY="44.0" prefHeight="29.0" prefWidth="42.0" />
             <Button fx:id="confirmPlaceButton" layoutY="693.0" mnemonicParsing="false" onAction="#confirmPlace" prefHeight="25.0" prefWidth="1.0" />
+            <ImageView fx:id="backCard" fitHeight="175.0" fitWidth="140.0" layoutX="65.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/ResourceCardBack.jpg" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

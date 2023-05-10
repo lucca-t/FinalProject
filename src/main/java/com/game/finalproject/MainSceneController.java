@@ -18,6 +18,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -39,7 +41,7 @@ public class MainSceneController {
     @FXML
     private ImageView infoTile0,infoTile1,infoTile2,infoTile3,currentTerrainCard,firstPlayerToken;
     @FXML
-    private ImageView pointCard0,pointCard1,pointCard2;
+    private ImageView pointCard0,pointCard1,pointCard2,backCard;
     @FXML
     private Button confirmPlaceButton,finishTurnButton,prevButton,nextButton,useBonusButton;
     @FXML
@@ -91,7 +93,7 @@ public class MainSceneController {
         gameEnd=false;
          playerRect=new Rectangle();
         comicalAmountofCode();
-
+        backCard.toBack();
     }
     void initialize(KingdomBuilderMain games) {
         game = games;
@@ -355,8 +357,10 @@ public class MainSceneController {
         private final static int WINDOW_WIDTH = 800;
         private final static int WINDOW_HEIGHT = 600;
         private int useX,useY;
+        private Coord c;
         Tile(double x, double y, int xcoord, int ycoord, KingdomBuilderMain game) {
             // creates the polygon using the corner coordinates
+            //setStroke(Color.TRANSPARENT);
             //drawBorder();
             useX=xcoord;
             useY=ycoord;
@@ -389,7 +393,7 @@ public class MainSceneController {
                     }
                     HexTile temp;
                 boolean even;
-                Coord c;
+
                     if (ycoord % 2 == 0) {
                         c = new Coord(xcoord, ycoord);
                         even = true;
@@ -451,7 +455,7 @@ public class MainSceneController {
         }
         public void drawBorder(){
             Coord c;
-            if (useX % 2 == 0) {
+           if (useY % 2 == 0) {
                 c = new Coord(useX, useY);
             }
             else {
@@ -465,8 +469,10 @@ public class MainSceneController {
                 setOpacity(1);
                 setFill(Color.TRANSPARENT);
             }
-            else
+            else {
                 setStrokeWidth(0);
+                setStroke(Color.TRANSPARENT);
+            }
 
         }
 
@@ -540,6 +546,19 @@ public class MainSceneController {
                     HexTile temp = tiles.get(c);
                     imgTile = new ImageView(returnTileImage(temp.getType()));
                 }
+
+
+                /////////////////////////////action num code
+                Label numAct;
+                if(true){
+
+                    numAct= new Label("2");
+                    numAct.setLayoutX(xCoord+15);
+                    numAct.setLayoutY(yCoord+1);
+                    numAct.setFont(Font.font("Arial", FontWeight.BOLD, 18)); // Set the font to Arial, bold, size 24
+
+                }
+                //////////////////////////
                 imgTile.setX(xCoord);imgTile.setY(yCoord-10);imgTile.setFitHeight(40);imgTile.setFitWidth(40);
                 //////rectangle code
                 //have an if statement checking if there's a settlement here from the player
@@ -566,6 +585,7 @@ public class MainSceneController {
 
 
                 Polygon tile = new Tile(xCoord, yCoord,xint,yint,game);
+                tileMap.getChildren().add(numAct);
                 tileMap.getChildren().add(tile);
             }
         }
@@ -659,27 +679,49 @@ public class MainSceneController {
                 //count++;
                 //if(tempInt<game.getPlayers().get(turnNum).getActions().size()-1) {
                     //if statement to prevent it from going out of bounds idk
-                if (game.getTurnPlayer().getActions().size() > 0){
-                    String tempTile = game.getPlayers().get(turnNum).getActions().get(0).getType();
+               // if (game.getTurnPlayer().getActions().size() > tempInt){
+//                if (game.getTurnPlayer().getActions().size() > 0){
+                if(game.getTurnPlayer().getActions().size()>count){
+                    String tempTile = game.getTurnPlayer().getActions().get(count).getType();
                     Image temp = returnTileImage(tempTile);
                     ImageView viewTemp = new ImageView(temp);
+                    int finalY = y;
+                    int finalX = x;
+                    viewTemp.setOnMouseClicked(e-> {
+                       System.out.println("clicked " + finalX + " " + finalY);
+                        viewTemp.setOpacity(.5);
+
+
+
+                  });
                     viewTemp.setFitWidth(70);
                     viewTemp.setFitHeight(79);
                     viewTemp.setVisible(true);
                     actionGrid.add(viewTemp, x, y);
                     actionGrid.setVisible(true);
+                    viewTemp.setOpacity(1);
                 }
-
-
-                //}
-                //count++;
-
-
+                count++;
             }
         }
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private Image returnImage(String str) {
         Image temp = new Image(getClass().getResource("images/shrek.png").toExternalForm());

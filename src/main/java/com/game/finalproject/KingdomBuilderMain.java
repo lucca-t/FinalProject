@@ -51,10 +51,10 @@ public class KingdomBuilderMain {
             pointCardsall.remove(x);
         }
         players.get(0).setfPlayer(true);
-        //TESTING DISPLAYING ACTIONS
-//        Action balls = new Action(1,"Harbor",true);
-//        for(int x=0;x<8;x++);
-//            players.get(0).addActions(balls);
+//        TESTING DISPLAYING ACTIONS
+        Action balls = new Action(1,"Harbor",true);
+        for(int x=0;x<8;x++);
+            players.get(0).addActions(balls);
 
         //TEST^
 
