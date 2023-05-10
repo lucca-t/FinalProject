@@ -10,7 +10,7 @@ public class Tester {
 
     public static void main(String[] args) {
         //pulling HexTiles
-        Board b = new Board(1, 2, 3, 4);
+        Board b = new Board(0, 1, 2, 3);
         String board = "";
         HashMap tiles = b.getTiles();
         //String tileString = b.getBoardTemp();
@@ -34,6 +34,9 @@ public class Tester {
         for (int t = 0; t < 4; t++) {
             System.out.println(t + " : " + players.get(t).getTerrain());
         }
+
+        //boardAction
+        System.out.println(game.getBoard().getBoardActions());
 
     }
 }

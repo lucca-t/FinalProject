@@ -8,6 +8,7 @@ public class Board {
     //desert: d, canyon: c, water: w, forest: s, flowers: f, grass: g, mountains: m, castle: castle
     private int location;
     private ArrayList<Action> actions;
+    private HashMap<Coord, ArrayList<Action>> boardActions;
     private HashMap<Coord, HexTile> tiles;
 
     String[] board1 = {"d", "d", "c", "w", "w", "s", "s", "s", "g", "g", "d", "castle", "c", "w", "s", "s", "s", "Barn", "g", "g", "c", "c", "c", "f", "f", "f", "s", "c", "f", "f", "c", "c", "f", "f", "w", "d", "d", "c", "c", "f", "c", "g", "g", "w", "f", "f", "d", "d", "c", "c", "g", "g", "Barn", "f", "w", "f", "w", "d", "d", "c", "g", "g", "g", "s", "f", "f", "w", "w", "d", "d", "g", "g", "s", "s", "m", "w", "w", "w", "d", "w", "g", "m", "s", "s", "w", "w", "w", "w", "w", "w", "s", "s", "s", "w", "w", "w", "w", "w", "w", "w"};
@@ -17,6 +18,7 @@ public class Board {
     String[] board4 = {"g", "g", "g", "s", "s", "w", "g", "s", "s", "s", "g", "g", "g", "castle", "s", "w", "g", "s", "s", "s", "g", "f", "f", "g", "s", "s", "w", "g", "g", "s", "f", "f", "c", "g", "s", "w", "f", "Oracle", "s", "s", "f", "f", "f", "c", "c", "w", "f", "f", "w", "w", "m", "m", "c", "g", "g", "w", "w", "w", "d", "d", "c", "c", "c", "m", "g", "f", "f", "f", "d", "d", "c", "c", "castle", "d", "m", "d", "f", "f", "c", "c", "w", "w", "w", "d", "d", "d", "d", "m", "c", "c", "w", "w", "w", "w", "d", "d", "d", "d", "d", "c"};
     String[][] boards = {board1, board2, board3, board4};
     public Board(int b1, int b2, int b3, int b4) {
+        boardActions = new HashMap<Coord, ArrayList<Action>>();
         actions = new ArrayList<Action>();
         actions.add(new Action(1, "Barn", false));
         actions.add(new Action(1, "Barn", false));
@@ -38,6 +40,10 @@ public class Board {
                     c = new Coord(x + 0.5, y);
                 }
                 tiles.put(c, new HexTile((boards[b1][i])));
+                if (((boards[b1][i]).length() != 1) && !((boards[b1][i]).equals("Castle"))) {
+                    boardActions.put(c, new ArrayList<Action>());
+                    boardActions.get(c).add(new Action(b1, boards[b1][i], false));
+                }
                 i++;
             }
         }
@@ -55,6 +61,10 @@ public class Board {
 //                    coord[1] = x + 0.5;
                 }
                 tiles.put(c, new HexTile((boards[b2][i])));
+                if ((boards[b2][i]).length() != 1 && !((boards[b2][i]).equals("Castle"))) {
+                    boardActions.put(c, new ArrayList<Action>());
+                    boardActions.get(c).add(new Action(b2, boards[b2][i], false));
+                }
                 i++;
             }
         }
@@ -73,6 +83,10 @@ public class Board {
                     coord[1] = x + 0.5;
                 }
                 tiles.put(c, new HexTile((boards[b3][i])));
+                if ((boards[b3][i]).length() != 1 && !((boards[b3][i]).equals("Castle"))) {
+                    boardActions.put(c, new ArrayList<Action>());
+                    boardActions.get(c).add(new Action(b3, boards[b3][i], false));
+                }
                 i++;
             }
         }
@@ -91,9 +105,17 @@ public class Board {
                     coord[1] = x + 0.5;
                 }
                 tiles.put(c, new HexTile((boards[b4][i])));
+                if ((boards[b4][i]).length() != 1 && !((boards[b4][i]).equals("Castle"))) {
+                    boardActions.put(c, new ArrayList<Action>());
+                    boardActions.get(c).add(new Action(b4, boards[b4][i], false));
+                }
                 i++;
             }
         }
+    }
+
+    public HashMap<Coord, ArrayList<Action>> getBoardActions() {
+        return boardActions;
     }
     public ArrayList<Coord> findAdjacencies(Coord c){
         ArrayList<Coord> adjacent = new ArrayList<Coord>();

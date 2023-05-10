@@ -3,6 +3,7 @@ package com.game.finalproject;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 
 public class KingdomBuilderMain {
     private ArrayList<Player> players;
@@ -13,6 +14,8 @@ public class KingdomBuilderMain {
     private HashMap tiles;
     public boolean end;
     private ArrayList<Coord> settlementCords;
+
+    private HashMap<ArrayList<Action>, Integer> boardActions;
 
 
     public KingdomBuilderMain(){
@@ -34,6 +37,7 @@ public class KingdomBuilderMain {
         for (int a = 0; a < 4; a++) {choose.add(a);}
         Collections.shuffle(choose);
         board = new Board(choose.get(0), choose.get(1), choose.get(2), choose.get(3));
+        boardActions = new HashMap<ArrayList<Action>, Integer>();
 
         //players
         players = new ArrayList<Player>();
@@ -58,13 +62,7 @@ public class KingdomBuilderMain {
         turn = 0;
         terrains = new ArrayList<Card>();
         resetTerrainDeck();
-//        terrains.add("s");
-//        terrains.add("g");
-//        terrains.add("d");
-//        terrains.add("c");
-//        terrains.add("m");
-//        terrains.add("w");
-//        terrains.add("f");
+
         discardedBiomes = new ArrayList<String>();
         end = false;
 
