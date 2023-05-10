@@ -406,7 +406,7 @@ public class MainSceneController {
                     temp = game.getBoard().getTiles().get(c);
 
                     //for (int i = 0; i < loopNum + 1; i++) {
-                    if(game.getTurnPlayer().getTSPlaced()>0){
+                    if(game.getTurnPlayer().getTSPlaced()>0 && game.getTurnPlayer().getNumSettlements() > 0){
                         boolean validPlacement;
                         validPlacement = game.checkValidPlacement(c, turn, "");
                         //if (turn.getActions().size() == 0) {
