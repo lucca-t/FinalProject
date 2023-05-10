@@ -215,23 +215,23 @@ public class KingdomBuilderMain {
                 case "Citizen":
                     //board.scoreCitizens(players);
                 case "Discoverers":
-                    board.scoreDiscoverers(players);
-                case "Farmers":
-                    board.scoreFarmers(players);
+//                    board.scoreDiscoverers(players);
+//                case "Farmers":
+//                    board.scoreFarmers(players);
                 case "Fishermen":
                     board.scoreFishermen(players);
                 case "Hermits":
-                    //board.scoreHermits(players);
-                case "Knights":
-                    board.scoreKnights(players);
-                case "Lords":
-                    board.scoreLords(players);
+//                    //board.scoreHermits(players);
+//                case "Knights":
+//                    board.scoreKnights(players);
+//                case "Lords":
+//                    board.scoreLords(players);
                 case "Merchants":
                    // board.scoreMerchants(players);
                 case "Miners":
                    // board.scoreMiners(players);
-                case "Workers":
-                    board.scoreWorkers(players);
+//                case "Workers":
+//                    board.scoreWorkers(players);
             }
 
         }
@@ -307,6 +307,26 @@ public class KingdomBuilderMain {
                         occ = true;
                     }
                 }
+                boolean tl = false;
+                for(int i = 0; i < p.getOccupiedTiles().size(); i++){
+                    if((!(sC.getX() == (0.0))) && (!(sC.getX() == (19.0))) && (!(sC.getX() == (19.5))) && (!(sC.getX() == (0.5)))) {
+                        if ((!(sC.getY() == (0.0))) && (!(sC.getY() == (19.0)))) {
+                            for(int k = 0; k < findAdjacencies(p.getOccupiedTiles().get(i)).size(); k++){
+                                if(board.getTiles().get(findAdjacencies(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacencies(p.getOccupiedTiles().get(i)).get(k)).getType().equals(p.getTerrain().getType())){
+                                    tl = true;
+                                }
+                            }
+                        }
+                    }
+                    else{
+                        for(int k = 0; k < findAdjacenciesEdge(p.getOccupiedTiles().get(i)).size(); k++){
+                            if(board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getType().equals(p.getTerrain().getType())){
+                                tl = true;
+                            }
+                        }
+                    }
+                }
+                occ = tl;
                 if(!occ){
                     return true;
                 }

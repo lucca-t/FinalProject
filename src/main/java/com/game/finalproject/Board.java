@@ -206,74 +206,74 @@ public class Board {
             return 0;
         }
     }
-    public void scoreWorkers(ArrayList<Player> players) {
-        for (Player player : players) {
-            int cnt = 0;
-            for (int i = 0; i < player.getOccupiedTiles().size(); i++) {
-                ArrayList<Coord> temp = findAdjacencies(player.getOccupiedTiles().get(i));
-                for (Coord coord : temp) {
-                    cnt += scoreWorkers(coord);
-                }
-            }
-            for (int i = 0; i < player.getOccupiedTiles().size(); i++) {
-                ArrayList<Coord> temp = findAdjacencies(player.getOccupiedTiles().get(i));
-                for (Coord coord : temp) {
-                    setCheckedFalse(coord);
-                }
-            }
-            player.addPoints(cnt);
-        }
-
-    }
-    public int scoreWorkers(Coord crd){
-        if(tiles.get(crd).getType().equals("castle") && !tiles.get(crd).getChecked()){
-            tiles.get(crd).setCheck(true);
-            return 1;
-        }
-        else if(tiles.get(crd).getType().equals("action") && !tiles.get(crd).getChecked()){
-            tiles.get(crd).setCheck(true);
-            return 1;
-        }
-        else{
-            return 0;
-        }
-    }
-    public void scoreMerchants(ArrayList<Player> players) {
-        for(int p = 0; p < players.size(); p++){
-            ArrayList<Coord>  bulbasaur = players.get(p).getOccupiedTiles();
-            ArrayList<ArrayList<Coord>> squirtle = new ArrayList<>();
-            for(int i = 0; i < bulbasaur.size(); i++){
-                squirtle.add(getCluster(bulbasaur.get(i), players.get(p)));
-            }
-            removeRepeatsdos(squirtle);
-            ArrayList<Integer> pikachu = new ArrayList<>();
-            for(int i = 0; i < squirtle.size(); i++){
-                int cnt = 0;
-                for(int k = 0; k < squirtle.get(i).size(); k++){
-                    ArrayList<Coord> charmander = findAdjacencies(squirtle.get(i).get(k));
-                    for(int j = 0; j < charmander.size(); j++){
-                        if(!tiles.get(j).getTouched() && tiles.get(j).getType().length() > 1){
-                            cnt++;
-                            tiles.get(j).setTouched(true);
-                        }
-                    }
-                }
-                pikachu.add(cnt);
-            }
-            int x = 0;
-            for(int i = 0; i < pikachu.size(); i++){
-                if(pikachu.get(i) > x){
-                    x = pikachu.get(i);
-                }
-            }
-            if(x < 2){
-                players.get(p).addPoints(0);
-            }
-            else{
-                players.get(p).addPoints(4*x);
-            }
-        }
-    }
+//    public void scoreWorkers(ArrayList<Player> players) {
+//        for (Player player : players) {
+//            int cnt = 0;
+//            for (int i = 0; i < player.getOccupiedTiles().size(); i++) {
+//                ArrayList<Coord> temp = findAdjacencies(player.getOccupiedTiles().get(i));
+//                for (Coord coord : temp) {
+//                    cnt += scoreWorkers(coord);
+//                }
+//            }
+//            for (int i = 0; i < player.getOccupiedTiles().size(); i++) {
+//                ArrayList<Coord> temp = findAdjacencies(player.getOccupiedTiles().get(i));
+//                for (Coord coord : temp) {
+//                    setCheckedFalse(coord);
+//                }
+//            }
+//            player.addPoints(cnt);
+//        }
+//
+//    }
+//    public int scoreWorkers(Coord crd){
+//        if(tiles.get(crd).getType().equals("castle") && !tiles.get(crd).getChecked()){
+//            tiles.get(crd).setCheck(true);
+//            return 1;
+//        }
+//        else if(tiles.get(crd).getType().equals("action") && !tiles.get(crd).getChecked()){
+//            tiles.get(crd).setCheck(true);
+//            return 1;
+//        }
+//        else{
+//            return 0;
+//        }
+//    }
+//    public void scoreMerchants(ArrayList<Player> players) {
+//        for(int p = 0; p < players.size(); p++){
+//            ArrayList<Coord>  bulbasaur = players.get(p).getOccupiedTiles();
+//            ArrayList<ArrayList<Coord>> squirtle = new ArrayList<>();
+//            for(int i = 0; i < bulbasaur.size(); i++){
+//                squirtle.add(getCluster(bulbasaur.get(i), players.get(p)));
+//            }
+//            removeRepeatsdos(squirtle);
+//            ArrayList<Integer> pikachu = new ArrayList<>();
+//            for(int i = 0; i < squirtle.size(); i++){
+//                int cnt = 0;
+//                for(int k = 0; k < squirtle.get(i).size(); k++){
+//                    ArrayList<Coord> charmander = findAdjacencies(squirtle.get(i).get(k));
+//                    for(int j = 0; j < charmander.size(); j++){
+//                        if(!tiles.get(j).getTouched() && tiles.get(j).getType().length() > 1){
+//                            cnt++;
+//                            tiles.get(j).setTouched(true);
+//                        }
+//                    }
+//                }
+//                pikachu.add(cnt);
+//            }
+//            int x = 0;
+//            for(int i = 0; i < pikachu.size(); i++){
+//                if(pikachu.get(i) > x){
+//                    x = pikachu.get(i);
+//                }
+//            }
+//            if(x < 2){
+//                players.get(p).addPoints(0);
+//            }
+//            else{
+//                players.get(p).addPoints(4*x);
+//            }
+//        }
+//    }
     public void scoreDiscoverers(ArrayList<Player> players) {
         for (int p = 0; p < players.size(); p++) {
             ArrayList<Double> temp = new ArrayList<Double>();
@@ -285,252 +285,252 @@ public class Board {
             players.get(p).addPoints(temp.size());
         }
     }
-    public void scoreKnights(ArrayList<Player> players) {
-        for (int p = 0; p < players.size(); p++) {
-            ArrayList<Double> temp = new ArrayList<Double>();
-            ArrayList<Integer> cnts = new ArrayList<Integer>();
-            for(int i = 0; i < players.get(p).getOccupiedTiles().size(); i++){
-                //get arraylist of all y coordinates of all settlements then get the number of settlements on each y coordinate then return the largest value
-                if(!contains(temp, players.get(p).getOccupiedTiles().get(i).getY())) {
-                    temp.add(players.get(p).getOccupiedTiles().get(i).getY());
-                }
-            }
-            for(int i = 0; i < temp.size(); i++){
-                double x = temp.get(i);
-                int y = 0;
-                for(int k = 0; k < players.get(p).getOccupiedTiles().size(); k++){
-                    if(players.get(p).getOccupiedTiles().get(k).getY() == x){
-                        y++;
-                    }
-                }
-                cnts.add(y);
-            }
-            int bigger = 0;
-            for(int i = 0; i < cnts.size(); i++){
-                if(bigger < cnts.get(i)){
-                    bigger = cnts.get(i);
-                }
-            }
-            players.get(p).addPoints(bigger*2);
-        }
-
-    }
-    public void scoreHermits(ArrayList<Player> players) {
-        for(int p = 0; p < players.size(); p++) {
-            ArrayList<Integer> clustersize = new ArrayList<>();
-            for(int i = 0; i < players.get(p).getOccupiedTiles().size(); i++) {
-                ArrayList<Coord> eminem = getCluster(players.get(p).getOccupiedTiles().get(i), players.get(p));
-                clustersize.add(eminem.size());
-            }
-            players.get(p).addPoints(clustersize.size());
-        }
-    }
-    public int scoreLordsHelper(ArrayList<Player> players, int player){
-        int ps1 = 0;
-        int ps2 = 0;
-        int ps3 = 0;
-        int ps4 = 0;
-        Player first = new Player("hello");
-        Player sec = new Player("hello");
-        Player third = new Player("hello");
-        Player fourth = new Player("hello");
-        ArrayList<ArrayList<Integer>> comp = new ArrayList<>();
-        ArrayList<Integer> p1 = getNumSettle(players.get(0));
-        ArrayList<Integer> p2 = getNumSettle(players.get(1));
-        ArrayList<Integer> p3 = getNumSettle(players.get(2));
-        ArrayList<Integer> p4 = getNumSettle(players.get(3));
-        comp.add(p1);
-        comp.add(p2);
-        comp.add(p3);
-        comp.add(p4);
-        ArrayList<ArrayList<Integer>> temp = comp;
-        int big = 0;
-        for(int i = 0; i < comp.size(); i++){
-            if(comp.get(i).get(0) > big){
-                big = comp.get(i).get(0);
-            }
-        }
-        int pineapple = 0;
-        for(int i = 0; i < comp.size(); i++){
-            if(comp.get(i).get(0) < big && comp.get(i).get(0) > pineapple){
-                pineapple = comp.get(i).get(0);
-            }
-        }
-        if(big == comp.get(0).get(0)){
-            ps1 += 12;
-        }
-        if(pineapple == comp.get(0).get(0)){
-            ps1 += 6;
-        }
-        if(pineapple == comp.get(1).get(0)){
-            ps2 += 6;
-        }
-        if(pineapple == comp.get(2).get(0)){
-            ps3 += 6;
-        }
-        if(pineapple == comp.get(3).get(0)){
-            ps4 += 6;
-        }
-        if(big == comp.get(1).get(0)){
-            ps2 += 12;
-        }
-        if(big == comp.get(2).get(0)){
-            ps3 += 12;
-        }
-        if(big == comp.get(3).get(0)){
-            ps4 += 12;
-        }
-        int bigg = 0;
-        for(int i = 0; i < comp.size(); i++){
-            if(comp.get(i).get(1) > bigg){
-                bigg = comp.get(i).get(1);
-            }
-        }
-        int pine = 0;
-        for(int i = 0; i < comp.size(); i++){
-            if(comp.get(i).get(1) < bigg && comp.get(i).get(1) > pine){
-                pine = comp.get(i).get(1);
-            }
-        }
-        if(bigg == comp.get(0).get(1)){
-            ps1 += 12;
-        }
-        if(pine == comp.get(0).get(1)){
-            ps1 += 6;
-        }
-        if(pine == comp.get(1).get(1)){
-            ps2 += 6;
-        }
-        if(pine == comp.get(2).get(1)){
-            ps3 += 6;
-        }
-        if(pine == comp.get(3).get(1)){
-            ps4 += 6;
-        }
-        if(bigg == comp.get(1).get(1)){
-            ps2 += 12;
-        }
-        if(bigg == comp.get(2).get(1)){
-            ps3 += 12;
-        }
-        if(bigg == comp.get(3).get(1)){
-            ps4 += 12;
-        }
-        int big3 = 0;
-        for(int i = 0; i < comp.size(); i++){
-            if(comp.get(i).get(2) > big){
-                big3 = comp.get(i).get(2);
-            }
-        }
-        int pin = 0;
-        for(int i = 0; i < comp.size(); i++){
-            if(comp.get(i).get(2) < big3 && comp.get(i).get(2) > pin){
-                pin = comp.get(i).get(2);
-            }
-        }
-        if(big3 == comp.get(0).get(2)){
-            ps1 += 12;
-        }
-        if(pin == comp.get(0).get(2)){
-            ps1 += 6;
-        }
-        if(pin == comp.get(1).get(2)){
-            ps2 += 6;
-        }
-        if(pin == comp.get(2).get(2)){
-            ps3 += 6;
-        }
-        if(pin == comp.get(3).get(2)){
-            ps4 += 6;
-        }
-        if(big3 == comp.get(1).get(2)){
-            ps2 += 12;
-        }
-        if(big3 == comp.get(2).get(2)){
-            ps3 += 12;
-        }
-        if(big3 == comp.get(3).get(2)){
-            ps4 += 12;
-        }
-
-        int big4 = 0;
-        for(int i = 0; i < comp.size(); i++){
-            if(comp.get(i).get(3) > big4){
-                big4 = comp.get(i).get(3);
-            }
-        }
-        int pi = 0;
-        for(int i = 0; i < comp.size(); i++){
-            if(comp.get(i).get(3) < big4 && comp.get(i).get(3) > pi){
-                pi = comp.get(i).get(3);
-            }
-        }
-        if(big4 == comp.get(0).get(3)){
-            ps1 += 12;
-        }
-        if(pi == comp.get(0).get(3)){
-            ps1 += 6;
-        }
-        if(pi == comp.get(1).get(3)){
-            ps2 += 6;
-        }
-        if(pi == comp.get(2).get(3)){
-            ps3 += 6;
-        }
-        if(pi == comp.get(3).get(3)){
-            ps4 += 6;
-        }
-        if(big4 == comp.get(1).get(3)){
-            ps2 += 12;
-        }
-        if(big4 == comp.get(2).get(3)){
-            ps3 += 12;
-        }
-        if(big4 == comp.get(3).get(3)){
-            ps4 += 12;
-        }
-        if(player == 1){
-            return ps1;
-        }
-        if(player == 2){
-            return ps2;
-        }
-        if(player == 3){
-            return ps3;
-        }
-        if(player == 4){
-            return ps4;
-        }
-        else{
-            return 0;
-        }
-    }
-    public void scoreLords(ArrayList<Player> players){
-        int i = 0;
-        for(int p = 1; p < 4; p++){
-            players.get(i).addPoints(scoreLordsHelper(players, p));
-            i++;
-        }
-    }
-    public void scoreCitizens(ArrayList<Player> players) {
-        for(int p = 0; p < players.size(); p++) {
-            ArrayList<Integer> clustersize = new ArrayList<>();
-            for(int i = 0; i < players.get(p).getOccupiedTiles().size(); i++){
-                ArrayList<Coord> eminem = getCluster(players.get(p).getOccupiedTiles().get(i), players.get(p));
-                clustersize.add(eminem.size());
-            }
-            int big = 0;
-            for(int i = 0; i < clustersize.size(); i++){
-                if(clustersize.get(i) > big){
-                    big = clustersize.get(i);
-                }
-            }
-            if(big%2== 1){
-                big -= 1;
-            }
-            players.get(p).addPoints(big/2);
-        }
-    }
+//    public void scoreKnights(ArrayList<Player> players) {
+//        for (int p = 0; p < players.size(); p++) {
+//            ArrayList<Double> temp = new ArrayList<Double>();
+//            ArrayList<Integer> cnts = new ArrayList<Integer>();
+//            for(int i = 0; i < players.get(p).getOccupiedTiles().size(); i++){
+//                //get arraylist of all y coordinates of all settlements then get the number of settlements on each y coordinate then return the largest value
+//                if(!contains(temp, players.get(p).getOccupiedTiles().get(i).getY())) {
+//                    temp.add(players.get(p).getOccupiedTiles().get(i).getY());
+//                }
+//            }
+//            for(int i = 0; i < temp.size(); i++){
+//                double x = temp.get(i);
+//                int y = 0;
+//                for(int k = 0; k < players.get(p).getOccupiedTiles().size(); k++){
+//                    if(players.get(p).getOccupiedTiles().get(k).getY() == x){
+//                        y++;
+//                    }
+//                }
+//                cnts.add(y);
+//            }
+//            int bigger = 0;
+//            for(int i = 0; i < cnts.size(); i++){
+//                if(bigger < cnts.get(i)){
+//                    bigger = cnts.get(i);
+//                }
+//            }
+//            players.get(p).addPoints(bigger*2);
+//        }
+//
+//    }
+//    public void scoreHermits(ArrayList<Player> players) {
+//        for(int p = 0; p < players.size(); p++) {
+//            ArrayList<Integer> clustersize = new ArrayList<>();
+//            for(int i = 0; i < players.get(p).getOccupiedTiles().size(); i++) {
+//                ArrayList<Coord> eminem = getCluster(players.get(p).getOccupiedTiles().get(i), players.get(p));
+//                clustersize.add(eminem.size());
+//            }
+//            players.get(p).addPoints(clustersize.size());
+//        }
+//    }
+//    public int scoreLordsHelper(ArrayList<Player> players, int player){
+//        int ps1 = 0;
+//        int ps2 = 0;
+//        int ps3 = 0;
+//        int ps4 = 0;
+//        Player first = new Player("hello");
+//        Player sec = new Player("hello");
+//        Player third = new Player("hello");
+//        Player fourth = new Player("hello");
+//        ArrayList<ArrayList<Integer>> comp = new ArrayList<>();
+//        ArrayList<Integer> p1 = getNumSettle(players.get(0));
+//        ArrayList<Integer> p2 = getNumSettle(players.get(1));
+//        ArrayList<Integer> p3 = getNumSettle(players.get(2));
+//        ArrayList<Integer> p4 = getNumSettle(players.get(3));
+//        comp.add(p1);
+//        comp.add(p2);
+//        comp.add(p3);
+//        comp.add(p4);
+//        ArrayList<ArrayList<Integer>> temp = comp;
+//        int big = 0;
+//        for(int i = 0; i < comp.size(); i++){
+//            if(comp.get(i).get(0) > big){
+//                big = comp.get(i).get(0);
+//            }
+//        }
+//        int pineapple = 0;
+//        for(int i = 0; i < comp.size(); i++){
+//            if(comp.get(i).get(0) < big && comp.get(i).get(0) > pineapple){
+//                pineapple = comp.get(i).get(0);
+//            }
+//        }
+//        if(big == comp.get(0).get(0)){
+//            ps1 += 12;
+//        }
+//        if(pineapple == comp.get(0).get(0)){
+//            ps1 += 6;
+//        }
+//        if(pineapple == comp.get(1).get(0)){
+//            ps2 += 6;
+//        }
+//        if(pineapple == comp.get(2).get(0)){
+//            ps3 += 6;
+//        }
+//        if(pineapple == comp.get(3).get(0)){
+//            ps4 += 6;
+//        }
+//        if(big == comp.get(1).get(0)){
+//            ps2 += 12;
+//        }
+//        if(big == comp.get(2).get(0)){
+//            ps3 += 12;
+//        }
+//        if(big == comp.get(3).get(0)){
+//            ps4 += 12;
+//        }
+//        int bigg = 0;
+//        for(int i = 0; i < comp.size(); i++){
+//            if(comp.get(i).get(1) > bigg){
+//                bigg = comp.get(i).get(1);
+//            }
+//        }
+//        int pine = 0;
+//        for(int i = 0; i < comp.size(); i++){
+//            if(comp.get(i).get(1) < bigg && comp.get(i).get(1) > pine){
+//                pine = comp.get(i).get(1);
+//            }
+//        }
+//        if(bigg == comp.get(0).get(1)){
+//            ps1 += 12;
+//        }
+//        if(pine == comp.get(0).get(1)){
+//            ps1 += 6;
+//        }
+//        if(pine == comp.get(1).get(1)){
+//            ps2 += 6;
+//        }
+//        if(pine == comp.get(2).get(1)){
+//            ps3 += 6;
+//        }
+//        if(pine == comp.get(3).get(1)){
+//            ps4 += 6;
+//        }
+//        if(bigg == comp.get(1).get(1)){
+//            ps2 += 12;
+//        }
+//        if(bigg == comp.get(2).get(1)){
+//            ps3 += 12;
+//        }
+//        if(bigg == comp.get(3).get(1)){
+//            ps4 += 12;
+//        }
+//        int big3 = 0;
+//        for(int i = 0; i < comp.size(); i++){
+//            if(comp.get(i).get(2) > big){
+//                big3 = comp.get(i).get(2);
+//            }
+//        }
+//        int pin = 0;
+//        for(int i = 0; i < comp.size(); i++){
+//            if(comp.get(i).get(2) < big3 && comp.get(i).get(2) > pin){
+//                pin = comp.get(i).get(2);
+//            }
+//        }
+//        if(big3 == comp.get(0).get(2)){
+//            ps1 += 12;
+//        }
+//        if(pin == comp.get(0).get(2)){
+//            ps1 += 6;
+//        }
+//        if(pin == comp.get(1).get(2)){
+//            ps2 += 6;
+//        }
+//        if(pin == comp.get(2).get(2)){
+//            ps3 += 6;
+//        }
+//        if(pin == comp.get(3).get(2)){
+//            ps4 += 6;
+//        }
+//        if(big3 == comp.get(1).get(2)){
+//            ps2 += 12;
+//        }
+//        if(big3 == comp.get(2).get(2)){
+//            ps3 += 12;
+//        }
+//        if(big3 == comp.get(3).get(2)){
+//            ps4 += 12;
+//        }
+//
+//        int big4 = 0;
+//        for(int i = 0; i < comp.size(); i++){
+//            if(comp.get(i).get(3) > big4){
+//                big4 = comp.get(i).get(3);
+//            }
+//        }
+//        int pi = 0;
+//        for(int i = 0; i < comp.size(); i++){
+//            if(comp.get(i).get(3) < big4 && comp.get(i).get(3) > pi){
+//                pi = comp.get(i).get(3);
+//            }
+//        }
+//        if(big4 == comp.get(0).get(3)){
+//            ps1 += 12;
+//        }
+//        if(pi == comp.get(0).get(3)){
+//            ps1 += 6;
+//        }
+//        if(pi == comp.get(1).get(3)){
+//            ps2 += 6;
+//        }
+//        if(pi == comp.get(2).get(3)){
+//            ps3 += 6;
+//        }
+//        if(pi == comp.get(3).get(3)){
+//            ps4 += 6;
+//        }
+//        if(big4 == comp.get(1).get(3)){
+//            ps2 += 12;
+//        }
+//        if(big4 == comp.get(2).get(3)){
+//            ps3 += 12;
+//        }
+//        if(big4 == comp.get(3).get(3)){
+//            ps4 += 12;
+//        }
+//        if(player == 1){
+//            return ps1;
+//        }
+//        if(player == 2){
+//            return ps2;
+//        }
+//        if(player == 3){
+//            return ps3;
+//        }
+//        if(player == 4){
+//            return ps4;
+//        }
+//        else{
+//            return 0;
+//        }
+//    }
+//    public void scoreLords(ArrayList<Player> players){
+//        int i = 0;
+//        for(int p = 1; p < 4; p++){
+//            players.get(i).addPoints(scoreLordsHelper(players, p));
+//            i++;
+//        }
+//    }
+//    public void scoreCitizens(ArrayList<Player> players) {
+//        for(int p = 0; p < players.size(); p++) {
+//            ArrayList<Integer> clustersize = new ArrayList<>();
+//            for(int i = 0; i < players.get(p).getOccupiedTiles().size(); i++){
+//                ArrayList<Coord> eminem = getCluster(players.get(p).getOccupiedTiles().get(i), players.get(p));
+//                clustersize.add(eminem.size());
+//            }
+//            int big = 0;
+//            for(int i = 0; i < clustersize.size(); i++){
+//                if(clustersize.get(i) > big){
+//                    big = clustersize.get(i);
+//                }
+//            }
+//            if(big%2== 1){
+//                big -= 1;
+//            }
+//            players.get(p).addPoints(big/2);
+//        }
+//    }
     public ArrayList<Integer> getNumSettle(Player p){
         ArrayList<Integer> temp = new ArrayList<>();
         int docbrown = 0;
@@ -574,41 +574,36 @@ public class Board {
         //can use
         return false;
     }
-    public boolean isAdjacent(double[] x, double[] y) {
-        if (y[0] + 1 == x[0] || y[0] + 0.5 == x[0] || y[0] - 1 == x[0] || y[0] - 0.5 == x[0]) {
-            if (y[1] + 1 == x[1] || y[1] + 0.5 == x[1] || y[1] - 1 == x[1] || y[1] - 0.5 == x[1]) {
-                return true;
-            }
-        }
-        return false;
-    }
-    public ArrayList<Coord> getCluster(Coord x, Player p){
-        ArrayList<Coord> cluster = new ArrayList<>();
-        if(!hasAdjacent(x,p.getOccupiedTiles())){
-            cluster.add(x);
-            return cluster;
-        }
-        for(int i = 0; i <  findPlayerAdjacencies(x, p).size(); i++){
-            cluster.add(findPlayerAdjacencies(x, p).get(i));
-        }
-        boolean hasstuff = true;
-        while(hasstuff){
-            ArrayList<Coord> temp = cluster;
-            for(int i = 0; i < temp.size(); i++){
-                ArrayList<Coord> spongebob = findPlayerAdjacencies(temp.get(i), p);
-                if(spongebob.isEmpty()){
-                    hasstuff = false;
-                }
-                for(int k = 0; k < spongebob.size(); i++){
-                    temp.add(spongebob.get(k));
-                }
-            }
-            cluster = temp;
-        }
-        removeRepeats(cluster);
-        return cluster;
-
-    }
+//    public ArrayList<Coord> getCluster(Coord x, Player p){
+//        ArrayList<Coord> cluster = new ArrayList<>();
+//        if(!hasAdjacent(x,p.getOccupiedTiles())){
+//            cluster.add(x);
+//            return cluster;
+//        }
+//        if(findPlayerAdjacencies(x, p).size()>0){
+//            for(int i = 0; i <  findPlayerAdjacencies(x, p).size(); i++){
+//                cluster.add(findPlayerAdjacencies(x, p).get(i));
+//            }
+//        }
+//
+//        boolean hasstuff = true;
+//        while(hasstuff){
+//            ArrayList<Coord> temp = cluster;
+//            for(int i = 0; i < temp.size(); i++){
+//                ArrayList<Coord> spongebob = findPlayerAdjacencies(temp.get(i), p);
+//                if(spongebob.isEmpty()){
+//                    hasstuff = false;
+//                }
+//                for(int k = 0; k < spongebob.size(); i++){
+//                    temp.add(spongebob.get(k));
+//                }
+//            }
+//            cluster = temp;
+//        }
+//        removeRepeats(cluster);
+//        return cluster;
+//
+//    }
     public ArrayList<Coord> findPlayerAdjacencies(Coord coord, Player p){
         ArrayList<Coord> adjacent = findAdjacencies(coord);
         ArrayList<Coord> playeradj = new ArrayList<>();
@@ -633,7 +628,7 @@ public class Board {
     }
     public void removeRepeatsdos(ArrayList<ArrayList<Coord>> x){
         for(int i = 0; i < x.size(); i++){
-            for(int k = 0; k < x.size(); i++){
+            for(int k = 0; k < x.size(); k++){
                 if(x.get(i).equals(x.get(k))){
                     x.remove(i);
                 }
@@ -641,56 +636,56 @@ public class Board {
         }
     }
 
-    public void scoreFarmers(ArrayList<Player> players) {
-        for (int p = 0; p < players.size(); p++) {
-
-            boolean one = false;
-            boolean two = false;
-            boolean three = false;
-            boolean four = false;
-            for(int i = 0; i < players.get(p).getOccupiedTiles().size(); i++){
-                if(players.get(p).getOccupiedTiles().get(i).getX() >= 10 && players.get(p).getOccupiedTiles().get(i).getX() <= 19 ) {
-                    if(players.get(p).getOccupiedTiles().get(i).getY() <= 9) {
-                        one = true;
-                    }
-                }
-                if(players.get(p).getOccupiedTiles().get(i).getX() <= 9 && players.get(p).getOccupiedTiles().get(i).getY() <= 9 ) {
-                    two = true;
-                }
-                if(players.get(p).getOccupiedTiles().get(i).getY() >= 10 && players.get(p).getOccupiedTiles().get(i).getY() <= 19 ) {
-                    if(players.get(p).getOccupiedTiles().get(i).getX() <= 9) {
-                        three = true;
-                    }
-                }
-                if(players.get(p).getOccupiedTiles().get(i).getX() >= 10 && players.get(p).getOccupiedTiles().get(i).getX() <= 19 ) {
-                    if(players.get(p).getOccupiedTiles().get(i).getY() >= 10 && players.get(p).getOccupiedTiles().get(i).getY() <= 19 ) {
-                        four = true;
-                    }
-                }
-            }
-            if(!one){
-                break;
-            }
-            if(!two){
-                break;
-            }
-            if(!three){
-                break;
-            }
-            if(!four){
-                break;
-            }
-            ArrayList<Integer> counts = getNumSettle(players.get(p));
-            int smaller = 10000;
-            for(int i = 0; i < counts.size(); i++){
-                if(counts.get(i) < smaller){
-                    smaller = counts.get(i);
-                }
-            }
-            players.get(p).addPoints(smaller*3);
-        }
-
-    }
+//    public void scoreFarmers(ArrayList<Player> players) {
+//        for (int p = 0; p < players.size(); p++) {
+//
+//            boolean one = false;
+//            boolean two = false;
+//            boolean three = false;
+//            boolean four = false;
+//            for(int i = 0; i < players.get(p).getOccupiedTiles().size(); i++){
+//                if(players.get(p).getOccupiedTiles().get(i).getX() >= 10 && players.get(p).getOccupiedTiles().get(i).getX() <= 19 ) {
+//                    if(players.get(p).getOccupiedTiles().get(i).getY() <= 9) {
+//                        one = true;
+//                    }
+//                }
+//                if(players.get(p).getOccupiedTiles().get(i).getX() <= 9 && players.get(p).getOccupiedTiles().get(i).getY() <= 9 ) {
+//                    two = true;
+//                }
+//                if(players.get(p).getOccupiedTiles().get(i).getY() >= 10 && players.get(p).getOccupiedTiles().get(i).getY() <= 19 ) {
+//                    if(players.get(p).getOccupiedTiles().get(i).getX() <= 9) {
+//                        three = true;
+//                    }
+//                }
+//                if(players.get(p).getOccupiedTiles().get(i).getX() >= 10 && players.get(p).getOccupiedTiles().get(i).getX() <= 19 ) {
+//                    if(players.get(p).getOccupiedTiles().get(i).getY() >= 10 && players.get(p).getOccupiedTiles().get(i).getY() <= 19 ) {
+//                        four = true;
+//                    }
+//                }
+//            }
+//            if(!one){
+//                break;
+//            }
+//            if(!two){
+//                break;
+//            }
+//            if(!three){
+//                break;
+//            }
+//            if(!four){
+//                break;
+//            }
+//            ArrayList<Integer> counts = getNumSettle(players.get(p));
+//            int smaller = 10000;
+//            for(int i = 0; i < counts.size(); i++){
+//                if(counts.get(i) < smaller){
+//                    smaller = counts.get(i);
+//                }
+//            }
+//            players.get(p).addPoints(smaller*3);
+//        }
+//
+//    }
 //    public ArrayList<HexTile> findValidPlacements() {}
     public HashMap<Coord, HexTile> getBoard(){
         return tiles;
