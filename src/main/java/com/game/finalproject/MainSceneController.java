@@ -673,6 +673,7 @@ public class MainSceneController {
     private void drawTheActionTiles(){
         //ArrayList tempActions= game.getPlayers().get(turnNum).getActions();
         int count =0;
+        int tempSize = game.getTurnPlayer().getActions().size();
         for(int x=0;x<4;x++){//this is what adds the images
             for(int y=0;y<2;y++){
                 int tempInt = x+y;
@@ -681,7 +682,8 @@ public class MainSceneController {
                     //if statement to prevent it from going out of bounds idk
                // if (game.getTurnPlayer().getActions().size() > tempInt){
 //                if (game.getTurnPlayer().getActions().size() > 0){
-                if(game.getTurnPlayer().getActions().size()>count){
+
+                if(tempSize > 0){
                     String tempTile = game.getTurnPlayer().getActions().get(count).getType();
                     Image temp = returnTileImage(tempTile);
                     ImageView viewTemp = new ImageView(temp);
@@ -701,7 +703,11 @@ public class MainSceneController {
                     actionGrid.setVisible(true);
                     viewTemp.setOpacity(1);
                 }
+                else {
+                    break;
+                }
                 count++;
+                tempSize--;
             }
         }
 
