@@ -51,12 +51,7 @@ public class KingdomBuilderMain {
             pointCardsall.remove(x);
         }
         players.get(0).setfPlayer(true);
-//        TESTING DISPLAYING ACTIONS
-        Action balls = new Action(1,"Harbor",true);
-        for(int x=0;x<8;x++);
-            players.get(0).addActions(balls);
 
-        //TEST^
 
 
         turn = 0;
@@ -218,7 +213,7 @@ public class KingdomBuilderMain {
             String pointCard=pointCards.get(x);
             switch (pointCard) {
                 case "Citizen":
-                    board.scoreCitizens(players);
+                    //board.scoreCitizens(players);
                 case "Discoverers":
                     board.scoreDiscoverers(players);
                 case "Farmers":
@@ -226,15 +221,15 @@ public class KingdomBuilderMain {
                 case "Fishermen":
                     board.scoreFishermen(players);
                 case "Hermits":
-                    board.scoreHermits(players);
+                    //board.scoreHermits(players);
                 case "Knights":
                     board.scoreKnights(players);
                 case "Lords":
                     board.scoreLords(players);
                 case "Merchants":
-                    board.scoreMerchants(players);
+                   // board.scoreMerchants(players);
                 case "Miners":
-                    board.scoreMiners(players);
+                   // board.scoreMiners(players);
                 case "Workers":
                     board.scoreWorkers(players);
             }

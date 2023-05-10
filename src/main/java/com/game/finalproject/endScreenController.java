@@ -43,13 +43,21 @@ public class endScreenController {
                 label4.setText("Player 4: "+game.getPlayers().get(3).getScore());
 
                 int max = Integer.MIN_VALUE; // initialize max to the smallest possible integer
-                int track=69420;
-                for (int i = 0; i < game.getPlayers().size(); i++) {
+                int track=1234;
+                for (int i = 0; i < 4; i++) {
                         if (game.getPlayers().get(i).getScore() > max) {
                                 max = game.getPlayers().get(i).getScore();
+                                //track=i;
+                        }
+                }
+                for (int i = 0; i < 4; i++) {
+                        if (game.getPlayers().get(i).getScore() ==max) {
+                                //max = game.getPlayers().get(i).getScore();
                                 track=i;
                         }
                 }
+
+
                 winLabel.setText("Player "+track+" wins!!");
 
 

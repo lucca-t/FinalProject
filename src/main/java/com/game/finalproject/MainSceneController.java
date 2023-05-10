@@ -112,7 +112,7 @@ public class MainSceneController {
         gameEnd=false;
         playerRect=new Rectangle();
         comicalAmountofCode();
-
+        backCard.toBack();
     }
 
         public void comicalAmountofCode(){
@@ -550,7 +550,7 @@ public class MainSceneController {
 
                 /////////////////////////////action num code
                 Label numAct;
-                if(true){
+                if(false){
 
                     numAct= new Label("2");
                     numAct.setLayoutX(xCoord+15);
@@ -558,6 +558,7 @@ public class MainSceneController {
                     numAct.setFont(Font.font("Arial", FontWeight.BOLD, 18)); // Set the font to Arial, bold, size 24
 
                 }
+                numAct=new Label("");
                 //////////////////////////
                 imgTile.setX(xCoord);imgTile.setY(yCoord-10);imgTile.setFitHeight(40);imgTile.setFitWidth(40);
                 //////rectangle code
@@ -576,14 +577,7 @@ public class MainSceneController {
                     Rectangle setTile = new Rectangle();
                     setTile.setFill(Color.GREY);
                 }
-
-                //setColor should corrsepond to player's color
-
                 imageMap.getChildren().add(imgTile);
-                //adds created tiles to anchor-pane and creates them
-                //
-
-
                 Polygon tile = new Tile(xCoord, yCoord,xint,yint,game);
                 tileMap.getChildren().add(numAct);
                 tileMap.getChildren().add(tile);
@@ -603,9 +597,6 @@ public class MainSceneController {
                 int yint= (int)Math.round(y);
                 double xCoord = x * TILE_WIDTH + (y % 2) * n + xStartOffset;
                 double yCoord = y * TILE_HEIGHT * 0.75 + yStartOffset;
-
-
-
                 Coord c;
                 if (y%2 == 0) {
                     c = new Coord(x, y);
@@ -617,11 +608,6 @@ public class MainSceneController {
                     HexTile temp = tiles.get(c);
                 }
 
-                //////rectangle code
-                //have an if statement checking if there's a settlement here from the player
-                //eg.    if(coord.hasSettlement) do this,
-
-                //to draw placed tiles
                 if (tiles.get(c).getOccupancy() != null) {
                     Rectangle setTile = new Rectangle();
                     setTile.setX(xCoord + 7);
@@ -630,26 +616,7 @@ public class MainSceneController {
                     setTile.setHeight(15);
                     setTile.setStroke(Color.BLACK);
                     setTile.setStrokeWidth(1);
-                    //player color goes here
-                    //Player player = player.getWhoeverPlacedIt
-//                    setTile.setFill(player.getColor().getColorHex);
-                   /* String color = tiles.get(c).getOccupancy().getColor();
-
-                    // setTile.setFill(tiles.get(c).getOccupancy().getColorHex()); <-this would prolly be more efficient imo
-                    switch(color) {
-                        case "red": setTile.setFill(Color.RED);
-                        //case "purple": setTile.setFill(Color.PURPLE);
-                        case "yellow": setTile.setFill(Color.YELLOW);
-                        case "orange": setTile.setFill(Color.ORANGE);
-                        case "green": setTile.setFill(Color.DARKGREEN);
-                        //case "blue": setTile.setFill(Color.BLUEVIOLET);
-
-                    }*/
                     setTile.setFill(tiles.get(c).getOccupancy().getColorHex());
-                    //getColorHex will return the Color variable for the setFill
-                    //default is pink ->setTile.setFill(Color.PINK);
-
-
                     setMap.getChildren().add(setTile);
                 }
 
@@ -667,39 +634,32 @@ public class MainSceneController {
 
             }
         }
-
+        drawTheActionTiles();
     }
 
     private void drawTheActionTiles(){
         //ArrayList tempActions= game.getPlayers().get(turnNum).getActions();
+        actionGrid.getChildren().clear();
         int count =0;
         int tempSize = game.getTurnPlayer().getActions().size();
         for(int x=0;x<4;x++){//this is what adds the images
             for(int y=0;y<2;y++){
                 int tempInt = x+y;
-                //count++;
-                //if(tempInt<game.getPlayers().get(turnNum).getActions().size()-1) {
-                    //if statement to prevent it from going out of bounds idk
-               // if (game.getTurnPlayer().getActions().size() > tempInt){
-//                if (game.getTurnPlayer().getActions().size() > 0){
-
                 if(tempSize > 0){
                     String tempTile = game.getTurnPlayer().getActions().get(count).getType();
                     Image temp = returnTileImage(tempTile);
                     ImageView viewTemp = new ImageView(temp);
-                    int finalY = y;
                     int finalX = x;
+                    int finalY = y;
                     viewTemp.setOnMouseClicked(e-> {
                        System.out.println("clicked " + finalX + " " + finalY);
                         viewTemp.setOpacity(.5);
-
-
-
                   });
                     viewTemp.setFitWidth(70);
                     viewTemp.setFitHeight(79);
                     viewTemp.setVisible(true);
                     actionGrid.add(viewTemp, x, y);
+                    System.out.println("added "+x+""+y+"actiontile");
                     actionGrid.setVisible(true);
                     viewTemp.setOpacity(1);
                 }
