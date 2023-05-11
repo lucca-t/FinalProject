@@ -17,8 +17,11 @@ public class KingdomBuilderMain {
 
     private HashMap<ArrayList<Action>, Integer> boardActions;
 
+    private ArrayList<Coord> printingThing;
+
 
     public KingdomBuilderMain(){
+        printingThing = null;
         pointCardsall = new ArrayList<String>();
         pointCards = new ArrayList<String>();
        // pointCardsall.add("Citizen");to avoid scoring error
@@ -282,7 +285,12 @@ public class KingdomBuilderMain {
         return 0;
     }
 
-
+    public void setPrint(ArrayList<Coord> a) {
+        printingThing = a;
+    }
+    public ArrayList<Coord> getPrint() {
+        return printingThing;
+    }
 
 
     public boolean checkValidPlacement(Coord sC, Player p, String act){
@@ -308,20 +316,23 @@ public class KingdomBuilderMain {
                     }
                 }
                 boolean tl = false;
-                for(int i = 0; i < p.getOccupiedTiles().size(); i++){
-                    if((!(sC.getX() == (0.0))) && (!(sC.getX() == (19.0))) && (!(sC.getX() == (19.5))) && (!(sC.getX() == (0.5)))) {
-                        if ((!(sC.getY() == (0.0))) && (!(sC.getY() == (19.0)))) {
-                            for(int k = 0; k < findAdjacencies(p.getOccupiedTiles().get(i)).size(); k++){
-                                if(board.getTiles().get(findAdjacencies(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacencies(p.getOccupiedTiles().get(i)).get(k)).getType().equals(p.getTerrain().getType())){
-                                    tl = true;
+                if (occ) {
+                    for(int i = 0; i < p.getOccupiedTiles().size(); i++){
+                        if((!(p.getOccupiedTiles().get(i).getX() == (0.0))) && (!(p.getOccupiedTiles().get(i).getX() == (19.0))) && (!(p.getOccupiedTiles().get(i).getX() == (19.5))) && (!(p.getOccupiedTiles().get(i).getX() == (0.5)))) {
+                            if ((!(p.getOccupiedTiles().get(i).getY() == (0.0))) && (!(p.getOccupiedTiles().get(i).getY() == (19.0)))) {
+                                setPrint(findAdjacenciesEdge(p.getOccupiedTiles().get(i)));
+                                for(int k = 0; k < findAdjacencies(p.getOccupiedTiles().get(i)).size(); k++){
+                                    if(board.getTiles().get(findAdjacencies(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacencies(p.getOccupiedTiles().get(i)).get(k)).getType().equals(p.getTerrain().getType())){
+                                        tl = true;
+                                    }
                                 }
                             }
                         }
-                    }
-                    else{
-                        for(int k = 0; k < findAdjacenciesEdge(p.getOccupiedTiles().get(i)).size(); k++){
-                            if(board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getType().equals(p.getTerrain().getType())){
-                                tl = true;
+                        else{
+                            for(int k = 0; k < findAdjacenciesEdge(p.getOccupiedTiles().get(i)).size(); k++){
+                                if(board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getType().equals(p.getTerrain().getType())){
+                                    tl = true;
+                                }
                             }
                         }
                     }
@@ -563,9 +574,11 @@ public class KingdomBuilderMain {
                 adjacent.add(new Coord( c.getX() + 0.5,c.getY() + 1));
                 adjacent.add(new Coord( c.getX() + 1,c.getY()));
             }
-            adjacent.add(new Coord( c.getX() + 1,c.getY()));
-            adjacent.add(new Coord( c.getX() + 0.5,c.getY() - 1));
-            adjacent.add(new Coord( c.getX() + 0.5,c.getY() + 1));
+            else {
+                adjacent.add(new Coord( c.getX() + 1,c.getY()));
+                adjacent.add(new Coord( c.getX() + 0.5,c.getY() - 1));
+                adjacent.add(new Coord( c.getX() + 0.5,c.getY() + 1));
+            }
             return adjacent;
         }
 
@@ -575,11 +588,14 @@ public class KingdomBuilderMain {
                 adjacent.add(new Coord( c.getX() + 0.5,c.getY() - 1));
                 adjacent.add(new Coord( c.getX() + 1,c.getY()));
             }
-            adjacent.add(new Coord( c.getX() - 0.5,c.getY() - 1));
-            adjacent.add(new Coord( c.getX() + 0.5,c.getY() - 1));
-            adjacent.add(new Coord( c.getX() + 1,c.getY()));
-            adjacent.add(new Coord( c.getX() - 0.5,c.getY() + 1));
-            adjacent.add(new Coord( c.getX() + 0.5,c.getY() + 1));
+            else {
+                adjacent.add(new Coord( c.getX() - 0.5,c.getY() - 1));
+                adjacent.add(new Coord( c.getX() + 0.5,c.getY() - 1));
+                adjacent.add(new Coord( c.getX() + 1,c.getY()));
+                adjacent.add(new Coord( c.getX() - 0.5,c.getY() + 1));
+                adjacent.add(new Coord( c.getX() + 0.5,c.getY() + 1));
+            }
+
             return adjacent;
         }
         if(c.getX() == 19.0){
@@ -589,11 +605,13 @@ public class KingdomBuilderMain {
                 adjacent.add(new Coord( c.getX() - 0.5,c.getY() - 1));
 
             }
-            adjacent.add(new Coord( c.getX() - 0.5,c.getY() - 1));
-            adjacent.add(new Coord( c.getX() + 0.5,c.getY() - 1));
-            adjacent.add(new Coord( c.getX() - 1,c.getY()));
-            adjacent.add(new Coord( c.getX() - 0.5,c.getY() + 1));
-            adjacent.add(new Coord( c.getX() + 0.5,c.getY() + 1));
+            else {
+                adjacent.add(new Coord( c.getX() - 0.5,c.getY() - 1));
+                adjacent.add(new Coord( c.getX() + 0.5,c.getY() - 1));
+                adjacent.add(new Coord( c.getX() - 1,c.getY()));
+                adjacent.add(new Coord( c.getX() - 0.5,c.getY() + 1));
+                adjacent.add(new Coord( c.getX() + 0.5,c.getY() + 1));
+            }
             return adjacent;
         }
         if(c.getX() == 19.5){
@@ -602,9 +620,11 @@ public class KingdomBuilderMain {
                 adjacent.add(new Coord( c.getX() - 1,c.getY()));
 
             }
-            adjacent.add(new Coord( c.getX() - 0.5,c.getY() - 1));
-            adjacent.add(new Coord( c.getX() - 1,c.getY()));
-            adjacent.add(new Coord( c.getX() - 0.5,c.getY() + 1));
+            else {
+                adjacent.add(new Coord( c.getX() - 0.5,c.getY() - 1));
+                adjacent.add(new Coord( c.getX() - 1,c.getY()));
+                adjacent.add(new Coord( c.getX() - 0.5,c.getY() + 1));
+            }
             return adjacent;
         }
 
