@@ -554,15 +554,28 @@ public class MainSceneController {
 
                 /////////////////////////////action num code
                 Label numAct;
-                if(false){
 
-                    numAct= new Label("2");
+                if(game.getBoard().getBoardActions().get(c)!=null){
+                    int cum= game.getBoard().getBoardActions().get(c).size();//tempnum for size
+
+                    System.out.println(cum+"at "+c);
+
+                    numAct= new Label(""+cum+"");
                     numAct.setLayoutX(xCoord+15);
                     numAct.setLayoutY(yCoord+1);
                     numAct.setFont(Font.font("Arial", FontWeight.BOLD, 18)); // Set the font to Arial, bold, size 24
 
+                    Rectangle background = new Rectangle();//background for text
+                    background.setLayoutX(xCoord+15);
+                    background.setLayoutY(yCoord+3);
+                    background.setHeight(17);
+                    background.setWidth(12);
+                    background.setFill(Color.WHITE);
+                    tileMap.getChildren().add(background);
                 }
-                numAct=new Label("");
+                else
+                    numAct=new Label("");
+                tileMap.getChildren().add(numAct);
                 //////////////////////////
                 imgTile.setX(xCoord);imgTile.setY(yCoord-10);imgTile.setFitHeight(40);imgTile.setFitWidth(40);
                 //////rectangle code
@@ -583,7 +596,7 @@ public class MainSceneController {
                 }
                 imageMap.getChildren().add(imgTile);
                 Polygon tile = new Tile(xCoord, yCoord,xint,yint,game);
-                tileMap.getChildren().add(numAct);
+
                 tileMap.getChildren().add(tile);
             }
         }
@@ -635,7 +648,29 @@ public class MainSceneController {
                     setTile.setFill(Color.WHITE);
                     setMap.getChildren().add(setTile);
                 }
+                Label numAct;
 
+                if(game.getBoard().getBoardActions().get(c)!=null){
+                    int cum= game.getBoard().getBoardActions().get(c).size();//tempnum for size
+
+                    System.out.println(cum+"at "+c);
+
+                    numAct= new Label(""+cum+"");
+                    numAct.setLayoutX(xCoord+15);
+                    numAct.setLayoutY(yCoord+1);
+                    numAct.setFont(Font.font("Arial", FontWeight.BOLD, 18)); // Set the font to Arial, bold, size 24
+
+                    Rectangle background = new Rectangle();//background for text
+                    background.setLayoutX(xCoord+15);
+                    background.setLayoutY(yCoord+3);
+                    background.setHeight(17);
+                    background.setWidth(12);
+                    background.setFill(Color.WHITE);
+                    tileMap.getChildren().add(background);
+                }
+                else
+                    numAct=new Label("");
+                tileMap.getChildren().add(numAct);
             }
         }
         drawTheActionTiles();

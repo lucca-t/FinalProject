@@ -5,6 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="781.0" prefWidth="1379.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.game.finalproject.endScreenController">
@@ -52,5 +53,7 @@
             <Font size="57.0" />
          </font>
       </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="106.0" layoutX="119.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="635.0" />
+      <AnchorPane fx:id="scoreBox" layoutX="119.0" layoutY="286.0" prefHeight="184.0" prefWidth="635.0" />
    </children>
 </AnchorPane>

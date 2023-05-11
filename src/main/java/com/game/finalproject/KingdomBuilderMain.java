@@ -16,6 +16,7 @@ public class KingdomBuilderMain {
     private ArrayList<Coord> settlementCords;
 
     private HashMap<ArrayList<Action>, Integer> boardActions;
+    //private String totalScoring;
 
     private ArrayList<Coord> printingThing;
 
@@ -25,14 +26,14 @@ public class KingdomBuilderMain {
         pointCardsall = new ArrayList<String>();
         pointCards = new ArrayList<String>();
        // pointCardsall.add("Citizen");to avoid scoring error
-        pointCardsall.add("Discoverers");
-        pointCardsall.add("Farmers");
+//        pointCardsall.add("Discoverers");
+//        pointCardsall.add("Farmers");
         pointCardsall.add("Fishermen");
        // pointCardsall.add("Hermits"); to avoid scoring error
-        pointCardsall.add("Knights");
-        pointCardsall.add("Lords");
+//        pointCardsall.add("Knights");
+//        pointCardsall.add("Lords");
         //pointCardsall.add("Merchants");to avoid scoring error
-       // pointCardsall.add("Miners");
+        pointCardsall.add("Miners");
         pointCardsall.add("Workers");
 
         //choosing boards
@@ -212,32 +213,39 @@ public class KingdomBuilderMain {
                     board.scoreWorkers(players);
             }
         }*/
-        for (int x=0;x<3;x++) {
+       /* for (int x=0;x<3;x++) {
             String pointCard=pointCards.get(x);
             switch (pointCard) {
-                case "Citizen":
+//                case "Citizen":
                     //board.scoreCitizens(players);
                 case "Discoverers":
-//                    board.scoreDiscoverers(players);
+                    board.scoreDiscoverers(players);
 //                case "Farmers":
 //                    board.scoreFarmers(players);
                 case "Fishermen":
                     board.scoreFishermen(players);
-                case "Hermits":
+//                case "Hermits":
 //                    //board.scoreHermits(players);
 //                case "Knights":
 //                    board.scoreKnights(players);
 //                case "Lords":
 //                    board.scoreLords(players);
-                case "Merchants":
+//                case "Merchants":
                    // board.scoreMerchants(players);
                 case "Miners":
-                   // board.scoreMiners(players);
+                    board.scoreMiners(players);
 //                case "Workers":
 //                    board.scoreWorkers(players);
             }
 
-        }
+
+        }*/
+       // board.scoreDiscoverers(players);
+        board.scoreWorkers(players);
+        board.scoreFishermen(players);
+        board.scoreMiners(players);
+        board.scoreCities(players);
+
     }
     public ArrayList<Player> getPlayers(){
         return players;
@@ -601,8 +609,8 @@ public class KingdomBuilderMain {
         if(c.getX() == 19.0){
             if(c.getY() == 0.0){
                 adjacent.add(new Coord( c.getX() + 0.5,c.getY() + 1));
-                adjacent.add(new Coord( c.getX() + 1,c.getY()));
-                adjacent.add(new Coord( c.getX() - 0.5,c.getY() - 1));
+                adjacent.add(new Coord( c.getX() - 1,c.getY()));
+                adjacent.add(new Coord( c.getX() - 0.5,c.getY() + 1));
 
             }
             else {

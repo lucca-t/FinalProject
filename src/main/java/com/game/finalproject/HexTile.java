@@ -6,7 +6,7 @@ public class HexTile {
     private String type;
 
     private boolean edge;
-    private boolean checked, counted, touched, selectedForPlacement;
+    private boolean checked, counted, touched, selectedForPlacement,citchecked;
     private Player occupant;
 
     public HexTile(String t) {
@@ -17,6 +17,7 @@ public class HexTile {
         checked = false;
         counted = false;
         touched = false;
+        citchecked=false;
         selectedForPlacement = false;
 
     }
@@ -24,7 +25,12 @@ public class HexTile {
         occupant = p;
         selectedForPlacement = false;
     }
-
+    public void setCitchecked(boolean temp){
+        citchecked=temp;
+    }
+    public boolean getCitchecked(){
+        return citchecked;
+    }
     public void setSelected() {
         selectedForPlacement = true;
     }

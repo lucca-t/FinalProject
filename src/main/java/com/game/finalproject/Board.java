@@ -10,7 +10,7 @@ public class Board {
     private ArrayList<Action> actions;
     private HashMap<Coord, ArrayList<Action>> boardActions;
     private HashMap<Coord, HexTile> tiles;
-
+    private String totalScoring;
     String[] board1 = {"d", "d", "c", "w", "w", "s", "s", "s", "g", "g", "d", "castle", "c", "w", "s", "s", "s", "Barn", "g", "g", "c", "c", "c", "f", "f", "f", "s", "c", "f", "f", "c", "c", "f", "f", "w", "d", "d", "c", "c", "f", "c", "g", "g", "w", "f", "f", "d", "d", "c", "c", "g", "g", "Barn", "f", "w", "f", "w", "d", "d", "c", "g", "g", "g", "s", "f", "f", "w", "w", "d", "d", "g", "g", "s", "s", "m", "w", "w", "w", "d", "w", "g", "m", "s", "s", "w", "w", "w", "w", "w", "w", "s", "s", "s", "w", "w", "w", "w", "w", "w", "w"};
     String[] board2 = {"d", "d", "c", "w", "w", "s", "s", "g", "g", "g", "d", "c", "w", "f", "f", "s", "s", "s", "g", "g", "d", "d", "w", "f", "f", "s", "s", "Oasis", "f", "g", "w", "w", "w", "f", "g", "s", "f", "f", "f", "f", "w", "w", "w", "w", "g", "g", "g", "g", "f", "f", "w", "s", "s", "w", "g", "g", "c", "c", "d", "c", "w", "s", "c", "s", "w", "g", "c", "c", "d", "c", "w", "castle", "c", "f", "w", "Oasis", "d", "d", "c", "w", "w", "w", "c", "f", "w", "w", "w", "d", "d", "w", "w", "w", "w", "w", "w", "w", "w", "w", "w", "w"};
     String[] board3 = {"g", "g", "s", "s", "s", "w", "g", "s", "s", "f", "g", "f", "s", "s", "w", "g", "s", "s", "f", "f", "g", "f", "f", "s", "w", "g", "g", "f", "f", "f", "f", "f", "s", "s", "w", "g", "m", "f", "d", "d", "c", "f", "castle", "s", "w", "g", "d", "d", "d", "d", "c", "c", "s", "w", "g", "g", "m", "m", "d", "d", "c", "c", "w", "w", "w", "g", "d", "d", "d", "c", "w", "w", "g", "g", "w", "w", "Harbor", "c", "m", "c", "w", "d", "castle", "g", "w", "m", "w", "c", "c", "c", "w", "d", "d", "w", "w", "w", "w", "c", "c", "c"};
@@ -18,6 +18,7 @@ public class Board {
     String[] board4 = {"g", "g", "g", "s", "s", "w", "g", "s", "s", "s", "g", "g", "g", "castle", "s", "w", "g", "s", "s", "s", "g", "f", "f", "g", "s", "s", "w", "g", "g", "s", "f", "f", "c", "g", "s", "w", "f", "Oracle", "s", "s", "f", "f", "f", "c", "c", "w", "f", "f", "w", "w", "m", "m", "c", "g", "g", "w", "w", "w", "d", "d", "c", "c", "c", "m", "g", "f", "f", "f", "d", "d", "c", "c", "castle", "d", "m", "d", "f", "f", "c", "c", "w", "w", "w", "d", "d", "d", "d", "m", "c", "c", "w", "w", "w", "w", "d", "d", "d", "d", "d", "c"};
     String[][] boards = {board1, board2, board3, board4};
     public Board(int b1, int b2, int b3, int b4) {
+        totalScoring="";
         boardActions = new HashMap<Coord, ArrayList<Action>>();
         actions = new ArrayList<Action>();
         actions.add(new Action(1, "Barn", false));
@@ -40,7 +41,7 @@ public class Board {
                     c = new Coord(x + 0.5, y);
                 }
                 tiles.put(c, new HexTile((boards[b1][i])));
-                if (((boards[b1][i]).length() != 1) && !((boards[b1][i]).equals("Castle"))) {
+                if (((boards[b1][i]).length() != 1) && !((boards[b1][i]).equals("castle"))) {
                     boardActions.put(c, new ArrayList<Action>());
                     boardActions.get(c).add(new Action(b1, boards[b1][i], false));
                     boardActions.get(c).add(new Action(b1, boards[b1][i], false));
@@ -62,7 +63,7 @@ public class Board {
 //                    coord[1] = x + 0.5;
                 }
                 tiles.put(c, new HexTile((boards[b2][i])));
-                if ((boards[b2][i]).length() != 1 && !((boards[b2][i]).equals("Castle"))) {
+                if ((boards[b2][i]).length() != 1 && !((boards[b2][i]).equals("castle"))) {
                     boardActions.put(c, new ArrayList<Action>());
                     boardActions.get(c).add(new Action(b2, boards[b2][i], false));
                     boardActions.get(c).add(new Action(b2, boards[b2][i], false));
@@ -85,7 +86,7 @@ public class Board {
                     coord[1] = x + 0.5;
                 }
                 tiles.put(c, new HexTile((boards[b3][i])));
-                if ((boards[b3][i]).length() != 1 && !((boards[b3][i]).equals("Castle"))) {
+                if ((boards[b3][i]).length() != 1 && !((boards[b3][i]).equals("castle"))) {
                     boardActions.put(c, new ArrayList<Action>());
                     boardActions.get(c).add(new Action(b3, boards[b3][i], false));
                     boardActions.get(c).add(new Action(b3, boards[b3][i], false));
@@ -108,7 +109,7 @@ public class Board {
                     coord[1] = x + 0.5;
                 }
                 tiles.put(c, new HexTile((boards[b4][i])));
-                if ((boards[b4][i]).length() != 1 && !((boards[b4][i]).equals("Castle"))) {
+                if ((boards[b4][i]).length() != 1 && !((boards[b4][i]).equals("castle"))) {
                     boardActions.put(c, new ArrayList<Action>());
                     boardActions.get(c).add(new Action(b4, boards[b4][i], false));
                     boardActions.get(c).add(new Action(b4, boards[b4][i], false));
@@ -121,8 +122,12 @@ public class Board {
     public HashMap<Coord, ArrayList<Action>> getBoardActions() {
         return boardActions;
     }
+    /*public void minBoardActions(Coord c, ){
+
+    }*/
+
     public ArrayList<Coord> findAdjacencies(Coord c){
-        ArrayList<Coord> adjacent = new ArrayList<Coord>();
+        /*ArrayList<Coord> adjacent = new ArrayList<Coord>();
         Coord left = new Coord( c.getX() - 1,c.getY());
 //        double[] left = {coord[0] - 1, coord[1]};
         Coord right = new Coord( c.getX() + 1,c.getY());
@@ -135,6 +140,9 @@ public class Board {
 //        double[] bL = {coord[0] - 0.5, coord[1] - 1};
         Coord bR = new Coord( c.getX() + 0.5,c.getY() - 1);
 //        double[] bR = {coord[0] + 0.5, coord[1] - 1};
+
+
+
         if (c.getX() >= 1) {
             if ((tiles.get(left).getOccupancy() == null) && tiles.get(left).getType() != "m" &&  tiles.get(left).getType() != "w") {
                 adjacent.add(left);
@@ -176,6 +184,20 @@ public class Board {
 //        adjacent.add(tR);
 //        adjacent.add(bL);
 //        adjacent.add(bR);
+        return adjacent;*/
+        ArrayList<Coord> adjacent = new ArrayList<>();
+        Coord right = new Coord(c.getX() + 1, c.getY());
+        Coord tL = new Coord( c.getX() - 0.5,c.getY() + 1);
+        Coord tR = new Coord( c.getX() + 0.5,c.getY() + 1);
+        Coord bL = new Coord( c.getX()- 0.5,c.getY() - 1);
+        Coord bR = new Coord( c.getX() + 0.5,c.getY() - 1);
+        Coord left = new Coord( c.getX() - 1,c.getY());
+        adjacent.add(left);
+        adjacent.add(right);
+        adjacent.add(tL);
+        adjacent.add(tR);
+        adjacent.add(bL);
+        adjacent.add(bR);
         return adjacent;
     }
     public boolean contains(ArrayList<Double> x, double y){
@@ -193,23 +215,59 @@ public class Board {
         for(int p = 0; p < players.size(); p++) {
             int cnt = 0;
             for(int i = 0; i < players.get(p).getOccupiedTiles().size(); i++){
-                ArrayList<Coord> temp = findAdjacencies(players.get(p).getOccupiedTiles().get(i));
-                for(int k = 0; k < temp.size(); k++){
-                    cnt+=scoreFishermen(temp.get(k));
+
+                if((!(players.get(p).getOccupiedTiles().get(i).getX() == (0.0))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (19.0))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (19.5))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (0.5)))) {
+                    if ((!(players.get(p).getOccupiedTiles().get(i).getY() == (0.0))) && (!(players.get(p).getOccupiedTiles().get(i).getY() == (19.0)))) {
+                        ArrayList<Coord> temp = findAdjacencies(players.get(p).getOccupiedTiles().get(i));
+                        int other=0;
+                            for(int k = 0; k < temp.size(); k++) {
+                                other+=scoreFishermen(temp.get(k));
+
+
+                            }
+                            if(other>=1)
+                                other=1;
+                            cnt+=other;
+                    }
+                }
+
+                else {
+                    ArrayList<Coord> temp = findAdjacenciesEdge(players.get(p).getOccupiedTiles().get(i));
+                    int other=0;
+                    for(int k = 0; k < temp.size(); k++) {
+                        other+=scoreFishermen(temp.get(k));
+                    }
+                    if(other>=1)
+                        other=1;
+                    cnt+=other;
                 }
             }
             for(int i = 0; i < players.get(p).getOccupiedTiles().size(); i++){
-                ArrayList<Coord> temp = findAdjacencies(players.get(p).getOccupiedTiles().get(i));
-                for(int k = 0; k < temp.size(); k++){
-                    setCheckedFalse(temp.get(k));
+                if((!(players.get(p).getOccupiedTiles().get(i).getX() == (0.0))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (19.0))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (19.5))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (0.5)))) {
+                    if ((!(players.get(p).getOccupiedTiles().get(i).getY() == (0.0))) && (!(players.get(p).getOccupiedTiles().get(i).getY() == (19.0)))) {
+
+                        ArrayList<Coord> temp = findAdjacencies(players.get(p).getOccupiedTiles().get(i));
+                        for (int k = 0; k < temp.size(); k++) {
+                            setCheckedFalse(temp.get(k));
+                        }
+                    }
+                }
+                else {
+                    ArrayList<Coord> temp = findAdjacenciesEdge(players.get(p).getOccupiedTiles().get(i));
+                    for (int k = 0; k < temp.size(); k++) {
+                        setCheckedFalse(temp.get(k));
+                    }
                 }
             }
+            System.out.println("player "+p+" "+cnt+" points for fishing");
+            totalScoring+="Player "+(p+1)+": "+cnt+" points for fishing ";
             players.get(p).addPoints(cnt);
         }
-
+        totalScoring+="\n";
+        //totalScoring+="\n";
     }
     public int scoreFishermen(Coord crd){
-        if(tiles.get(crd).getType().equals("w") && !tiles.get(crd).getChecked()){
+        if(tiles.get(crd).getType().equals("w") ){
             tiles.get(crd).setCheck(true);
             return 1;
         }
@@ -218,65 +276,177 @@ public class Board {
         }
     }
     public void scoreMiners(ArrayList<Player> players) {
-        for (Player player : players) {
+//        for (Player p : players) {
+        for(int p = 0; p < players.size(); p++) {
             int cnt = 0;
-            for (int i = 0; i < player.getOccupiedTiles().size(); i++) {
-                ArrayList<Coord> temp = findAdjacencies(player.getOccupiedTiles().get(i));
-                for (Coord coord : temp) {
-                    cnt += scoreMiners(coord);
-                }
-            }
-            for (int i = 0; i < player.getOccupiedTiles().size(); i++) {
-                ArrayList<Coord> temp = findAdjacencies(player.getOccupiedTiles().get(i));
-                for (Coord coord : temp) {
-                    setCheckedFalse(coord);
-                }
-            }
-            player.addPoints(cnt);
-        }
 
+            for (int i = 0; i < players.get(p).getOccupiedTiles().size(); i++) {
+                if((!(players.get(p).getOccupiedTiles().get(i).getX() == (0.0))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (19.0))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (19.5))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (0.5)))) {
+                    if ((!(players.get(p).getOccupiedTiles().get(i).getY() == (0.0))) && (!(players.get(p).getOccupiedTiles().get(i).getY() == (19.0)))) {
+                        ArrayList<Coord> temp = findAdjacencies(players.get(p).getOccupiedTiles().get(i));
+
+
+                        int other=0;
+                        for (Coord coord : temp) {
+                            other+=scoreMiners(coord);
+                        }
+
+                        if(other>=1) {
+                            other=1;
+                        }
+                        cnt += other;
+                    }
+                }
+                else {
+                    ArrayList<Coord> temp = findAdjacenciesEdge(players.get(p).getOccupiedTiles().get(i));
+                    int other=0;
+                    for (Coord coord : temp) {
+                        other+=scoreMiners(coord);
+                    }
+                    if(other>=1)
+                        other=1;
+                    cnt += other;
+                }
+            }
+            for (int i = 0; i < players.get(p).getOccupiedTiles().size(); i++) {
+                if((!(players.get(p).getOccupiedTiles().get(i).getX() == (0.0))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (19.0))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (19.5))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (0.5)))) {
+                    if ((!(players.get(p).getOccupiedTiles().get(i).getY() == (0.0))) && (!(players.get(p).getOccupiedTiles().get(i).getY() == (19.0)))) {
+                        ArrayList<Coord> temp = findAdjacencies(players.get(p).getOccupiedTiles().get(i));
+                        for (Coord coord : temp) {
+                            setCheckedFalse(coord);
+                        }
+                    }
+                }
+                else{
+
+                    ArrayList<Coord> temp = findAdjacenciesEdge(players.get(p).getOccupiedTiles().get(i));
+                    for (Coord coord : temp) {
+                        setCheckedFalse(coord);
+                    }
+
+                }
+            }
+            System.out.println("player "+p+" "+cnt+"  for mining");
+            totalScoring+="Player "+(p+1)+": "+cnt+"  for mining ";
+            players.get(p).addPoints(cnt);
+        }
+        totalScoring+="\n";
+        //totalScoring+="\n";
     }
     public int scoreMiners(Coord crd){
-        if(tiles.get(crd).getType().equals("m") && !tiles.get(crd).getChecked()){
-            tiles.get(crd).setCheck(true);
+        if(tiles.get(crd).getType().equals("m") ){
+//            tiles.get(crd).setCheck(true);
             return 1;
         }
         else{
             return 0;
         }
     }
-//    public void scoreWorkers(ArrayList<Player> players) {
-//        for (Player player : players) {
-//            int cnt = 0;
-//            for (int i = 0; i < player.getOccupiedTiles().size(); i++) {
-//                ArrayList<Coord> temp = findAdjacencies(player.getOccupiedTiles().get(i));
-//                for (Coord coord : temp) {
-//                    cnt += scoreWorkers(coord);
-//                }
-//            }
-//            for (int i = 0; i < player.getOccupiedTiles().size(); i++) {
-//                ArrayList<Coord> temp = findAdjacencies(player.getOccupiedTiles().get(i));
+    public void scoreCities(ArrayList<Player> players){
+        for(int p = 0; p < players.size(); p++) {
+            int cnt = 0;
+                for(int i =0;i<players.get(p).getOccupiedTiles().size();i++){
+                    if((!(players.get(p).getOccupiedTiles().get(i).getX() == (0.0))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (19.0))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (19.5))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (0.5)))) {
+                        if ((!(players.get(p).getOccupiedTiles().get(i).getY() == (0.0))) && (!(players.get(p).getOccupiedTiles().get(i).getY() == (19.0)))) {
+
+                            for(int k=0;k<findAdjacencies(players.get(p).getOccupiedTiles().get(i)).size();k++)
+                            if (tiles.get(findAdjacencies(players.get(p).getOccupiedTiles().get(i)).get(k)).getCitchecked()==false&&tiles.get(findAdjacencies(players.get(p).getOccupiedTiles().get(i)).get(k)).getType().equals("castle")) {
+                                tiles.get(findAdjacencies(players.get(p).getOccupiedTiles().get(i)).get(k)).setCitchecked(true);
+                                cnt+=3;
+
+                            }
+                        }
+                    }
+                    else{
+                        for(int k=0;k<findAdjacenciesEdge(players.get(p).getOccupiedTiles().get(i)).size();k++)
+                            if (tiles.get(findAdjacenciesEdge(players.get(p).getOccupiedTiles().get(i)).get(k)).getCitchecked()==false&&tiles.get(findAdjacenciesEdge(players.get(p).getOccupiedTiles().get(i)).get(k)).getType().equals("castle")) {
+                                tiles.get(findAdjacenciesEdge(players.get(p).getOccupiedTiles().get(i)).get(k)).setCitchecked(true);
+                                cnt+=3;
+                            }
+
+
+                    }
+
+
+
+
+                }
+            for(int i =0;i<players.get(p).getOccupiedTiles().size();i++) {
+                if ((!(players.get(p).getOccupiedTiles().get(i).getX() == (0.0))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (19.0))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (19.5))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (0.5)))) {
+                    if ((!(players.get(p).getOccupiedTiles().get(i).getY() == (0.0))) && (!(players.get(p).getOccupiedTiles().get(i).getY() == (19.0)))) {
+                        for (int k = 0; k < findAdjacencies(players.get(p).getOccupiedTiles().get(i)).size(); k++) {
+                            tiles.get(findAdjacencies(players.get(p).getOccupiedTiles().get(i)).get(k)).setCitchecked(false);
+                        }
+                    }
+                } else {
+                    for (int k = 0; k < findAdjacenciesEdge(players.get(p).getOccupiedTiles().get(i)).size(); k++) {
+                        tiles.get(findAdjacenciesEdge(players.get(p).getOccupiedTiles().get(i)).get(k)).setCitchecked(false);
+                    }
+
+                }
+            }
+            System.out.println("player "+p+" "+cnt+" points for cities");
+            totalScoring+="Player "+(p+1)+": "+cnt+" points for cities ";
+            players.get(p).addPoints(cnt);
+
+
+
+        }
+        totalScoring+="\n";
+        //totalScoring+="\n";
+
+    }
+
+    public void scoreWorkers(ArrayList<Player> players) {
+        for(int p = 0; p < players.size(); p++) {
+            int cnt = 0;
+
+            for (int i = 0; i < players.get(p).getOccupiedTiles().size(); i++) {
+                if((!(players.get(p).getOccupiedTiles().get(i).getX() == (0.0))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (19.0))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (19.5))) && (!(players.get(p).getOccupiedTiles().get(i).getX() == (0.5)))) {
+                    if ((!(players.get(p).getOccupiedTiles().get(i).getY() == (0.0))) && (!(players.get(p).getOccupiedTiles().get(i).getY() == (19.0)))) {
+                        ArrayList<Coord> temp = findAdjacencies(players.get(p).getOccupiedTiles().get(i));
+                        int other = 0;
+                        for (Coord coord : temp) {
+                            other += scoreWorkers(coord);
+                        }
+                        if(other>=1)
+                            other=1;
+                        cnt+=other;
+                    }
+                }
+                else{
+                    ArrayList<Coord> temp = findAdjacenciesEdge(players.get(p).getOccupiedTiles().get(i));
+                    int other = 0;
+                    for (Coord coord : temp) {
+                        other += scoreWorkers(coord);
+                    }
+                    if(other>=1)
+                        other=1;
+                    cnt+=other;
+                }
+            }
+//            for (int i = 0; i < players.get(p).getOccupiedTiles().size(); i++) {
+//                ArrayList<Coord> temp = findAdjacencies(players.get(p).getOccupiedTiles().get(i));
 //                for (Coord coord : temp) {
 //                    setCheckedFalse(coord);
 //                }
 //            }
-//            player.addPoints(cnt);
-//        }
-//
-//    }
-//    public int scoreWorkers(Coord crd){
-//        if(tiles.get(crd).getType().equals("castle") && !tiles.get(crd).getChecked()){
-//            tiles.get(crd).setCheck(true);
-//            return 1;
-//        }
-//        else if(tiles.get(crd).getType().equals("action") && !tiles.get(crd).getChecked()){
-//            tiles.get(crd).setCheck(true);
-//            return 1;
-//        }
-//        else{
-//            return 0;
-//        }
-//    }
+            System.out.println("player "+p+" "+cnt+" points for working");
+            totalScoring+="Player "+(p+1)+": "+cnt+" points for working ";
+            players.get(p).addPoints(cnt);
+        }
+        totalScoring+="\n";
+       // totalScoring+="\n";
+    }
+    public int scoreWorkers(Coord crd){
+        if(tiles.get(crd).getType().length()>1){
+
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
 //    public void scoreMerchants(ArrayList<Player> players) {
 //        for(int p = 0; p < players.size(); p++){
 //            ArrayList<Coord>  bulbasaur = players.get(p).getOccupiedTiles();
@@ -317,10 +487,13 @@ public class Board {
         for (int p = 0; p < players.size(); p++) {
             ArrayList<Double> temp = new ArrayList<Double>();
             for(int i = 0; i < players.get(p).getOccupiedTiles().size(); i++){
-                if(!contains(temp, players.get(p).getOccupiedTiles().get(i).getY())) {
+//                if(!contains(temp, players.get(p).getOccupiedTiles().get(i).getY())) {
                     temp.add(players.get(p).getOccupiedTiles().get(i).getY());
-                }
+
+//                }
             }
+            removeRepeats(temp);
+            System.out.println("player "+p+" "+temp.size()+" points for discovering");
             players.get(p).addPoints(temp.size());
         }
     }
@@ -656,9 +829,18 @@ public class Board {
         }
         return playeradj;
     }
-    public void removeRepeats(ArrayList<Coord> x){
+   /* public void removeRepeats(ArrayList<Coord> x){
         for(int i = 0; i < x.size(); i++){
             for(int k = 0; k < x.size(); i++){
+                if(x.get(i).equals(x.get(k))){
+                    x.remove(i);
+                }
+            }
+        }
+    }*/
+    public void removeRepeats(ArrayList<Double> x){
+        for(int i = 0; i < x.size(); i++){
+            for(int k = 0; k < x.size(); k++){
                 if(x.get(i).equals(x.get(k))){
                     x.remove(i);
                 }
@@ -739,4 +921,85 @@ public class Board {
     public String[][] getBoardArr(){
         return boards;
     }
+    public ArrayList<Coord> findAdjacenciesEdge(Coord c){
+        ArrayList<Coord> adjacent = new ArrayList<>();
+        if(c.getX() == 0.0){
+            if(c.getY() == 0.0){
+                adjacent.add(new Coord( c.getX() + 0.5,c.getY() + 1));
+                adjacent.add(new Coord( c.getX() + 1,c.getY()));
+            }
+            else {
+                adjacent.add(new Coord( c.getX() + 1,c.getY()));
+                adjacent.add(new Coord( c.getX() + 0.5,c.getY() - 1));
+                adjacent.add(new Coord( c.getX() + 0.5,c.getY() + 1));
+            }
+            return adjacent;
+        }
+
+        if(c.getX() == 0.5){
+            if(c.getY() == 19.0){
+                adjacent.add(new Coord( c.getX() - 0.5,c.getY() - 1));
+                adjacent.add(new Coord( c.getX() + 0.5,c.getY() - 1));
+                adjacent.add(new Coord( c.getX() + 1,c.getY()));
+            }
+            else {
+                adjacent.add(new Coord( c.getX() - 0.5,c.getY() - 1));
+                adjacent.add(new Coord( c.getX() + 0.5,c.getY() - 1));
+                adjacent.add(new Coord( c.getX() + 1,c.getY()));
+                adjacent.add(new Coord( c.getX() - 0.5,c.getY() + 1));
+                adjacent.add(new Coord( c.getX() + 0.5,c.getY() + 1));
+            }
+
+            return adjacent;
+        }
+        if(c.getX() == 19.0){
+            if(c.getY() == 0.0){
+                adjacent.add(new Coord( c.getX() + 0.5,c.getY() + 1));
+                adjacent.add(new Coord( c.getX() - 1,c.getY()));
+                adjacent.add(new Coord( c.getX() - 0.5,c.getY() + 1));
+
+            }
+            else {
+                adjacent.add(new Coord( c.getX() - 0.5,c.getY() - 1));
+                adjacent.add(new Coord( c.getX() + 0.5,c.getY() - 1));
+                adjacent.add(new Coord( c.getX() - 1,c.getY()));
+                adjacent.add(new Coord( c.getX() - 0.5,c.getY() + 1));
+                adjacent.add(new Coord( c.getX() + 0.5,c.getY() + 1));
+            }
+            return adjacent;
+        }
+        if(c.getX() == 19.5){
+            if(c.getY() == 19.0){
+                adjacent.add(new Coord( c.getX() - 0.5,c.getY() - 1));
+                adjacent.add(new Coord( c.getX() - 1,c.getY()));
+
+            }
+            else {
+                adjacent.add(new Coord( c.getX() - 0.5,c.getY() - 1));
+                adjacent.add(new Coord( c.getX() - 1,c.getY()));
+                adjacent.add(new Coord( c.getX() - 0.5,c.getY() + 1));
+            }
+            return adjacent;
+        }
+
+        if(c.getY()==0){
+            adjacent.add(new Coord(c.getX()-1,c.getY()));
+            adjacent.add(new Coord(c.getX()+1,c.getY()));
+            adjacent.add(new Coord(c.getX()-.5,c.getY()+1));
+            adjacent.add(new Coord(c.getX()+.5,c.getY()+1));
+        }
+        if(c.getY()==19){
+            adjacent.add(new Coord(c.getX()-1,c.getY()));
+            adjacent.add(new Coord(c.getX()+1,c.getY()));
+            adjacent.add(new Coord(c.getX()-.5,c.getY()-1));
+            adjacent.add(new Coord(c.getX()+.5,c.getY()-1));
+        }
+        return adjacent;
+
+    }
+    public String getTotalScoring(){
+        return totalScoring;
+    }
+
+
 }
