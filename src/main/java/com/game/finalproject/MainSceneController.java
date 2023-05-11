@@ -249,11 +249,12 @@ public class MainSceneController {
     void finishTurn(ActionEvent event) throws IOException {
         game.nextTurn();
         drawPlayerInfo(game.getTurnNum());
-        ArrayList<Coord> validHexes = game.getTurnPlayer().getChoiceHexes();
-        for (int i = 0; i < validHexes.size(); i++) {
-            tiles.get(validHexes.get(i)).setOccupancy(game.getTurnPlayer());
-        }
-        game.getTurnPlayer().clearChoiceHexes();
+        //??
+//        ArrayList<Coord> validHexes = game.getTurnPlayer().getChoiceHexes();
+//        for (int i = 0; i < validHexes.size(); i++) {
+//            tiles.get(validHexes.get(i)).setOccupancy(game.getTurnPlayer());
+//        }
+//        game.getTurnPlayer().clearChoiceHexes();
         quickDrawBoards();
         game.getTurnPlayer().resTSPlaced();
 
@@ -383,6 +384,9 @@ public class MainSceneController {
                 //placing method will go here
                     Player turn = game.getTurnPlayer();
                     System.out.println("Player " + game.getTurnNum() + ", " + turn.getTerrain().getType());
+                    System.out.println(game.getBoard().getTiles());
+                    System.out.println("Player:" + game.getTurnPlayer() + "  findAdjacencies return: " + game.getPrint());
+                    System.out.println("OCCUPIED TILES: " + game.getTurnPlayer().getOccupiedTiles());
 
                     int loopNum;
                     if (turn.getActions().size() == 0) {
@@ -432,7 +436,7 @@ public class MainSceneController {
                             quickDrawBoards();
                             game.getPlayers().get(game.getTurnNum()).addSettlementTile(c);
 
-                            game.getBoard().getTiles().get(c).setOccupancy(game.getPlayers().get(game.getTurnNum()));
+                            game.getBoard().getTiles().get(c).setOccupancy(game.getTurnPlayer());
                             game.getTurnPlayer().minusSettlements();
                             game.getTurnPlayer().decTSPlaced();
                             drawPlayerInfo(game.getTurnNum());

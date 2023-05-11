@@ -43,6 +43,7 @@ public class Board {
                 if (((boards[b1][i]).length() != 1) && !((boards[b1][i]).equals("Castle"))) {
                     boardActions.put(c, new ArrayList<Action>());
                     boardActions.get(c).add(new Action(b1, boards[b1][i], false));
+                    boardActions.get(c).add(new Action(b1, boards[b1][i], false));
                 }
                 i++;
             }
@@ -63,6 +64,7 @@ public class Board {
                 tiles.put(c, new HexTile((boards[b2][i])));
                 if ((boards[b2][i]).length() != 1 && !((boards[b2][i]).equals("Castle"))) {
                     boardActions.put(c, new ArrayList<Action>());
+                    boardActions.get(c).add(new Action(b2, boards[b2][i], false));
                     boardActions.get(c).add(new Action(b2, boards[b2][i], false));
                 }
                 i++;
@@ -86,6 +88,7 @@ public class Board {
                 if ((boards[b3][i]).length() != 1 && !((boards[b3][i]).equals("Castle"))) {
                     boardActions.put(c, new ArrayList<Action>());
                     boardActions.get(c).add(new Action(b3, boards[b3][i], false));
+                    boardActions.get(c).add(new Action(b3, boards[b3][i], false));
                 }
                 i++;
             }
@@ -108,6 +111,7 @@ public class Board {
                 if ((boards[b4][i]).length() != 1 && !((boards[b4][i]).equals("Castle"))) {
                     boardActions.put(c, new ArrayList<Action>());
                     boardActions.get(c).add(new Action(b4, boards[b4][i], false));
+                    boardActions.get(c).add(new Action(b4, boards[b4][i], false));
                 }
                 i++;
             }
@@ -127,16 +131,51 @@ public class Board {
 //        double[] tL = {coord[0] - 0.5, coord[1] + 1};
         Coord tR = new Coord( c.getX() + 0.5,c.getY() + 1);
 //        double[] tR = {coord[0] + 0.5, coord[1] + 1};
-        Coord bL = new Coord( c.getX()- 0.5,c.getY() - 1);
+        Coord bL = new Coord( c.getX() - 0.5,c.getY() - 1);
 //        double[] bL = {coord[0] - 0.5, coord[1] - 1};
         Coord bR = new Coord( c.getX() + 0.5,c.getY() - 1);
 //        double[] bR = {coord[0] + 0.5, coord[1] - 1};
-        adjacent.add(left);
-        adjacent.add(right);
-        adjacent.add(tL);
-        adjacent.add(tR);
-        adjacent.add(bL);
-        adjacent.add(bR);
+        if (c.getX() >= 1) {
+            if ((tiles.get(left).getOccupancy() == null) && tiles.get(left).getType() != "m" &&  tiles.get(left).getType() != "w") {
+                adjacent.add(left);
+            }
+
+        }
+        if (c.getX() <= 18.5) {
+            if (tiles.get(right).getOccupancy() == null && tiles.get(right).getType() != "m" &&  tiles.get(right).getType() != "w") {
+                adjacent.add(right);
+            }
+        }
+        if (c.getX() >= 0.5) {
+            if (c.getY() >= 1) {
+                if (tiles.get(tL).getOccupancy() == null&& tiles.get(tL).getType() != "m" &&  tiles.get(tL).getType() != "w") {
+                    adjacent.add(tL);
+                }
+            }
+            if (c.getY() <= 18) {
+                if (tiles.get(bL).getOccupancy() == null&& tiles.get(bL).getType() != "m" &&  tiles.get(bL).getType() != "w") {
+                    adjacent.add(bL);
+                }
+            }
+        }
+        if (c.getX() <= 19) {
+            if (c.getY() >= 1) {
+                if (tiles.get(tR).getOccupancy() == null&& tiles.get(tR).getType() != "m" &&  tiles.get(tR).getType() != "w") {
+                    adjacent.add(tR);
+                }
+            }
+            if (c.getY() <= 18) {
+                if (tiles.get(bR).getOccupancy() == null&& tiles.get(bR).getType() != "m" &&  tiles.get(bR).getType() != "w") {
+                    adjacent.add(bR);
+                }
+            }
+        }
+//        adjacent.add(left);
+//        adjacent.add(right);
+//        adjacent.add(tL);
+//        adjacent.add(tR);
+//        adjacent.add(bL);
+//        adjacent.add(bR);
         return adjacent;
     }
     public boolean contains(ArrayList<Double> x, double y){
