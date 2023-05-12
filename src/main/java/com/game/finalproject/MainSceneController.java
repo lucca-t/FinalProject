@@ -72,6 +72,8 @@ public class MainSceneController {
 
     @FXML
     private GridPane actionGrid;
+    @FXML
+    private AnchorPane finishMessage;
     private AnchorPane setMap,tileMap,imageMap;
 
 
@@ -95,6 +97,7 @@ public class MainSceneController {
          playerRect=new Rectangle();
         comicalAmountofCode();
         backCard.toBack();
+        finishMessage=new AnchorPane();
     }
     void initialize(KingdomBuilderMain games) {
         game = games;
@@ -229,7 +232,6 @@ public class MainSceneController {
 //            tiles.get(validHexes.get(i)).setOccupancy(game.getTurnPlayer());
 //        }
 //        game.getTurnPlayer().clearChoiceHexes();
-            quickDrawBoards();
             game.getTurnPlayer().resTSPlaced();
             game.getTurnPlayer().setPlaced(false);
         }
@@ -252,6 +254,7 @@ public class MainSceneController {
 
 
 
+        quickDrawBoards();
     }
     @FXML
     void next(ActionEvent event) {
@@ -339,7 +342,7 @@ public class MainSceneController {
         private Coord c;
         Tile(double x, double y, int xcoord, int ycoord, KingdomBuilderMain game) {
             // creates the polygon using the corner coordinates
-            //setStroke(Color.TRANSPARENT);
+            setStroke(Color.TRANSPARENT);
             //drawBorder();
             useX=xcoord;
             useY=ycoord;
@@ -356,7 +359,6 @@ public class MainSceneController {
             //setFill(Color.ANTIQUEWHITE);
             //setStrokeWidth(1);
             //setStroke(Color.BLACK);
-
             setOnMouseClicked(e -> {
                 System.out.println("Clicked: " + xcoord +" "+ycoord);
                 //placing method will go here
@@ -375,7 +377,7 @@ public class MainSceneController {
                     }
                     HexTile temp;
                 boolean even;
-
+                    Coord c;
                     if (ycoord % 2 == 0) {
                         c = new Coord(xcoord, ycoord);
                         even = true;
@@ -408,29 +410,30 @@ public class MainSceneController {
 //                            quickDrawBoards();
                         }
                         else {
-                            ArrayList<Coord> surroundings;
-                            surroundings = game.findAdjacencies(c);
-                            Set coords = game.getBoard().getBoardActions().keySet();
-                            if (coords.contains(c)) {
-                                game.getTurnPlayer().addActions(game.getBoard().getBoardActions().get(c).get(0));
-                                game.getBoard().getBoardActions().get(c).remove(0);
-                            }
+
+//                                game.getTurnPlayer().addActions(game.getBoard().getBoardActions().get(c).get(0));
+//                                game.getBoard().getBoardActions().get(c).remove(0);
+//                            if(game.getBoard().get{
+//
+//                            }
 //                            for (int i = 0; i < surroundings.size(); i++) {
 //                                String t = tiles.get(c).getType();
 //                                if (game.getBoard().getBoardActions().contains(c)) {
 //
 //                                }
 //                            }
+
                             game.getPlayers().get(game.getTurnNum()).addChoiceHex(c);
+                            game.getTurnPlayer().addSettlementTile(c);
                             game.getBoard().getTiles().get(c).setSelected();
                             System.out.println("Added choice to queue");
-                            quickDrawBoards();
-                            game.getPlayers().get(game.getTurnNum()).addSettlementTile(c);
+//                            game.getPlayers().get(game.getTurnNum()).addSettlementTile(c);
 
                             game.getBoard().getTiles().get(c).setOccupancy(game.getTurnPlayer());
                             game.getTurnPlayer().minusSettlements();
                             game.getTurnPlayer().decTSPlaced();
                             drawPlayerInfo(game.getTurnNum());
+                            quickDrawBoards();
                         }
                     }
 
@@ -438,10 +441,30 @@ public class MainSceneController {
             });
             //setOpacity(.000001);
 
+            Coord c;
+            if (ycoord % 2 == 0) {
+                c = new Coord(xcoord, ycoord);
 
+            }
+            else {
+                c = new Coord(xcoord + 0.5, ycoord);
+
+            }
 
             setFill(Color.TRANSPARENT);
-
+            if(game.getTurnPlayer().getTSPlaced()>0 && game.getTurnPlayer().getNumSettlements() > 0) {
+                boolean validPlacement;
+                validPlacement = game.checkValidPlacement(c, game.getTurnPlayer(), "");
+                if (validPlacement) {
+                    setStroke(Color.BLACK);
+                    setStrokeWidth(3);
+                    setOpacity(1);
+                    setFill(Color.TRANSPARENT);
+                } else {
+                    setStrokeWidth(0);
+                    setStroke(Color.TRANSPARENT);
+                }
+            }
             //could add mouselistener for highlighting maybe
             //highlighting would work by turning the opacity up and it could change how it looks
             //opacity and color could be turned to gray to gray out the stuff
@@ -449,25 +472,19 @@ public class MainSceneController {
 
         }
         public void drawBorder(){
-            Coord c;
-           if (useY % 2 == 0) {
-                c = new Coord(useX, useY);
-            }
-            else {
-                c = new Coord(useX + 0.5, useY);
-            }
-            boolean validPlacement;
-            validPlacement = game.checkValidPlacement(c, game.getTurnPlayer(), "");
-            if(validPlacement) {
-                setStroke(Color.WHITE);
-                setStrokeWidth(1.5);
-                setOpacity(1);
-                setFill(Color.TRANSPARENT);
-            }
-            else {
-                setStrokeWidth(0);
-                setStroke(Color.TRANSPARENT);
-            }
+//            if(game.getTurnPlayer().getTSPlaced()>0 && game.getTurnPlayer().getNumSettlements() > 0) {
+//                boolean validPlacement;
+//                validPlacement = game.checkValidPlacement(c, game.getTurnPlayer(), "");
+//                if (validPlacement) {
+//                    setStroke(Color.WHITE);
+//                    setStrokeWidth(1.5);
+//                    setOpacity(1);
+//                    setFill(Color.TRANSPARENT);
+//                } else {
+//                    setStrokeWidth(0);
+//                    setStroke(Color.TRANSPARENT);
+//                }
+//            }
 
         }
 
@@ -598,6 +615,19 @@ public class MainSceneController {
         int tilesPerRow = 20; // the amount of tiles that are contained in each row
         int xStartOffset = 40; // offsets the entire field to the right
         int yStartOffset = 10; // offsets the entire field downwards
+        tileMap.getChildren().clear();
+        Label finMessage;
+        for(int x= 0;x<game.getPlayers().size();x++){
+        if(game.getPlayers().get(x).getNumSettlements()==0) {
+            System.out.println("When on Player 4, Press Finish Turn to End the Game!");
+            finMessage = new Label("When on Player 4, Press Finish Turn to End the Game!");
+            finMessage.setFont(Font.font("Arial", FontWeight.NORMAL, 18));
+            finMessage.setLayoutX(0);
+            finMessage.setLayoutY(0);
+            finishMessage.getChildren().add(finMessage);
+            }
+        }
+
 
         for (double x = 0; x < tilesPerRow; x++) {
             for (double y = 0; y < rowCount; y++) {
@@ -615,7 +645,8 @@ public class MainSceneController {
                     c = new Coord(x + 0.5, y);
                     HexTile temp = tiles.get(c);
                 }
-
+                Polygon tile = new Tile(xCoord, yCoord,xint,yint,game);
+                tileMap.getChildren().add(tile);
                 if (tiles.get(c).getOccupancy() != null) {
                     Rectangle setTile = new Rectangle();
                     setTile.setX(xCoord + 7);
@@ -684,6 +715,11 @@ public class MainSceneController {
                     viewTemp.setOnMouseClicked(e-> {
                        System.out.println("clicked " + finalX + " " + finalY);
                         viewTemp.setOpacity(.5);
+
+
+
+
+
                   });
                     viewTemp.setFitWidth(70);
                     viewTemp.setFitHeight(79);
