@@ -370,7 +370,7 @@ public class KingdomBuilderMain {
                         if((!(p.getOccupiedTiles.get(i).getX() == (0.0))) && (!(p.getOccupiedTiles.get(i).getX() == (19.0))) && (!(p.getOccupiedTiles.get(i).getX() == (19.5))) && (!(p.getOccupiedTiles.get(i).getX() == (0.5)))){
                             if((!(p.getOccupiedTiles.get(i).getY() == (0.0))) && (!(p.getOccupiedTiles.get(i).getY() == (19.0)))){
                                 for(int k = 0; k < findAdjacencies(p.getOccupiedTiles.get(i)).size(); k++){
-                                    if(board.getTiles().get(findAdjacencies(p.getOccupiedTiles.get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacencies(p.getOccupiedTiles.get(i)).get(k)).getType().equals("g")){
+                                    if(board.getTiles().get(findAdjacencies(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacencies(p.getOccupiedTiles().get(i)).get(k)).getType().equals("g")){
                                         occ = true;
                                     }
                                 }
@@ -378,7 +378,7 @@ public class KingdomBuilderMain {
                         }
                         else{
                             for(int k = 0; k < findAdjacenciesEdge(sC).size(); k++){
-                                if(board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles.get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles.get(i)).get(k)).getType().equals("g")){
+                                if(board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getType().equals("g")){
                                     occ = true;
                                 }
                             }
@@ -414,7 +414,7 @@ public class KingdomBuilderMain {
                         if((!(p.getOccupiedTiles.get(i).getX() == (0.0))) && (!(p.getOccupiedTiles.get(i).getX() == (19.0))) &&(!(p.getOccupiedTiles.get(i).getX() == (19.5))) && (!(p.getOccupiedTiles.get(i).getX() == (0.5)))){
                             if((!(p.getOccupiedTiles.get(i).getY() == (0.0))) && (!(p.getOccupiedTiles.get(i).getY() == (19.0)))){
                                 for(int k = 0; k < findAdjacencies(p.getOccupiedTiles.get(i)).size(); k++){
-                                    if(board.getTiles().get(findAdjacencies(p.getOccupiedTiles.get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacencies(p.getOccupiedTiles.get(i)).get(k)).getType().equals("s")){
+                                    if(board.getTiles().get(findAdjacencies(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacencies(p.getOccupiedTiles().get(i)).get(k)).getType().equals("s")){
                                         occ = true;
                                     }
                                 }
@@ -422,7 +422,7 @@ public class KingdomBuilderMain {
                         }
                         else{
                             for(int k = 0; k < findAdjacenciesEdge(p.getOccupiedTiles.get(i)).size(); k++){
-                                if(board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles.get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles.get(i)).get(k)).getType().equals("s")){
+                                if(board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getType().equals("s")){
                                     occ = true;
                                 }
                             }
@@ -454,9 +454,9 @@ public class KingdomBuilderMain {
                 }boolean occ = false;
                 for(int i = 0; i < p.getOccupiedTiles().size(); i++){
                     if((!(p.getOccupiedTiles.get(i).getX() == (0.0))) && (!(p.getOccupiedTiles.get(i).getX() == (19.0))) &&(!(p.getOccupiedTiles.get(i).getX() == (19.5))) && (!(p.getOccupiedTiles.get(i).getX() == (0.5)))){
-                        if((!(p.getOccupiedTiles.get(i).getY() == (0.0))) && (!(p.getOccupiedTiles.get(i).getY() == (19.0)))){
-                            for(int k = 0; k < findAdjacencies(p.getOccupiedTiles.get(i)).size(); k++){
-                                if(board.getTiles().get(findAdjacencies(p.getOccupiedTiles.get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacencies(p.getOccupiedTiles.get(i)).get(k)).getType().equals("w")){
+                        if((!(p.getOccupiedTiles().get(i).getY() == (0.0))) && (!(p.getOccupiedTiles().get(i).getY() == (19.0)))){
+                            for(int k = 0; k < findAdjacencies(p.getOccupiedTiles().get(i)).size(); k++){
+                                if(board.getTiles().get(findAdjacencies(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacencies(p.getOccupiedTiles.get(i)).get(k)).getType().equals("w")){
                                     occ = true;
                                 }
                             }
@@ -464,7 +464,7 @@ public class KingdomBuilderMain {
                     }
                     else{
                         for(int k = 0; k < findAdjacenciesEdge(p.getOccupiedTiles.get(i)).size(); k++){
-                            if(board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles.get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles.get(i)).get(k)).getType().equals("w")){
+                            if(board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles.get(i)).get(k)).getType().equals("w")){
                                 occ = true;
                             }
                         }
