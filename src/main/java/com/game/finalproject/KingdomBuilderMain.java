@@ -379,13 +379,12 @@ public class KingdomBuilderMain {
                                 }
                             }
                         }
-                        else{
                             for(int k = 0; k < findAdjacenciesEdge(sC).size(); k++){
                                 if(board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getType().equals("g")){
                                     occ = true;
                                 }
                             }
-                        }
+
                 }
                 if(!occ){
                     return true;
@@ -400,14 +399,13 @@ public class KingdomBuilderMain {
                         return false;
                     }
                 }
-                else{
                     for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
                         if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
                             return true;
                         }
                     }
                     return false;
-                }
+
 
 
             }
@@ -426,13 +424,11 @@ public class KingdomBuilderMain {
                                 }
                             }
                         }
-                        else{
                             for(int k = 0; k < findAdjacenciesEdge(p.getOccupiedTiles().get(i)).size(); k++){
                                 if(board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getType().equals("s")){
                                     occ = true;
                                 }
                             }
-                        }
                     }
                 if(!occ){
                     return true;
@@ -447,14 +443,12 @@ public class KingdomBuilderMain {
                         return false;
                     }
                 }
-                else{
                     for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
                         if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
                             return true;
                         }
                     }
                     return false;
-                }
 
             }
             else if(act.equals("harbor")){
@@ -471,13 +465,12 @@ public class KingdomBuilderMain {
                             }
                         }
                     }
-                    else{
                         for(int k = 0; k < findAdjacenciesEdge(p.getOccupiedTiles().get(i)).size(); k++){
                             if(board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getType().equals("w")){
                                 occ = true;
                             }
                         }
-                    }
+
                 }
                 if(!occ){
                     return true;
@@ -492,14 +485,13 @@ public class KingdomBuilderMain {
                         return false;
                     }
                 }
-                else{
                     for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
                         if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
                             return true;
                         }
                     }
                     return false;
-                }
+
 
 
             }
