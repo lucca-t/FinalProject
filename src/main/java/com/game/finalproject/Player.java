@@ -6,17 +6,17 @@ import java.util.ArrayList;
 
 public class Player {
     private int points;
-    private String settlementColor;
+    private String settlementColor,tempAct;
     private int settlements;
     private ArrayList<Action> actions;
     private ArrayList<Coord> occupiedTiles;
     private Card terrain;
     private int turnSettlePlaced;
     private ArrayList<Coord> choiceHex;
-    private boolean fPlayer,hasPlaced;
+    private boolean fPlayer,hasPlaced,usingAction;
     public Player(String col){
         points = 0;
-        settlements = 10;
+        settlements = 40;
         settlementColor = col;
         actions = new ArrayList<Action>();
         terrain = null;
@@ -25,6 +25,8 @@ public class Player {
         choiceHex = new ArrayList<Coord>();
         fPlayer=false;
         hasPlaced=false;
+        tempAct="";
+        usingAction=false;
     }
     public void setScore(int pnt){
         points = pnt;
@@ -61,6 +63,7 @@ public class Player {
     public int getNumSettlements() {
         return settlements;
     }
+    public void incNumSettlements(){settlements++;}
     public void decSettlements(int amount){
         settlements -= amount;
     }
@@ -118,6 +121,22 @@ public class Player {
     }
     public void setfPlayer(boolean balls){fPlayer=balls;}
     public boolean getfPlayer(){return fPlayer;}
+
+    public boolean getUsingAction() {
+        return usingAction;
+    }
+
+    public void setUsingAction(boolean usingAction) {
+        this.usingAction = usingAction;
+    }
+
+    public String getTempAct() {
+        return tempAct;
+    }
+
+    public void setTempAct(String tempAct) {
+        this.tempAct = tempAct;
+    }
     //red "#ff0000"
 //purple "#9d1cff"
 //pink "#ff6fd6"

@@ -51,7 +51,6 @@
             <VBox layoutX="42.0" layoutY="302.0" prefHeight="243.0" prefWidth="290.0">
                <children>
                   <Button fx:id="finishTurnButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#finishTurn" prefHeight="113.0" prefWidth="305.0" text="Finish Turn" />
-                  <Button fx:id="useBonusButton" mnemonicParsing="false" onAction="#useBonus" prefHeight="113.0" prefWidth="311.0" text="Use Bonus Tile" />
                   <HBox prefHeight="90.0" prefWidth="290.0">
                      <children>
                         <Button fx:id="prevButton" mnemonicParsing="false" onAction="#previous" prefHeight="94.0" prefWidth="149.0" text="Previous" />

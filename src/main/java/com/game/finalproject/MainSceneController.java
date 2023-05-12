@@ -250,7 +250,9 @@ public class MainSceneController {
         if (game.isEnd()) {
             goEnd();
         }
-
+        for(int x=0;x<game.getTurnPlayer().getActions().size();x++){
+            game.getTurnPlayer().getActions().get(x).setUsed(true);
+        }
 
 
 
@@ -275,10 +277,7 @@ public class MainSceneController {
         drawPlayerInfo(displayedPlayer);
     }
 
-    @FXML
-    void useBonus(ActionEvent event) {
 
-    }
 
     private void drawInfoCards() {
         //haven't added anything yet until we fs have the new boards in there,
@@ -355,6 +354,7 @@ public class MainSceneController {
                     x + n, y - r * 0.5
             );
 
+
             // set up the visuals and a click listener for the tile
             //setFill(Color.ANTIQUEWHITE);
             //setStrokeWidth(1);
@@ -362,54 +362,59 @@ public class MainSceneController {
             setOnMouseClicked(e -> {
                 System.out.println("Clicked: " + xcoord +" "+ycoord);
                 //placing method will go here
-                    Player turn = game.getTurnPlayer();
-                    System.out.println("Player " + game.getTurnNum() + ", " + turn.getTerrain().getType());
-                    System.out.println(game.getBoard().getTiles());
-                    System.out.println("Player:" + game.getTurnPlayer() + "  findAdjacencies return: " + game.getPrint());
-                    System.out.println("OCCUPIED TILES: " + game.getTurnPlayer().getOccupiedTiles());
+                Player turn = game.getTurnPlayer();
+                System.out.println("Player " + game.getTurnNum() + ", " + turn.getTerrain().getType());
+                System.out.println(game.getBoard().getTiles());
+                System.out.println("Player:" + game.getTurnPlayer() + "  findAdjacencies return: " + game.getPrint());
+                System.out.println("OCCUPIED TILES: " + game.getTurnPlayer().getOccupiedTiles());
 
-                    int loopNum;
-                    if (turn.getActions().size() == 0) {
-                        loopNum = 0;
-                    }
-                    else {
-                        loopNum = turn.getActions().size();
-                    }
-                    HexTile temp;
+                int loopNum;
+                if (turn.getActions().size() == 0) {
+                    loopNum = 0;
+                }
+                else {
+                    loopNum = turn.getActions().size();
+                }
+                HexTile temp;
                 boolean even;
-                    Coord c;
-                    if (ycoord % 2 == 0) {
-                        c = new Coord(xcoord, ycoord);
-                        even = true;
+                Coord c;
+                if (ycoord % 2 == 0) {
+                    c = new Coord(xcoord, ycoord);
+                    even = true;
+                }
+                else {
+                    c = new Coord(xcoord + 0.5, ycoord);
+                    even = false;
+                }
+                System.out.println(tiles.get(c).getType());
+                temp = game.getBoard().getTiles().get(c);
+
+                //for (int i = 0; i < loopNum + 1; i++) {
+                if(game.getTurnPlayer().getTSPlaced()>0 && game.getTurnPlayer().getNumSettlements() > 0){
+                    boolean validPlacement;
+                    if(game.getTurnPlayer().getUsingAction()){
+                        validPlacement = game.checkValidPlacement(c, turn, game.getTurnPlayer().getTempAct());
                     }
                     else {
-                        c = new Coord(xcoord + 0.5, ycoord);
-                        even = false;
-                    }
-                    System.out.println(tiles.get(c).getType());
-                    temp = game.getBoard().getTiles().get(c);
-
-                    //for (int i = 0; i < loopNum + 1; i++) {
-                    if(game.getTurnPlayer().getTSPlaced()>0 && game.getTurnPlayer().getNumSettlements() > 0){
-                        boolean validPlacement;
                         validPlacement = game.checkValidPlacement(c, turn, "");
-                        //if (turn.getActions().size() == 0) {
-                       // }
-                        //else if(i < loopNum){
+                    }
+                    //if (turn.getActions().size() == 0) {
+                    // }
+                    //else if(i < loopNum){
 //                            validPlacement = game.checkValidPlacement(c, turn, turn.getActions().get(i).getType());
-                        //}
-                       // else {
-                       //     validPlacement = game.checkValidPlacement(c, turn, "");
-                       // }
-                        if (!validPlacement) {
+                    //}
+                    // else {
+                    //     validPlacement = game.checkValidPlacement(c, turn, "");
+                    // }
+                    if (!validPlacement) {
 
-                            System.out.println("invalid placement, the row is " + even);
+                        System.out.println("invalid placement, the row is " + even);
 
-                            //dw abt this I was just checking to see if graphics was working
+                        //dw abt this I was just checking to see if graphics was working
 //                            game.getBoard().getTiles().get(c).setOccupancy(turn);
 //                            quickDrawBoards();
-                        }
-                        else {
+                    }
+                    else {
 
 //                                game.getTurnPlayer().addActions(game.getBoard().getBoardActions().get(c).get(0));
 //                                game.getBoard().getBoardActions().get(c).remove(0);
@@ -423,22 +428,23 @@ public class MainSceneController {
 //                                }
 //                            }
 
-                            game.getPlayers().get(game.getTurnNum()).addChoiceHex(c);
-                            game.getTurnPlayer().addSettlementTile(c);
-                            game.getBoard().getTiles().get(c).setSelected();
-                            System.out.println("Added choice to queue");
+                        game.getPlayers().get(game.getTurnNum()).addChoiceHex(c);
+                        game.getTurnPlayer().addSettlementTile(c);
+                        game.getBoard().getTiles().get(c).setSelected();
+                        System.out.println("Added choice to queue");
 //                            game.getPlayers().get(game.getTurnNum()).addSettlementTile(c);
+                        game.getBoard().addPlayerAction(c,game.getTurnPlayer());
+                        game.getBoard().getTiles().get(c).setOccupancy(game.getTurnPlayer());
+                        game.getTurnPlayer().minusSettlements();
+                        game.getTurnPlayer().decTSPlaced();
+                        drawPlayerInfo(game.getTurnNum());
+                        game.getTurnPlayer().setTempAct("");
+                        game.getTurnPlayer().setUsingAction(false);
+                        quickDrawBoards();
 
-                            game.getBoard().getTiles().get(c).setOccupancy(game.getTurnPlayer());
-                            game.getTurnPlayer().minusSettlements();
-                            game.getTurnPlayer().decTSPlaced();
-                            drawPlayerInfo(game.getTurnNum());
-                            quickDrawBoards();
-                        }
                     }
-
-//
-            });
+                }
+              });
             //setOpacity(.000001);
 
             Coord c;
@@ -454,7 +460,11 @@ public class MainSceneController {
             setFill(Color.TRANSPARENT);
             if(game.getTurnPlayer().getTSPlaced()>0 && game.getTurnPlayer().getNumSettlements() > 0) {
                 boolean validPlacement;
-                validPlacement = game.checkValidPlacement(c, game.getTurnPlayer(), "");
+                if(game.getTurnPlayer().getUsingAction())
+                    validPlacement = game.checkValidPlacement(c, game.getTurnPlayer(), game.getTurnPlayer().getTempAct());
+                else {
+                    validPlacement = game.checkValidPlacement(c, game.getTurnPlayer(), "");
+                }
                 if (validPlacement) {
                     setStroke(Color.BLACK);
                     setStrokeWidth(3);
@@ -465,6 +475,8 @@ public class MainSceneController {
                     setStroke(Color.TRANSPARENT);
                 }
             }
+
+
             //could add mouselistener for highlighting maybe
             //highlighting would work by turning the opacity up and it could change how it looks
             //opacity and color could be turned to gray to gray out the stuff
@@ -710,24 +722,68 @@ public class MainSceneController {
                     String tempTile = game.getTurnPlayer().getActions().get(count).getType();
                     Image temp = returnTileImage(tempTile);
                     ImageView viewTemp = new ImageView(temp);
+                    viewTemp.setOpacity(1);
                     int finalX = x;
                     int finalY = y;
-                    viewTemp.setOnMouseClicked(e-> {
-                       System.out.println("clicked " + finalX + " " + finalY);
+                    int finalCount1 = count;
+                    if(!(game.getTurnPlayer().getActions().get(finalCount1).getUsed())) {
                         viewTemp.setOpacity(.5);
+                    }
+                    viewTemp.setOnMouseClicked(e-> {
+
+                        if(game.getTurnPlayer().getActions().get(finalCount1).getUsed()&&(game.getTurnPlayer().getTSPlaced()==3||game.getTurnPlayer().getTSPlaced()==0)) {
+
+//                                System.out.println("clicked " + finalX + " " + finalY);
+
+                                game.getTurnPlayer().getActions().get(finalCount1).setUsed(false);
+                                if(game.getTurnPlayer().getActions().get(finalCount1).getType().equals("Oracle")){
+                                    game.getTurnPlayer().incNumSettlements();
+                                    game.getTurnPlayer().incTSPlaced();
+
+
+                                    System.out.println("using oracle action");
+                                }
+                                else if(game.getTurnPlayer().getActions().get(finalCount1).getType().equals("Farm")){
+                                    game.getTurnPlayer().setUsingAction(true);
+                                    game.getTurnPlayer().setTempAct("Farm");
+                                    game.getTurnPlayer().incNumSettlements();
+                                    game.getTurnPlayer().incTSPlaced();
+                                    System.out.println("using farm action");
+                                }
+                                /*else if(game.getTurnPlayer().getActions().get(finalCount1).getType().equals("Harbor")){
+                                    game.getTurnPlayer().setUsingAction(true);
+                                    game.getTurnPlayer().setTempAct("Harbor");
+                                    game.getTurnPlayer().incNumSettlements();
+                                    game.getTurnPlayer().incTSPlaced();
+                                    System.out.println("using Harbor action");
+                                }*/
+                                else if(game.getTurnPlayer().getActions().get(finalCount1).getType().equals("Oasis")){
+                                    game.getTurnPlayer().setUsingAction(true);
+                                    game.getTurnPlayer().setTempAct("Oasis");
+                                    game.getTurnPlayer().incNumSettlements();
+                                    game.getTurnPlayer().incTSPlaced();
+                                    System.out.println("using Oasis action");
+                                }
+                                else {
+                                    quickDrawBoards();
+                                    //viewTemp.setOpacity(.5);
+                                }
+                            quickDrawBoards();
+                                viewTemp.setOpacity(.5);
 
 
 
 
 
+                        }
                   });
                     viewTemp.setFitWidth(70);
                     viewTemp.setFitHeight(79);
                     viewTemp.setVisible(true);
                     actionGrid.add(viewTemp, x, y);
-                    System.out.println("added "+x+""+y+"actiontile");
+                    System.out.println("added "+x+" "+y+" actiontile");
                     actionGrid.setVisible(true);
-                    viewTemp.setOpacity(1);
+
                 }
                 else {
                     break;
@@ -923,4 +979,53 @@ public class MainSceneController {
 //purple "#9d1cff"
 //pink "#ff6fd6"
 //orange "#ff6600"
+
+//System.out.println("Clicked: " + xcoord +" "+ycoord);
+//                //placing method will go here
+//                    Player turn = game.getTurnPlayer();
+//                    System.out.println("Player " + game.getTurnNum() + ", " + turn.getTerrain().getType());
+//                    System.out.println(game.getBoard().getTiles());
+//                    System.out.println("Player:" + game.getTurnPlayer() + "  findAdjacencies return: " + game.getPrint());
+//                    System.out.println("OCCUPIED TILES: " + game.getTurnPlayer().getOccupiedTiles());
+//                int loopNum;
+//                if (turn.getActions().size() == 0) {
+//                    loopNum = 0;
+//                }
+//                else {
+//                    loopNum = turn.getActions().size();
+//                }
+//                    HexTile temp;
+//                boolean even;
+//                    Coord c;
+//                    if (ycoord % 2 == 0) {
+//                        c = new Coord(xcoord, ycoord);
+//                        even = true;
+//                    }
+//                    else {
+//                        c = new Coord(xcoord + 0.5, ycoord);
+//                        even = false;
+//                    }
+//                    System.out.println(tiles.get(c).getType());
+//                    temp = game.getBoard().getTiles().get(c);
+//
+//                    if(game.getTurnPlayer().getTSPlaced()>0 && game.getTurnPlayer().getNumSettlements() > 0){
+//                        boolean validPlacement;
+//
+//                            validPlacement = game.checkValidPlacement(c, turn, "");
+//
+//                        if (!validPlacement) {
+//                            System.out.println("invalid placement, the row is " + even);
+//                        }
+//                        else {
+//                            game.getBoard().addPlayerAction(c,game.getTurnPlayer());
+//                            game.getPlayers().get(game.getTurnNum()).addChoiceHex(c);
+//                            game.getTurnPlayer().addSettlementTile(c);
+//                            game.getBoard().getTiles().get(c).setSelected();
+//                            System.out.println("Added choice to queue");
+//                            game.getTurnPlayer().minusSettlements();
+//                            game.getTurnPlayer().decTSPlaced();
+//                            drawPlayerInfo(game.getTurnNum());
+//                            quickDrawBoards();
+//                        }
+//                    }
 
