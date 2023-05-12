@@ -318,7 +318,7 @@ public class KingdomBuilderMain {
             if (terrainTypes.equals("w") && !act.equals("Harbor")) {
                 return false;
             }
-            if(act.equals("") || act.equals("oracle")){
+            if(act.equals("") || act.equals("Oracle")){
                 boolean occ = false;
                 if(!terrainTypes.equals(p.getTerrain().getType())) {
                     return false;
@@ -451,7 +451,7 @@ public class KingdomBuilderMain {
                     return false;
 
             }
-            else if(act.equals("harbor")){
+            else if(act.equals("Harbor")){
                 if(!terrainTypes.equals("w")){
                     return false;
                 }boolean occ = false;
