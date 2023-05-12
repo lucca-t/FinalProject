@@ -411,7 +411,7 @@ public class MainSceneController {
                             Set coords = game.getBoard().getBoardActions().keySet();
                             if (coords.contains(c)) {
                                 game.getTurnPlayer().addActions(game.getBoard().getBoardActions().get(c).get(0));
-                                game.getBoard().getBoardActions().remove(c);
+                                game.getBoard().getBoardActions().get(c).remove(0);
                             }
 //                            for (int i = 0; i < surroundings.size(); i++) {
 //                                String t = tiles.get(c).getType();
