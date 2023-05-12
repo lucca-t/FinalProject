@@ -13,10 +13,10 @@ public class Player {
     private Card terrain;
     private int turnSettlePlaced;
     private ArrayList<Coord> choiceHex;
-    private boolean fPlayer;
+    private boolean fPlayer,hasPlaced;
     public Player(String col){
         points = 0;
-        settlements = 40;
+        settlements = 10;
         settlementColor = col;
         actions = new ArrayList<Action>();
         terrain = null;
@@ -24,7 +24,7 @@ public class Player {
         turnSettlePlaced=3;
         choiceHex = new ArrayList<Coord>();
         fPlayer=false;
-
+        hasPlaced=false;
     }
     public void setScore(int pnt){
         points = pnt;
@@ -35,6 +35,8 @@ public class Player {
     public int getScore(){
         return points;
     }
+    public boolean getPlaced(){return hasPlaced;}
+    public void setPlaced(boolean ugh){hasPlaced=ugh;};
     public void addActions(Action x){
         actions.add(x);
     }

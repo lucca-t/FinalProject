@@ -116,7 +116,7 @@
                <children>
                   <ImageView fx:id="infoTile0" fitHeight="97.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/barnInfo.png" />
+                        <Image url="@images/farmInfo.png" />
                      </image></ImageView>
                   <ImageView fx:id="infoTile1" fitHeight="97.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
                      <image>

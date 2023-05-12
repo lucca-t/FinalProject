@@ -188,7 +188,7 @@ public class MainSceneController {
             //Scene endScene = new Scene(endSceneParent);
 
 
-            Stage stage = (Stage) finishTurnButton.getScene().getWindow();
+            Stage stage = new Stage();
             stage.setScene(endScene);
             stage.show();
 
@@ -220,17 +220,19 @@ public class MainSceneController {
 
     @FXML
     void finishTurn(ActionEvent event) throws IOException {
-        game.nextTurn();
-        drawPlayerInfo(game.getTurnNum());
-        //??
+        if(game.getTurnPlayer().getTSPlaced()==0||game.getTurnPlayer().getNumSettlements()==0) {
+            game.nextTurn();
+            drawPlayerInfo(game.getTurnNum());
+            //??
 //        ArrayList<Coord> validHexes = game.getTurnPlayer().getChoiceHexes();
 //        for (int i = 0; i < validHexes.size(); i++) {
 //            tiles.get(validHexes.get(i)).setOccupancy(game.getTurnPlayer());
 //        }
 //        game.getTurnPlayer().clearChoiceHexes();
-        quickDrawBoards();
-        game.getTurnPlayer().resTSPlaced();
-
+            quickDrawBoards();
+            game.getTurnPlayer().resTSPlaced();
+            game.getTurnPlayer().setPlaced(false);
+        }
 //        if(game.getTurnPlayer().getNumSettlements()==0){
 //            gameEnd=true;
 //        }
@@ -793,7 +795,8 @@ public class MainSceneController {
             temp = new Image(getClass().getResource("images/waterTile.png").toExternalForm());
         else if (str.equals("Ship"))//supposed to be harbor but oopsies
             temp = new Image(getClass().getResource("images/paddockTile.png").toExternalForm());
-
+        else if (str.equals("Farm"))//supposed to be harbor but oopsies
+            temp = new Image(getClass().getResource("images/farmTile.png").toExternalForm());
         else
             return temp;
         return temp;
