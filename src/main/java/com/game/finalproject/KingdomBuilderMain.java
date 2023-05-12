@@ -583,8 +583,8 @@ public class KingdomBuilderMain {
         if(c.getY()==19){
             adjacent.add(new Coord(c.getX()-1,c.getY()));
             adjacent.add(new Coord(c.getX()+1,c.getY()));
-            adjacent.add(new Coord(c.getX()-.5,c.getY()-1));
-            adjacent.add(new Coord(c.getX()+.5,c.getY()-1));
+            adjacent.add(new Coord(c.getX()-0.5,c.getY()-1));
+            adjacent.add(new Coord(c.getX()+0.5,c.getY()-1));
         }
         return adjacent;
 
