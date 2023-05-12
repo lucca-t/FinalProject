@@ -402,8 +402,10 @@ public class KingdomBuilderMain {
                     }
                 }
                     for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
-                        if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
-                            return true;
+                        if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy() != null){
+                            if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
+                                return true;
+                            }
                         }
                     }
                     return false;
