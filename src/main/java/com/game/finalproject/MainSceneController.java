@@ -258,16 +258,19 @@ public class MainSceneController {
         quickDrawBoards();
         game.getTurnPlayer().resTSPlaced();
 
-        if(game.getTurnPlayer().getNumSettlements()==0){
-            gameEnd=true;
-        }
-        if(game.getTurnNum()==3){
-            roundEnd =true;
-        }
-        else
-            roundEnd=false;
-
-        if(gameEnd&&roundEnd){
+//        if(game.getTurnPlayer().getNumSettlements()==0){
+//            gameEnd=true;
+//        }
+//        if(game.getTurnNum()==3){
+//            roundEnd =true;
+//        }
+//        else
+//            roundEnd=false;
+//
+//        if(gameEnd&&roundEnd){
+//            goEnd();
+//        }
+        if (game.isEnd()) {
             goEnd();
         }
 
@@ -861,11 +864,6 @@ public class MainSceneController {
         return game;
     }
     void setGame(KingdomBuilderMain games){game=games;}
-
-
-
-
-
 
 }
 

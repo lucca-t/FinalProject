@@ -19,9 +19,11 @@ public class KingdomBuilderMain {
     //private String totalScoring;
 
     private ArrayList<Coord> printingThing;
+    boolean settlementsDepleted;
 
 
     public KingdomBuilderMain(){
+        settlementsDepleted = false;
         printingThing = null;
         pointCardsall = new ArrayList<String>();
         pointCards = new ArrayList<String>();
@@ -170,7 +172,7 @@ public class KingdomBuilderMain {
 //        terrains.remove(choiceTerrain);
         players.get(turn).getTerrain().setVisibility(true);
 
-        boolean settlementsDepleted = false;
+//        boolean settlementsDepleted = false;
         for (int p = 0; p < players.size(); p++) {
             if (players.get(p).getNumSettlements() == 0) {
                 settlementsDepleted = true;
@@ -180,6 +182,9 @@ public class KingdomBuilderMain {
         if (turn == 0 && settlementsDepleted) {
             endGame();
         }
+    }
+    public boolean isEnd() {
+        return end;
     }
     public void endGame(){
         end = true;
