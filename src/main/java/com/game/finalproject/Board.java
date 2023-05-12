@@ -221,7 +221,7 @@ public class Board {
                                     for(int k = 0; k < findAdjacencies(temp).size(); k++){
                                         if(tiles.get(findAdjacencies(temp).get(k)).getOccupancy() != null){
                                             if(tiles.get(findAdjacencies(temp).get(k)).getOccupancy().equals(p)){
-                                                break;
+                                                return ;
                                             }
                                         }
                                     }
@@ -231,7 +231,7 @@ public class Board {
                                 for(int k = 0; k < findAdjacenciesEdge(temp).size(); k++){
                                     if(tiles.get(findAdjacenciesEdge(temp).get(k)).getOccupancy() != null){
                                         if(tiles.get(findAdjacenciesEdge(temp).get(k)).getOccupancy().equals(p)){
-                                            break;
+                                            return;
                                         }
                                     }
                                 }
@@ -252,7 +252,7 @@ public class Board {
                                 for(int k = 0; k < findAdjacencies(temp).size(); k++){
                                     if(tiles.get(findAdjacencies(temp).get(k)).getOccupancy() != null){
                                         if(tiles.get(findAdjacencies(temp).get(k)).getOccupancy().equals(p)){
-                                            break;
+                                            return;
                                         }
                                     }
                                 }
@@ -262,7 +262,7 @@ public class Board {
                             for(int k = 0; k < findAdjacenciesEdge(temp).size(); k++){
                                 if(tiles.get(findAdjacencies(temp).get(k)).getOccupancy() != null){
                                     if(tiles.get(findAdjacenciesEdge(temp).get(k)).getOccupancy().equals(p)){
-                                        break;
+                                        return;
                                     }
                                 }
                             }
