@@ -378,12 +378,14 @@ public class KingdomBuilderMain {
                                     }
                                 }
                             }
-                        }
+                        }else{
                             for(int k = 0; k < findAdjacenciesEdge(sC).size(); k++){
                                 if(board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getType().equals("g")){
                                     occ = true;
                                 }
                             }
+                        }
+
 
                 }
                 if(!occ){
