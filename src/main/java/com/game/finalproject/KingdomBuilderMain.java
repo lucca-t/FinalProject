@@ -333,13 +333,11 @@ public class KingdomBuilderMain {
                             }
                         }
                     }
-                    else{
                         for(int k = 0; k < findAdjacenciesEdge(p.getOccupiedTiles().get(i)).size(); k++){
                             if(board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getOccupancy() == null && board.getTiles().get(findAdjacenciesEdge(p.getOccupiedTiles().get(i)).get(k)).getType().equals(terrainTypes)){
                                 occ = true;
                             }
                         }
-                    }
                 }
                 if(!occ){
                     return true;
@@ -356,7 +354,6 @@ public class KingdomBuilderMain {
                         return false;
                     }
                 }
-                else{
                     for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
                         if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy() != null){
                             if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
@@ -365,10 +362,9 @@ public class KingdomBuilderMain {
                         }
                     }
                     return false;
-                }
 
             }
-            if(act.equals("Farm")){
+            else if(act.equals("Farm")){
                 if(!terrainTypes.equals("g")){
                     return false;
                 }
@@ -415,7 +411,7 @@ public class KingdomBuilderMain {
 
 
             }
-            if(act.equals("Oasis")){
+            else if(act.equals("Oasis")){
                 if(!terrainTypes.equals("s")){
                     return false;
                 }
@@ -461,7 +457,7 @@ public class KingdomBuilderMain {
                 }
 
             }
-            if(act.equals("harbor")){
+            else if(act.equals("harbor")){
                 if(!terrainTypes.equals("w")){
                     return false;
                 }boolean occ = false;
