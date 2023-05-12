@@ -208,6 +208,30 @@ public class Board {
         }
         return false;
     }
+    public void addPlayerAction(Coord sC, Player p){
+        if((!(sC.getX() == (0.0))) && (!(sC.getX() == (19.0))) && (!(sC.getX() == (19.5))) && (!(sC.getX() == (0.5)))){
+            if((!(sC.getY() == (0.0))) && (!(sC.getY() == (19.0)))){
+                for(int i = 0 ; i < findAdjacencies(sC).size(); i++){
+                    if(tiles.get(findAdjacencies(sC).get(i)).getType().length() > 1 && !tiles.get(findAdjacencies(sC).get(i)).getType().equals("castle")){
+                        if(boardActions.get(findAdjacencies(sC).get(i)).size() > 0){
+                            p.addActions(boardActions.get(findAdjacencies(sC).get(i)).get(0));
+                            boardActions.get(findAdjacencies(sC).get(i)).remove(0);
+                        }
+                    }
+                }
+            }
+        }
+        else{
+            for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
+                if(tiles.get(findAdjacenciesEdge(sC).get(i)).getType().length() > 1 && !tiles.get(findAdjacenciesEdge(sC).get(i)).getType().equals("castle")){
+                    if(boardActions.get(findAdjacenciesEdge(sC).get(i)).size() > 0){
+                        p.addActions(boardActions.get(findAdjacenciesEdge(sC).get(i)).get(0));
+                        boardActions.get(findAdjacencies(sC).get(i)).remove(0);
+                    }
+                }
+            }
+        }
+    }
     public void setCheckedFalse(Coord crd){
         tiles.get(crd).setCheck(false);
     }

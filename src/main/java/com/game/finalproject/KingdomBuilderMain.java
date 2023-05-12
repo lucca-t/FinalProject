@@ -356,14 +356,17 @@ public class KingdomBuilderMain {
                         return false;
                     }
                 }
-                for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
-                    if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy() != null){
-                        if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
-                            return true;
+                else{
+                    for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
+                        if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy() != null){
+                            if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
+                                return true;
+                            }
                         }
                     }
+                    return false;
                 }
-                return false;
+
             }
             if(act.equals("Farm")){
                 if(!terrainTypes.equals("g")){
@@ -401,12 +404,15 @@ public class KingdomBuilderMain {
                         return false;
                     }
                 }
-                for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
-                    if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
-                        return true;
+                else{
+                    for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
+                        if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
+                            return true;
+                        }
                     }
+                    return false;
                 }
-                return false;
+
 
             }
             if(act.equals("Oasis")){
@@ -445,12 +451,15 @@ public class KingdomBuilderMain {
                         return false;
                     }
                 }
-                for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
-                    if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
-                        return true;
+                else{
+                    for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
+                        if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
+                            return true;
+                        }
                     }
+                    return false;
                 }
-                return false;
+
             }
             if(act.equals("harbor")){
                 if(!terrainTypes.equals("w")){
@@ -487,12 +496,15 @@ public class KingdomBuilderMain {
                         return false;
                     }
                 }
-                for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
-                    if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
-                        return true;
+                else{
+                    for(int i = 0 ; i < findAdjacenciesEdge(sC).size(); i++){
+                        if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy().equals(p)){
+                            return true;
+                        }
                     }
+                    return false;
                 }
-                return false;
+
 
             }
         }
