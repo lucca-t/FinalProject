@@ -394,8 +394,10 @@ public class KingdomBuilderMain {
                 if((!(sC.getX() == (0.0))) && (!(sC.getX() == (19.0))) && (!(sC.getX() == (19.5))) && (!(sC.getX() == (0.5)))){
                     if((!(sC.getY() == (0.0))) && (!(sC.getY() == (19.0)))){
                         for(int i = 0 ; i < findAdjacencies(sC).size(); i++){
-                            if(board.getTiles().get(findAdjacencies(sC).get(i)).getOccupancy().equals(p)){
-                                return true;
+                            if(board.getTiles().get(findAdjacenciesEdge(sC).get(i)).getOccupancy() != null) {
+                                if (board.getTiles().get(findAdjacencies(sC).get(i)).getOccupancy().equals(p)) {
+                                    return true;
+                                }
                             }
                         }
                         return false;
