@@ -416,7 +416,7 @@ public class KingdomBuilderMain {
 
             }
             else if(act.equals("Oasis")){
-                if(!terrainTypes.equals("s")){
+                if(!terrainTypes.equals("d")){
                     return false;
                 }
                 boolean occ = false;
