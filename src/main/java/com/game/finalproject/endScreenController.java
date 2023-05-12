@@ -64,10 +64,10 @@ public class endScreenController {
                 for (int i = 0; i < 4; i++) {
                         if (game.getPlayers().get(i).getScore() ==max) {
                                 //max = game.getPlayers().get(i).getScore();
-                                track=i;
+                                track=i+1;
                         }
                 }
-               // winLabel.setText("Player "+track+" wins!!");
+                winLabel.setText("Player "+track+" wins!!");
 
 
 
