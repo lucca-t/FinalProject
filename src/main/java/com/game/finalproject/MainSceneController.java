@@ -27,6 +27,7 @@ import java.util.Collections;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Set;
 
 import static com.game.finalproject.hextile.Tile.*;
 
@@ -191,21 +192,9 @@ public class MainSceneController {
             stage.setScene(endScene);
             stage.show();
 
-
-
-
-
-
-
-
-
         //}
 
     }
-
-
-
-
 
     public void drawEverything() {
         drawPlayerInfo(displayedPlayer);
@@ -215,22 +204,6 @@ public class MainSceneController {
         chosenSettlements.add(c);
     }
 
-//    public void newRound() {
-//        for (int j = 0; j < players.size(); j++) {
-//            int choiceTerrain = (int)(Math.random()*25);
-//            players.get(j).setTerrain(terrains.get(choiceTerrain));
-//            players.get(j).getTerrain().setVisibility(false);
-//            terrains.remove(choiceTerrain);
-//        }
-//
-//    }
-//
-//    public void playTurn(){
-//        players.get(turn).getTerrain().setVisibility(true);
-//        for (int i = 0; i < settlementCords.size(); i++) {
-//            board.getTiles().get(settlementCords.get(i)).setOccupancy(players.get(turn));
-//        }
-//    }
 
     @FXML
     void confirmPlace(ActionEvent event) throws IOException {
@@ -433,6 +406,19 @@ public class MainSceneController {
 //                            quickDrawBoards();
                         }
                         else {
+                            ArrayList<Coord> surroundings;
+                            surroundings = game.findAdjacencies(c);
+                            Set coords = game.getBoard().getBoardActions().keySet();
+                            if (coords.contains(c)) {
+                                game.getTurnPlayer().addActions(game.getBoard().getBoardActions().get(c).get(0));
+                                game.getBoard().getBoardActions().remove(c);
+                            }
+//                            for (int i = 0; i < surroundings.size(); i++) {
+//                                String t = tiles.get(c).getType();
+//                                if (game.getBoard().getBoardActions().contains(c)) {
+//
+//                                }
+//                            }
                             game.getPlayers().get(game.getTurnNum()).addChoiceHex(c);
                             game.getBoard().getTiles().get(c).setSelected();
                             System.out.println("Added choice to queue");
