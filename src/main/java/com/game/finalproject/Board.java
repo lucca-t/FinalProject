@@ -219,16 +219,20 @@ public class Board {
                             if((!(temp.getX() == (0.0))) && (!(temp.getX() == (19.0))) && (!(temp.getX() == (19.5))) && (!(temp.getX() == (0.5)))){
                                 if((!(temp.getY() == (0.0))) && (!(temp.getY() == (19.0)))) {
                                     for(int k = 0; k < findAdjacencies(temp).size(); k++){
-                                        if(tiles.get(findAdjacencies(temp).get(k)).getOccupancy().equals(p)){
-                                            break;
+                                        if(tiles.get(findAdjacencies(temp).get(k)).getOccupancy() != null){
+                                            if(tiles.get(findAdjacencies(temp).get(k)).getOccupancy().equals(p)){
+                                                break;
+                                            }
                                         }
                                     }
                                 }
                             }
                             else{
                                 for(int k = 0; k < findAdjacenciesEdge(temp).size(); k++){
-                                    if(tiles.get(findAdjacenciesEdge(temp).get(k)).getOccupancy().equals(p)){
-                                        break;
+                                    if(tiles.get(findAdjacenciesEdge(temp).get(k)).getOccupancy() != null){
+                                        if(tiles.get(findAdjacenciesEdge(temp).get(k)).getOccupancy().equals(p)){
+                                            break;
+                                        }
                                     }
                                 }
                             }
@@ -246,16 +250,20 @@ public class Board {
                         if((!(temp.getX() == (0.0))) && (!(temp.getX() == (19.0))) && (!(temp.getX() == (19.5))) && (!(temp.getX() == (0.5)))){
                             if((!(temp.getY() == (0.0))) && (!(temp.getY() == (19.0)))) {
                                 for(int k = 0; k < findAdjacencies(temp).size(); k++){
-                                    if(tiles.get(findAdjacencies(temp).get(k)).getOccupancy().equals(p)){
-                                        break;
+                                    if(tiles.get(findAdjacencies(temp).get(k)).getOccupancy() != null){
+                                        if(tiles.get(findAdjacencies(temp).get(k)).getOccupancy().equals(p)){
+                                            break;
+                                        }
                                     }
                                 }
                             }
                         }
                         else{
                             for(int k = 0; k < findAdjacenciesEdge(temp).size(); k++){
-                                if(tiles.get(findAdjacenciesEdge(temp).get(k)).getOccupancy().equals(p)){
-                                    break;
+                                if(tiles.get(findAdjacencies(temp).get(k)).getOccupancy() != null){
+                                    if(tiles.get(findAdjacenciesEdge(temp).get(k)).getOccupancy().equals(p)){
+                                        break;
+                                    }
                                 }
                             }
                         }
